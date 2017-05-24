@@ -1,0 +1,91 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:mvc="http://www.springframework.org/schema/mvc"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:tx="http://www.springframework.org/schema/tx"
+	   xsi:schemaLocation="
+	   http://www.springframework.org/schema/beans
+	   http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+	   http://www.springframework.org/schema/context
+	   http://www.springframework.org/schema/context/spring-context-4.2.xsd
+	   http://www.springframework.org/schema/mvc
+	   http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
+	   http://www.springframework.org/schema/tx
+	   http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
+">
+	
+	<mvc:annotation-driven />
+	<context:component-scan base-package="controller"></context:component-scan>
+
+	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource"
+		  destroy-method="close">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://192.168.20.201:3306/risk0509"/>
+		<property name="username" value="root"/>
+		<property name="password" value="root123"/>
+		<property name="initialSize" value="20" />
+		<property name="maxTotal" value="50"/>
+		<property name="maxIdle" value="20"/>
+		<property name="minIdle" value="10"/>
+	</bean>
+
+	<bean id="transactionManager"
+		  class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+<!-- 	ViewResolve -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"></property>
+		<property name="prefix" value="/WEB-INF/"></property>
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+<!-- 	ViewController -->
+	<mvc:view-controller path="/showUpload" view-name="upload"/>
+	<mvc:view-controller path="/showDownload" view-name="download"/>
+	<mvc:view-controller path="/showImage" view-name="image"/>
+	<mvc:view-controller path="/showTest" view-name="test"/>
+<!-- 	FileUpload -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="defaultEncoding" value="utf-8"></property>
+	</bean>
+	<!-- 访问静态资源 -->
+	<mvc:resources location="/js/" mapping="/js/**"></mvc:resources>
+
+	<bean id="processEngineConfiguration" class="org.activiti.spring.SpringProcessEngineConfiguration">
+		<property name="dataSource" ref="dataSource" />
+		<property name="transactionManager" ref="transactionManager" />
+		<property name="databaseSchemaUpdate" value="true" />
+		<property name="jobExecutorActivate" value="false" />
+	</bean>
+
+	<bean id="processEngine" class="org.activiti.spring.ProcessEngineFactoryBean">
+		<property name="processEngineConfiguration" ref="processEngineConfiguration" />
+	</bean>
+
+	<bean id="repositoryService" factory-bean="processEngine"
+		  factory-method="getRepositoryService" />
+	<bean id="runtimeService" factory-bean="processEngine"
+		  factory-method="getRuntimeService" />
+	<bean id="taskService" factory-bean="processEngine"
+		  factory-method="getTaskService" />
+	<bean id="historyService" factory-bean="processEngine"
+		  factory-method="getHistoryService" />
+	<bean id="managementService" factory-bean="processEngine"
+		  factory-method="getManagementService" />
+
+	<tx:annotation-driven transaction-manager="transactionManager" />
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
