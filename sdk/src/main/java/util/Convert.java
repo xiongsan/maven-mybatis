@@ -1,5 +1,9 @@
 package util;
 
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONException;
+import com.alibaba.fastjson.JSONObject;
+
 import java.math.BigDecimal;
 
 /**
@@ -15,7 +19,7 @@ import java.math.BigDecimal;
  * <p>
  * Department :
  * </p>
- * <p> Copyright : 江苏汇鑫融智软件科技有限公司 </p>
+ * <p> Copyright : 江苏飞博软件科技股份有限公司 </p>
  */
 public class Convert {
     public static String convertForUpdate(String s){
@@ -59,14 +63,14 @@ public class Convert {
 
 
 
-
-public static String reverse(String originStr) {
+      //反转字符串
+     public static String reverse(String originStr) {
               if(originStr == null || originStr.length() <= 1)
                        return originStr;
               return reverse(originStr.substring(1)) + originStr.charAt(0);
           }
 
-
+    //获取谁调用了我的方法
     public static void function1(){
         StackTraceElement[] s = new Exception().getStackTrace();
         String getMethodName = s[1].getMethodName();
@@ -79,6 +83,7 @@ public static String reverse(String originStr) {
         function1();
     }
 
+    //1!+2!+3!+....n!
     BigDecimal test(BigDecimal integer){
         if(integer.intValue()==1){
             return new BigDecimal(1);
@@ -93,7 +98,29 @@ public static String reverse(String originStr) {
        return number.multiply(factorial(number.subtract(new BigDecimal(1))));
     }
 
+    //判断是否偶数
     private boolean function(int i){
             return i%2==0;
+    }
+    private boolean function1(int i){
+        return !(i%2==1);
+    }
+
+    //json转化
+    public  void test2() {
+        String json ="{'name':'亲亲宝宝','address':'亲亲宝宝','array':['1','2','3']}";
+        try {
+            JSONObject jsonObject = JSONObject.parseObject(json);
+            String name = jsonObject.getString("name");
+            String address = jsonObject.getString("address");
+            System.out.println("name is:" + name);
+            System.out.println("address is:" + address);
+            JSONArray jsonArray = jsonObject.getJSONArray("array");
+            for (int i = 0; i < jsonArray.size(); i++) {
+                System.out.println("item " + i + " :" + jsonArray.getString(i));
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
     }
