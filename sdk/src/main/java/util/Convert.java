@@ -19,7 +19,7 @@ import java.math.BigDecimal;
  * <p>
  * Department :
  * </p>
- * <p> Copyright : 江苏飞博软件科技股份有限公司 </p>
+ * <p> Copyright : 江苏飞博软件股份有限公司 </p>
  */
 public class Convert {
     public static String convertForUpdate(String s){
