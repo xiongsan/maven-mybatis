@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSONException;
 import com.alibaba.fastjson.JSONObject;
 
 import java.math.BigDecimal;
+import java.util.Arrays;
 
 /**
  * <p>
@@ -55,8 +56,7 @@ public class Convert {
     //eg
     static String ss = "reportId,a, b, c, e, f, g, h, i, l, m, n, o, q1, q2, q3, q4, x1, x2, x3, x4, y1, y2, y3, y4,modifor, modifyDate";
     public static void main(String[] args) {
-
-        System.out.println(convertForUpdate(ss));
+//        System.out.println(convertForUpdate(ss));
     }
 
 
@@ -122,5 +122,41 @@ public class Convert {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+    }
+    //冒泡排序
+    private static void rank(int[] array) {
+        //需要比较的次数为（array.length-1）
+        for(int i=0;i<array.length-1;i++){
+            //每次比较会出来一个最大或者最小，就无需再比较了所以减去i
+            for(int j=0;j<array.length-1-i;j++){
+                int temp;
+                if(array[j]<array[j+1]){
+                    temp=array[j+1];
+                    array[j+1]=array[j];
+                    array[j]=temp;
+                }
+            }
+        }
+        for(int i:array){
+            System.out.print(i+",");
+        }
+    }
+
+    //二分法查找元素
+    public static int erFenfa(int[] arr,int number) {
+
+        int start = 0;
+        int end = arr.length - 1;
+        while (start <= end) {
+            int middle = (start + end) / 2;
+            if (number < arr[middle]) {
+                end = middle - 1;
+            } else if (number > arr[middle]) {
+                start = middle + 1;
+            } else {
+                return middle;
+            }
+        }
+        return -1;
     }
     }
