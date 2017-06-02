@@ -854,7 +854,7 @@
       <workItem from="1496302005536" duration="5459000" />
       <workItem from="1496365380404" duration="3340000" />
       <workItem from="1496370762938" duration="2013000" />
-      <workItem from="1496373616702" duration="9044000" />
+      <workItem from="1496373616702" duration="9049000" />
     </task>
     <task id="LOCAL-00001" summary="添加了Converter">
       <created>1496287659336</created>
@@ -919,11 +919,18 @@
       <option name="project" value="LOCAL" />
       <updated>1496387051327</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="增加了解析excel表格">
+      <created>1496387063729</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1496387063729</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27072000" />
+    <option name="totallyTimeSpent" value="27077000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
