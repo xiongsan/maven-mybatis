@@ -56,13 +56,21 @@ public final class PhoneNumber implements Comparable<PhoneNumber> {
     }
 
     public static void main(String[] args) {
+        //必须重写hashcode
         Map<PhoneNumber, String> m = new HashMap<>();
         m.put(new PhoneNumber(707, 867, 5309), "jenny");
         String name = m.get(new PhoneNumber(707, 867, 5309));
         System.out.println(name);
-        int s= new PhoneNumber(707, 867, 5309).compareTo(new PhoneNumber(707, 1, 1));
+        //必须重写equals方法
+        boolean flag = new PhoneNumber(111, 111, 111).
+                equals(new PhoneNumber(111, 111, 111));
+        System.out.println(flag);
+        //compareTo方法
+        int s= new PhoneNumber(707, 867, 5309).
+                compareTo(new PhoneNumber(707, 1, 1));
         System.out.println(s);
     }
+    @Override
     public int compareTo(PhoneNumber pn) {
         int areaCodeDiff = areaCode - pn.areaCode;
         if (areaCodeDiff != 0)
@@ -71,6 +79,6 @@ public final class PhoneNumber implements Comparable<PhoneNumber> {
         if (prefix != 0)
             return prefixDiff;
         return lineNumber - pn.lineNumber;
-		//return areaCode-pn.areaCode!=0?areaCode-pn.areaCode:prefix - pn.prefix!=0?prefix - pn.prefix:lineNumber - pn.lineNumber
+//		return areaCode-pn.areaCode!=0?areaCode-pn.areaCode:prefix - pn.prefix!=0?prefix - pn.prefix:lineNumber - pn.lineNumber;
     }
 }
