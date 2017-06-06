@@ -1,6 +1,7 @@
 package mapper;
 
 import bean.User;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -11,4 +12,5 @@ import java.util.List;
 @Repository
 public interface UserMapper {
     List<User> getUserList(User user);
+    User getUser(@Param("id") String id);
 }

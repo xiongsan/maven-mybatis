@@ -29,4 +29,9 @@ public class MyService {
         logger.info("---------------------测试------------------------------");
         return mapper.getUserList(user);
     }
+
+    public User getUser(String id){
+        User  user= mapper.getUser(id);
+        return user;
+    }
 }
