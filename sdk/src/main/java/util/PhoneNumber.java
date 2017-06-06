@@ -56,7 +56,7 @@ public final class PhoneNumber implements Comparable<PhoneNumber> {
     }
 
     public static void main(String[] args) {
-        Map<PhoneNumber, String> m = new HashMap<PhoneNumber, String>();
+        Map<PhoneNumber, String> m = new HashMap<>();
         m.put(new PhoneNumber(707, 867, 5309), "jenny");
         String name = m.get(new PhoneNumber(707, 867, 5309));
         System.out.println(name);
