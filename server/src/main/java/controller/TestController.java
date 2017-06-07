@@ -28,12 +28,6 @@ public class TestController {
     @Autowired
     UserService userService;
 
-//    @RequestMapping("/toGet")
-//    @ResponseBody
-//    public String getSomething(@RequestBody User user){
-//        return JSON.toJSON(myService.getData(user)).toString();
-//    }
-
     @RequestMapping("/toGet")
     @ResponseBody
     public List<User> getSomething(@RequestBody User user){
