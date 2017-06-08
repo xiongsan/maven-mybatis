@@ -66,8 +66,8 @@
 
 	<!--视图解析器-->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/pages/" />
-        <property name="suffix" value=".html" />
+        <property name="prefix" value="/app/" />
+        <property name="suffix" value=".jsp" />
 	</bean>
 
 	<!--访问静态资源-->
