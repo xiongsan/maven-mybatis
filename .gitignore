@@ -277,7 +277,6 @@ hs_err_pid*
 ### Node template
 # Logs
 logs
-*.log
 npm-debug.log*
 
 # Runtime data
