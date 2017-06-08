@@ -12,7 +12,8 @@ class Todo extends Component {
         super(props)
     }
     buttonClick(){
-        const {dispatch}=this.props
+        const {dispatch,text}=this.props
+        if(text)
         dispatch(actions.addTodo())
     }
     keyDown(e){

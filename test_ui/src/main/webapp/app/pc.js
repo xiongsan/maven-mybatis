@@ -10,7 +10,6 @@ import rootReducer from '../redux/rootReducer'
 import views from '../views'
 import createLogger from 'redux-logger'
 const logger = createLogger()
-
 const store = createStore(rootReducer, applyMiddleware(thunk,logger))
 const history = syncHistoryWithStore(hashHistory, store)
 
