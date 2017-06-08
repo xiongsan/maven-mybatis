@@ -15,6 +15,12 @@ class Todo extends Component {
         const {dispatch}=this.props
         dispatch(actions.addTodo())
     }
+    keyDown(e){
+        const {text,dispatch}=this.props
+        if(e.keyCode===13&&text){
+            dispatch(actions.addTodo())
+        }
+    }
 
     render() {
         const {todoList, text, percent, filter,dispatch} = this.props
@@ -23,7 +29,9 @@ class Todo extends Component {
                 <h1>TodoApp</h1>
                 <div className={styles.bar}>
                     <Input className={styles.input} value={text}
-                           onChange={(e)=>dispatch(actions.textChange(e.target.value))}/>
+                           onChange={(e)=>dispatch(actions.textChange(e.target.value))}
+                           onKeyDown={this.keyDown.bind(this)}
+                    />
                     <Button type="primary" icon="plus" onClick={this.buttonClick.bind(this)}>添加</Button>
                     <Progress percent={percent} className={styles.progress}/>
                     <RadioGroup onChange={(e)=>dispatch(actions.changeFilter(e.target.value))} defaultValue="all"
