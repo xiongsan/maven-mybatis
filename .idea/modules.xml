@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/controller.iml" filepath="$PROJECT_DIR$/controller.iml" />
+      <module fileurl="file://$PROJECT_DIR$/maven-mybatis.iml" filepath="$PROJECT_DIR$/maven-mybatis.iml" />
       <module fileurl="file://$PROJECT_DIR$/sdk/sdk.iml" filepath="$PROJECT_DIR$/sdk/sdk.iml" />
       <module fileurl="file://$PROJECT_DIR$/server/server.iml" filepath="$PROJECT_DIR$/server/server.iml" />
       <module fileurl="file://$PROJECT_DIR$/test_ui/test_ui.iml" filepath="$PROJECT_DIR$/test_ui/test_ui.iml" />

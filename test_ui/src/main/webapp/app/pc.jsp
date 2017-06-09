@@ -6,6 +6,6 @@
 </head>
 <body>
 <div id="app"></div>
-<script type="text/javascript" charset="utf-8" src = "http://localhost:3000/index.js"></script>
+<script type="text/javascript" charset="utf-8" src = "http://localhost:3000/dist/main.bundle.js"></script>
 </body>
 </html>

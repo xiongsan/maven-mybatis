@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import styles from './style.less'
 import {Input, Button,Progress, Checkbox, Radio} from 'antd'
 import * as actions from 'actions/todo'
+import $ from 'jquery'
 
 const RadioButton = Radio.Button
 const RadioGroup = Radio.Group
@@ -21,6 +22,12 @@ class Todo extends Component {
         if(e.keyCode===13&&text){
             dispatch(actions.addTodo())
         }
+    }
+    componentWillMount(){
+      $.post('http://localhost:8080/todoList',{},function (param) {
+          if(param.status==='1')
+            console.log(param.data)
+      }),'json'
     }
 
     render() {

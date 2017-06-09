@@ -13,6 +13,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="controller" target="1.8" />
+      <module name="maven-mybatis" target="1.8" />
       <module name="module_1" target="1.5" />
       <module name="module_2" target="1.5" />
       <module name="sdk" target="1.8" />
