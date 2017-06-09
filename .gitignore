@@ -251,7 +251,6 @@ _Pvt_Extensions
 
 # IntelliJ
 /out/
-target
 
 # mpeltonen/sbt-idea plugin
 .idea_modules/
@@ -306,3 +305,4 @@ node_modules
 
 # Created by .ignore support plugin (hsz.mobi)
 .DS_Store
+target
