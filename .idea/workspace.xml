@@ -5,37 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c7b67bc9-dbe9-4ed5-8399-4d99be1800a5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sdk/src/main/java/util/ResultKit.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sdk/src/main/java/util/ServiceResponse.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/src/main/java/bean/TodoList.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/src/main/java/controller/TodoListController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/src/main/java/mapper/TodoListMapper.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/src/main/java/service/imp/TodoListServiceIml.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test_ui/src/main/resources/mapper/todolist.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test_ui/src/main/test/JunitTest.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_3_8_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/controller.iml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/test_ui_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/test_ui_war_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sdk/pom.xml" afterPath="$PROJECT_DIR$/sdk/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/pom.xml" afterPath="$PROJECT_DIR$/server/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test_ui/pom.xml" afterPath="$PROJECT_DIR$/test_ui/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test_ui/src/main/resources/jdbc.properties" afterPath="$PROJECT_DIR$/test_ui/src/main/resources/jdbc.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test_ui/src/main/resources/spring.xml" afterPath="$PROJECT_DIR$/test_ui/src/main/resources/spring.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test_ui/src/main/webapp/app/pc.jsp" afterPath="$PROJECT_DIR$/test_ui/src/main/webapp/app/pc.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test_ui/src/main/webapp/index.html" afterPath="$PROJECT_DIR$/test_ui/src/main/webapp/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test_ui/src/main/webapp/package.json" afterPath="$PROJECT_DIR$/test_ui/src/main/webapp/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test_ui/src/main/webapp/views/Todo/index.js" afterPath="$PROJECT_DIR$/test_ui/src/main/webapp/views/Todo/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test_ui/src/main/webapp/webpack.config.js" afterPath="$PROJECT_DIR$/test_ui/src/main/webapp/webpack.config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test_ui/target/classes/jdbc.properties" afterPath="$PROJECT_DIR$/test_ui/target/classes/jdbc.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test_ui/target/classes/spring.xml" afterPath="$PROJECT_DIR$/test_ui/target/classes/spring.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test_ui/target/test_ui/WEB-INF/classes/jdbc.properties" afterPath="$PROJECT_DIR$/test_ui/target/test_ui/WEB-INF/classes/jdbc.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test_ui/target/test_ui/WEB-INF/classes/spring.xml" afterPath="$PROJECT_DIR$/test_ui/target/test_ui/WEB-INF/classes/spring.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test_ui/test_ui.iml" afterPath="$PROJECT_DIR$/test_ui/test_ui.iml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/server/src/main/test/UserTest.java" afterPath="$PROJECT_DIR$/test_ui/src/main/test/UserTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/module_2/target/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -101,7 +72,7 @@
         <entry file="file://$PROJECT_DIR$/test_ui/src/main/webapp/views/Todo/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="228">
-              <caret line="30" column="5" lean-forward="true" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+              <caret line="30" column="5" lean-forward="false" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
               </folding>
@@ -113,7 +84,7 @@
         <entry file="file://$PROJECT_DIR$/test_ui/src/main/webapp/redux/reducers/todo.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="570">
-              <caret line="30" column="36" lean-forward="true" selection-start-line="30" selection-start-column="36" selection-end-line="30" selection-end-column="36" />
+              <caret line="30" column="36" lean-forward="false" selection-start-line="30" selection-start-column="36" selection-end-line="30" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -123,7 +94,7 @@
         <entry file="file://$PROJECT_DIR$/test_ui/src/main/webapp/app/pc.jsp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="190">
-              <caret line="10" column="7" lean-forward="true" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
+              <caret line="10" column="7" lean-forward="false" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -200,7 +171,6 @@
         <option value="dbtable:/c65048e0/6fda600d-22f5-475b-be40-50e77cf8cb2a/risk0406.rc_assess_item_basic" />
         <option value="dbtable:/c65048e0/6fda600d-22f5-475b-be40-50e77cf8cb2a/risk0406.rc_assess_item_phase" />
         <option value="$PROJECT_DIR$/test_ui/src/main/webapp/views/App.js" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/server/src/main/java/controller/IndexController.java" />
         <option value="$PROJECT_DIR$/test_ui/src/main/webapp/redux/reducers/todo.js" />
         <option value="$PROJECT_DIR$/test_ui/src/main/webapp/style/base.less" />
@@ -229,6 +199,7 @@
         <option value="$PROJECT_DIR$/sdk/src/main/java/util/ServiceResponse.java" />
         <option value="$PROJECT_DIR$/sdk/src/main/java/util/ResultKit.java" />
         <option value="$PROJECT_DIR$/test_ui/src/main/webapp/views/Todo/index.js" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -326,6 +297,34 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="maven-mybatis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="maven-mybatis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test_ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="maven-mybatis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1002,7 +1001,7 @@
       <workItem from="1496970294026" duration="4116000" />
       <workItem from="1496975397245" duration="29000" />
       <workItem from="1496975608734" duration="900000" />
-      <workItem from="1496976588478" duration="5548000" />
+      <workItem from="1496976588478" duration="6201000" />
     </task>
     <task id="LOCAL-00001" summary="添加了Converter">
       <created>1496287659336</created>
@@ -1216,7 +1215,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="95983000" />
+    <option name="totallyTimeSpent" value="96636000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="876" extended-state="0" />
@@ -1441,13 +1440,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test_ui/src/main/webapp/style/iconfont/iconfont.svg" />
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="6" lean-forward="true" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test_ui/src/main/webapp/style/index.less">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
@@ -1712,7 +1704,7 @@
     <entry file="file://$PROJECT_DIR$/test_ui/src/main/webapp/app/pc.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
-          <caret line="10" column="7" lean-forward="true" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
+          <caret line="10" column="7" lean-forward="false" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
           <folding />
         </state>
       </provider>
@@ -1720,7 +1712,7 @@
     <entry file="file://$PROJECT_DIR$/test_ui/src/main/webapp/views/Todo/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
-          <caret line="30" column="5" lean-forward="true" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+          <caret line="30" column="5" lean-forward="false" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
           </folding>
@@ -1730,7 +1722,15 @@
     <entry file="file://$PROJECT_DIR$/test_ui/src/main/webapp/redux/reducers/todo.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="570">
-          <caret line="30" column="36" lean-forward="true" selection-start-line="30" selection-start-column="36" selection-end-line="30" selection-end-column="36" />
+          <caret line="30" column="36" lean-forward="false" selection-start-line="30" selection-start-column="36" selection-end-line="30" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1517">
+          <caret line="249" column="25" lean-forward="true" selection-start-line="249" selection-start-column="25" selection-end-line="249" selection-end-column="25" />
           <folding />
         </state>
       </provider>
