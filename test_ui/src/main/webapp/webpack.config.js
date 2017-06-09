@@ -1,5 +1,6 @@
 var path = require('path')
 var webpack = require('webpack')
+var babelPreset = ['es2015', 'react', 'stage-0']
 module.exports = {
     entry: './app/pc.js',
     output: {
@@ -13,7 +14,8 @@ module.exports = {
             exclude: /node_modules/,
             loader: 'babel-loader',
             query: {
-                presets: ['es2015', 'react']
+                plugins: ['transform-runtime'],//在actions里执行jquery
+                presets: babelPreset
             }
         },
             {

@@ -4,4 +4,29 @@
     <select id="getTodoList" resultType="bean.TodoList">
         SELECT * FROM todolist
     </select>
+
+    <update id="updateTodoList" parameterType="map">
+        UPDATE todolist
+        <choose>
+            <when test='checked == "1"'>
+                SET checked='0'
+            </when>
+            <otherwise>
+                SET checked='1'
+            </otherwise>
+        </choose>
+        WHERE id=#{id}
+    </update>
+
+    <insert id="insertTodo" parameterType="bean.TodoList">
+        INSERT INTO todolist(id,title)
+        VALUES (#{id},#{title})
+    </insert>
+
+    <delete id="deleteTodo" parameterType="string">
+        DELETE FROM todolist WHERE id IN
+        <foreach collection="array" item="item" open="(" close=")" separator=",">
+            #{item}
+        </foreach>
+    </delete>
 </mapper>

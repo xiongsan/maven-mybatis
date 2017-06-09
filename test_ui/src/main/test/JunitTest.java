@@ -22,7 +22,7 @@ public class JunitTest {
 
         List<TodoList> list = todoListServiceIml.todoList();
         for(TodoList todoList:list){
-            System.out.println(todoList.getTitle());
+            System.out.println(todoList);
         }
     }
 }

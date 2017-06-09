@@ -30,6 +30,7 @@
     <content url="file://$MODULE_DIR$/src/main/webapp/node_modules" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Maven: com.oracle:ojdbc14:10.2.0.2.0" level="project" />
     <orderEntry type="module" module-name="server" />
     <orderEntry type="module" module-name="sdk" />
     <orderEntry type="library" name="Maven: junit:junit:4.12" level="project" />
