@@ -16,5 +16,5 @@ public interface ITodoListService {
 
     void addTodo(TodoList todo);
 
-    void cancelTodo(Map<String,String[]> param);
+    void cancelTodo(Map<String,Object> param);
 }

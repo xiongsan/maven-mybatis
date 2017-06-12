@@ -57,7 +57,7 @@ public class TodoListController {
 
     @RequestMapping("/killTodo")
     @ResponseBody
-    public ServiceResponse killTodo(@RequestBody Map<String,String[]> param){
+    public ServiceResponse killTodo(@RequestBody Map<String,Object> param){
         try {
             todoListServiceIml.cancelTodo(param);
             return ResultKit.success();

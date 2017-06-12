@@ -55,6 +55,26 @@ export function complete(parameter) {
     }
 }
 
+export function deleteTask(parameter) {
+    return async function (dispatch) {
+        await $.postJSON('http://localhost:8080/killTodo',parameter,function (param) {
+            if(param.status==='1'){
+                notification.success({
+                    message:'删除任务',
+                    description:'删除任务成功'
+                })
+            }
+            else{
+                notification.error({
+                    message:'删除任务',
+                    description:param.tips
+                })
+            }
+        })
+        await extractFunction(dispatch)
+    }
+}
+
 export function changeFilter(filter) {
     return {type: 'todo.changeFilter', filter}
 }

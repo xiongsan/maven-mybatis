@@ -20,5 +20,5 @@ public interface TodoListMapper {
 
     void insertTodo(TodoList todo);
 
-    void deleteTodo(String[] ids);
+    void deleteTodo(Map<String,Object> param);
 }

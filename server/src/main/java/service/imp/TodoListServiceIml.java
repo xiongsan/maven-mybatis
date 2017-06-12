@@ -33,7 +33,7 @@ public class TodoListServiceIml implements ITodoListService {
     }
 
     @Override
-    public void cancelTodo(Map<String,String[]> param) {
-        mapper.deleteTodo(param.get("ids"));
+    public void cancelTodo(Map<String,Object> param) {
+        mapper.deleteTodo(param);
     }
 }

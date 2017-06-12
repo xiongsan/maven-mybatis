@@ -24,9 +24,6 @@
     </insert>
 
     <delete id="deleteTodo" parameterType="string">
-        DELETE FROM todolist WHERE id IN
-        <foreach collection="array" item="item" open="(" close=")" separator=",">
-            #{item}
-        </foreach>
+        DELETE FROM todolist WHERE id=#{id}
     </delete>
 </mapper>
