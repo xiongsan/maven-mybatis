@@ -19,7 +19,7 @@ import java.util.concurrent.CopyOnWriteArraySet;
  * <p>
  * Department :
  * </p>
- * <p> Copyright : 江苏汇鑫融智软件科技有限公司 </p>
+ * <p> Copyright : 江苏飞博软件科技有限公司 </p>
  */
 @Component("Sender")
 public class Sender {
