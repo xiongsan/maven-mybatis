@@ -1,3 +1,4 @@
 import Todo from './Todo'
+import Chat from './Chat'
 
-export default {Todo}
+export default {Todo,Chat}

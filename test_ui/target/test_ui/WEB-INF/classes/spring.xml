@@ -72,6 +72,7 @@
 
 	<!--访问静态资源-->
 	<mvc:resources location="/js/" mapping="/js/**" />
+	<mvc:resources location="/dist/" mapping="/dist/**" />
 
      <!--json转换器-->
 	<!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping" />此类貌似没啥用-->

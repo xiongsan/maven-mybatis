@@ -21,13 +21,15 @@ export function addTodo() {
             if(param.status==='1'){
                 notification.success({
                     message:'添加任务',
-                    description:'添加任务成功'
+                    description:'添加任务成功',
+                    duration:1
                 })
             }
             else{
                 notification.error({
                     message:'添加任务',
-                    description:param.tips
+                    description:param.tips,
+                    duration:1
                 })
             }
         })
@@ -41,13 +43,15 @@ export function complete(parameter) {
             if(param.status==='1'){
                 notification.success({
                     message:'任务执行',
-                    description:'状态更改成功'
+                    description:'状态更改成功',
+                    duration:1
                 })
             }
             else{
                 notification.error({
                     message:'任务执行',
-                    description:param.tips
+                    description:param.tips,
+                    duration:1
                 })
             }
         })
@@ -61,13 +65,15 @@ export function deleteTask(parameter) {
             if(param.status==='1'){
                 notification.success({
                     message:'删除任务',
-                    description:'删除任务成功'
+                    description:'删除任务成功',
+                    duration:1
                 })
             }
             else{
                 notification.error({
                     message:'删除任务',
-                    description:param.tips
+                    description:param.tips,
+                    duration:1
                 })
             }
         })

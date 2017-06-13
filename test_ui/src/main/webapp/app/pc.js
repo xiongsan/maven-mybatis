@@ -19,6 +19,7 @@ class App extends Component {
             <Provider store={store}>
                 <Router history={history}>
                     <Route path="/" component={views.Todo}/>
+                    <Route path="/chat" component={views.Chat}/>
                 </Router>
             </Provider>
         )
