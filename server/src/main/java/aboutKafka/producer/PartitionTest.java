@@ -3,16 +3,9 @@ package aboutKafka.producer;
 /**
  * Created by Wanghairui on 2017/6/15.
  */
-import java.util.List;
-import java.util.Map;
 import java.util.Properties;
-import java.util.concurrent.Executors;
-
 import org.apache.kafka.clients.producer.*;
-import org.apache.kafka.common.Cluster;
-import org.apache.kafka.common.PartitionInfo;
-
-public class PartitionTest implements Partitioner {
+public class PartitionTest{
 
     public static void main(String[] args) {
         Properties props = new Properties();
@@ -21,54 +14,29 @@ public class PartitionTest implements Partitioner {
         props.put("linger.ms", 1);
         props.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
         props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
-        props.put("partitioner.class", "aboutKafka.producer.PartitionTest");
+        props.put("partitioner.class", "aboutKafka.producer.MyPartion");
         KafkaProducer<String, String> producer = new KafkaProducer<>(props);
         ProducerRecord<String, String> record = new ProducerRecord<>("producer_test", "2223132132",
                 "test23_60");
-        Executors.newSingleThreadExecutor().execute(new Runnable() {
-            public void run() {
-                while (true) {
-                    try {
-                        Thread.sleep(2000);
-                        System.out.println("发送消息");
-                        producer.send(record);
-                    } catch (Throwable e) {
-                        if (producer != null) {
-                            try {
-                                producer.close();
-                            } catch (Throwable e1) {
-                                System.out.println("Turn off Kafka producer error! " + e);
-                            }
-                        }
-                    }
-
+        producer.send(record, new Callback() {
+            @Override
+            public void onCompletion(RecordMetadata metadata, Exception e) {
+                // TODO Auto-generated method stub
+                if (e != null)
+                    System.out.println("the producer has a error:" + e.getMessage());
+                else {
+                    System.out.println("The offset of the record we just sent is: " + metadata.offset());
+                    System.out.println("The partition of the record we just sent is: " + metadata.partition());
                 }
 
             }
         });
-    }
-
-    @Override
-    public int partition(String topic, Object key, byte[] bytes, Object o1, byte[] bytes1, Cluster cluster) {
-        List<PartitionInfo> partitions = cluster.partitionsForTopic(topic);
-        int numPartitions = partitions.size();
-        int partitionNum = 0;
         try {
-            partitionNum = Integer.parseInt((String) key);
-        } catch (Exception e) {
-            partitionNum = key.hashCode() ;
+            Thread.sleep(1000);
+            producer.close();
+        } catch (InterruptedException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
         }
-        System.out.println("the message sendTo topic:"+ topic+" and the partitionNum:"+ partitionNum);
-        return Math.abs(partitionNum  % numPartitions);
-    }
-
-    @Override
-    public void close() {
-
-    }
-
-    @Override
-    public void configure(Map<String, ?> map) {
-
     }
 }
