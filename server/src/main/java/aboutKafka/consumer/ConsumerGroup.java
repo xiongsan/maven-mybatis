@@ -30,7 +30,7 @@ public class ConsumerGroup {
     public static void main(String[] args) {
         String zooKeeper = "192.168.20.175:2181";
         String groupId = "test_group";
-        String topic = "producer_test";
+        String topic = "netflow";
         int threads = 1;
         ConsumerGroup example = new ConsumerGroup(zooKeeper, groupId, topic);
         System.out.println("Starting consumer kafka messages with zk:" + zooKeeper + " and the topic is " + topic);
