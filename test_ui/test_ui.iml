@@ -77,5 +77,17 @@
     <orderEntry type="library" name="Maven: net.sf.ehcache:ehcache-core:2.5.3" level="project" />
     <orderEntry type="library" name="Maven: org.apache.shiro:shiro-cas:1.2.3" level="project" />
     <orderEntry type="library" name="Maven: org.jasig.cas.client:cas-client-core:3.2.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.kafka:kafka_2.9.2:0.8.1.1" level="project" />
+    <orderEntry type="library" name="Maven: org.scala-lang:scala-library:2.9.2" level="project" />
+    <orderEntry type="library" name="Maven: com.yammer.metrics:metrics-core:2.2.0" level="project" />
+    <orderEntry type="library" name="Maven: org.xerial.snappy:snappy-java:1.0.5" level="project" />
+    <orderEntry type="library" name="Maven: net.sf.jopt-simple:jopt-simple:3.2" level="project" />
+    <orderEntry type="library" name="Maven: com.101tec:zkclient:0.3" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.zookeeper:zookeeper:3.4.8" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:slf4j-log4j12:1.6.1" level="project" />
+    <orderEntry type="library" name="Maven: jline:jline:0.9.94" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty:3.7.0.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.kafka:kafka-clients:0.9.0.0" level="project" />
+    <orderEntry type="library" name="Maven: net.jpountz.lz4:lz4:1.2.0" level="project" />
   </component>
 </module>
