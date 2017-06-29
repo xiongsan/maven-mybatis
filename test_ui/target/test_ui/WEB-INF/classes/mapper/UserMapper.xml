@@ -8,4 +8,7 @@
         </if>
         ORDER  BY create_date DESC
     </select>
+    <select id="getUser" resultType="bean.User">
+        SELECT * from rc_user WHERE id=#{id}
+    </select>
 </mapper>
