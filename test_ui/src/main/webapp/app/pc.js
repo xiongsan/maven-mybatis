@@ -8,6 +8,7 @@ import {applyMiddleware, createStore} from 'redux'
 import '!style!css!less!../style/index.less'
 import rootReducer from '../redux/rootReducer'
 import views from '../views'
+import layout from '../layout/index'
 import createLogger from 'redux-logger'
 const logger = createLogger()
 const store = createStore(rootReducer, applyMiddleware(thunk,logger))
@@ -19,6 +20,11 @@ class App extends Component {
             <Provider store={store}>
                 <Router history={history}>
                     <Route path="/" component={views.Todo}/>
+                    <Route path="/layout" component={layout}>
+                        <Route path="/navi1" component={views.Navi1}/>
+                        <Route path="/navi2" component={views.Navi2}/>
+                        <Route path="/navi3" component={views.Navi3}/>
+                    </Route>
                 </Router>
             </Provider>
         )
