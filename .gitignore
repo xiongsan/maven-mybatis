@@ -43,8 +43,10 @@ dlldata.c
 
 # DNX
 project.lock.json
-artifacts/
-
+.idea
+sdk/target
+server/target
+test_ui/target
 *_i.c
 *_p.c
 *_i.h
@@ -221,7 +223,6 @@ _Pvt_Extensions
 *.iml
 
 ## Directory-based project format:
-.idea/
 # if you remove the above rule, at least ignore the following:
 
 # User-specific stuff:

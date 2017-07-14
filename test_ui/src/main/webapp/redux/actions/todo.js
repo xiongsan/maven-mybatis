@@ -1,6 +1,6 @@
 import $ from 'jquery'
 import { notification } from 'antd';
-
+var path=window.path
 $.postJSON = function(url, data, callback) {
     return $.ajax({
         'type' : 'POST',
@@ -17,7 +17,7 @@ export function titleChange(title) {
 
 export function addTodo() {
     return async function (dispatch,getState) {
-        await $.postJSON('http://localhost:8080/newTodo',{title:getState().todo.title},function (param) {
+        await $.postJSON(path+'/newTodo',{title:getState().todo.title},function (param) {
             if(param.status==='1'){
                 notification.success({
                     message:'添加任务',
@@ -39,7 +39,7 @@ export function addTodo() {
 
 export function complete(parameter) {
     return async function (dispatch) {
-       await $.postJSON('http://localhost:8080/changeState',parameter,function (param) {
+       await $.postJSON(path+'/changeState',parameter,function (param) {
             if(param.status==='1'){
                 notification.success({
                     message:'任务执行',
@@ -61,7 +61,7 @@ export function complete(parameter) {
 
 export function deleteTask(parameter) {
     return async function (dispatch) {
-        await $.postJSON('http://localhost:8080/killTodo',parameter,function (param) {
+        await $.postJSON(path+'/killTodo',parameter,function (param) {
             if(param.status==='1'){
                 notification.success({
                     message:'删除任务',
@@ -91,7 +91,7 @@ export function getTodoList(){
     }
 }
 function extractFunction(dispatch,flag){
-    $.post('http://localhost:8080/todoList',{},function (param) {
+    $.post(path+'/todoList',{},function (param) {
         if(param.status==='1'){
             dispatch({
                 type:'todo.TodoList',
