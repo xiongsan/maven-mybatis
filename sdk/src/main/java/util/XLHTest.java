@@ -15,7 +15,7 @@ import java.io.*;
  * <p>
  * Department :
  * </p>
- * <p> Copyright : 江苏汇鑫融智软件科技有限公司 </p>
+ * <p> Copyright : 江苏飞博软件科技有限公司 </p>
  */
 public class XLHTest implements Serializable{
     private static final long serialVersionUID=6546466156L;
