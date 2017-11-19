@@ -231,6 +231,7 @@ _Pvt_Extensions
 
 ## Directory-based project format:
 .idea/
+*/target
 # if you remove the above rule, at least ignore the following:
 
 # User-specific stuff:
