@@ -914,7 +914,7 @@
       <workItem from="1498706030310" duration="9480000" />
       <workItem from="1499305402195" duration="85000" />
       <workItem from="1506159068974" duration="1031000" />
-      <workItem from="1513221979966" duration="1227000" />
+      <workItem from="1513221979966" duration="1317000" />
     </task>
     <task id="LOCAL-00001" summary="添加了Converter">
       <created>1496287659336</created>
@@ -1142,7 +1142,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="108915000" />
+    <option name="totallyTimeSpent" value="109005000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
