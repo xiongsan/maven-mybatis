@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c7b67bc9-dbe9-4ed5-8399-4d99be1800a5" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/module_2/target/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -915,7 +914,7 @@
       <workItem from="1498706030310" duration="9480000" />
       <workItem from="1499305402195" duration="85000" />
       <workItem from="1506159068974" duration="1031000" />
-      <workItem from="1513221979966" duration="1039000" />
+      <workItem from="1513221979966" duration="1227000" />
     </task>
     <task id="LOCAL-00001" summary="添加了Converter">
       <created>1496287659336</created>
@@ -1143,7 +1142,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="108727000" />
+    <option name="totallyTimeSpent" value="108915000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
