@@ -17,7 +17,7 @@ import java.io.FileOutputStream;
  * <p>
  * Department :
  * </p>
- * <p> Copyright : 江苏汇鑫融智软件科技有限公司 </p>
+ * <p> Copyright : 江苏f飞博软件科技有限公司 </p>
  */
 public class Liu{
     public void change2Image(String path, String savePath) throws Exception
