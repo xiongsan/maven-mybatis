@@ -20,15 +20,12 @@ class App extends Component {
             <Provider store={store}>
                 <Router history={history}>
                     <Route path="/" component={views.Todo}/>
-<<<<<<< HEAD
                     <Route path="/layout" component={layout}>
                         <Route path="/navi1" component={views.Navi1}/>
                         <Route path="/navi2" component={views.Navi2}/>
                         <Route path="/navi3" component={views.Navi3}/>
                     </Route>
-=======
                     <Route path="/chat" component={views.Chat}/>
->>>>>>> c2f28e066b9ce3ce4dff27766ad0e805b8a329e4
                 </Router>
             </Provider>
         )
