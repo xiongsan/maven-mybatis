@@ -9,7 +9,8 @@ class Index extends Component {
     render() {
         return (
             <div className={styles.container}>
-                界面3
+                <div className={styles.element1}/>
+                <div className={styles.element2}/>
             </div>
         )
     }
