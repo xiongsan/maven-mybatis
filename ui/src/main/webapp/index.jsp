@@ -6,7 +6,11 @@
     <script type="application/javascript">
         function getData() {
             fableService("test","getData",function (e) {
-                $('#div1').append('<div>'+e.data+'<div>')
+                var result=e.data;
+                $.each(result,function (index, item) {
+                    $('#div1').append('<div>'+item.title+'<div>')
+                })
+
             })
         }
     </script>
