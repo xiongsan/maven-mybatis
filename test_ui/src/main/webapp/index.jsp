@@ -2,6 +2,7 @@
 <html>
 <head>
     <script src="http://localhost:8080/js/jquery.min.js" type="application/javascript"></script>
+    <script src="http://localhost:8080/js/enclosure.js" type="application/javascript"></script>
     <script type="application/javascript">
         $.postJSON = function(url, data, callback) {
             return jQuery.ajax({
@@ -27,6 +28,11 @@
                 }
             )
         }
+        function getData() {
+            fableService("test","getData",function (e) {
+                $('#div1').append('<div>'+e.data+'<div>')
+            })
+        }
     </script>
 </head>
 <body>
@@ -37,6 +43,9 @@
     </button>
     <button onclick="toAddUser()">
         点我添加用户
+    </button>
+    <button onclick="getData()">
+        点我获取数据
     </button>
     <div id="div1"></div>
 </div>

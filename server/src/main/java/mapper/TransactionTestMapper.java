@@ -1,6 +1,5 @@
 package mapper;
 
-import bean.User;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -8,6 +7,5 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface TransactionTestMapper {
-      void addIncorrectUser(User user);
-      void addUser(User user);
+
 }

@@ -162,6 +162,8 @@ public class Convert {
         return -1;
     }
 
+
+        //正则表达式
     public static void match(){
         Pattern pattern = Pattern.compile("^[1-9]\\d{5}(18|19|([23]\\d))\\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\\d{3}[0-9Xx]$\n");
         Matcher matcher = pattern.matcher("341126199001145332");
