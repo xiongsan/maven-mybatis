@@ -65,7 +65,6 @@ public class TodoListServiceIml extends BaseServiceImpl implements ITodoListServ
         todo.put("title", names[new Random().nextInt(names.length)]);
         todo.put("sex", "男");
         mapper.insertTodo(todo);
-        //有问题！
         return ResultKit.success();
     }
 

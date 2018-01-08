@@ -15,3 +15,14 @@ class里使用样例,三段
 1.Page<T> result = PageHelper.startPage(int pageNo,int pageSize)
 2.mapper.selectAll(Object... param)
 3.PageResponse.wrap(result)
+
+mysql 数据库ddl
+create table todolist
+(
+	ID varchar(36) not null
+		primary key,
+	TITLE varchar(200) null,
+	CHECKED int default '0' not null,
+	SEX varchar(2) null
+)
+;

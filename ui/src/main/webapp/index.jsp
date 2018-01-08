@@ -3,6 +3,8 @@
 <head>
     <script src="http://localhost:8080/js/jquery.min.js" type="application/javascript"></script>
     <script src="http://localhost:8080/js/enclosure.js" type="application/javascript"></script>
+    <link rel="stylesheet" type="text/css"
+          href="http://localhost:8080/css/index.css" />
     <script type="application/javascript">
         function getData() {
             fableService("test","getData",function (e) {
@@ -33,6 +35,9 @@
 <body>
 <h2>Hello World!</h2>
 <div>
+
+</div>
+<div>
     <button onclick="getData()">
         点我获取数据
     </button>
@@ -42,6 +47,9 @@
     <button onclick="getPageData()">
         点我获取分页数据
     </button>
+    <div class="ellipse common"></div>
+    <div class="ellipse1 common"></div>
+    <div class="ellipse2 common"></div>
     <div id="div1"></div>
 </div>
 </body>
