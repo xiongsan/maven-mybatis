@@ -15,6 +15,7 @@ import util.Tool;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 /**
  * Created by Wanghairui on 2017/6/9.
@@ -27,6 +28,8 @@ public class TodoListServiceIml extends BaseServiceImpl implements ITodoListServ
 
     @Autowired
     private CacheManager cacheManager;
+
+    private String[] names=new String[]{"张三","李四","王二麻"};
 
     @SuppressWarnings("unchecked")
     public ServiceResponse getData() {
@@ -46,9 +49,14 @@ public class TodoListServiceIml extends BaseServiceImpl implements ITodoListServ
     }
 
     @Override
-    public void addTodo(TodoList todo) {
-        todo.setId(Tool.newGuid().toString());
+    public ServiceResponse addTodo(Map<String,Object> todo) {
+        todo.put("id", Tool.newGuid().toString());
+        todo.put("checked", 1);
+        todo.put("title", names[new Random().nextInt(names.length)]);
+        todo.put("sex", "男");
         mapper.insertTodo(todo);
+        //有问题！
+        return ResultKit.success();
     }
 
     @Override

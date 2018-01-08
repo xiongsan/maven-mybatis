@@ -13,6 +13,13 @@
 
             })
         }
+        function addData() {
+            fableService("test","addTodo",{sex:'男'},function (e) {
+                if(e.status==='1'){
+                    alert('添加成功')
+                }
+            })
+        }
     </script>
 </head>
 <body>
@@ -20,6 +27,9 @@
 <div>
     <button onclick="getData()">
         点我获取数据
+    </button>
+    <button onclick="addData()">
+        点我添加数据
     </button>
     <div id="div1"></div>
 </div>

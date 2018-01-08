@@ -16,7 +16,7 @@ public interface TodoListMapper {
 
     void updateTodoList(Map<String, Object> param);
 
-    void insertTodo(TodoList todo);
+    void insertTodo(Map<String,Object> todo);
 
     void deleteTodo(Map<String,Object> param);
 }

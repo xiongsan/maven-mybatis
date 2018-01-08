@@ -18,9 +18,9 @@
         WHERE id=#{id}
     </update>
 
-    <insert id="insertTodo" parameterType="bean.TodoList">
-        INSERT INTO todolist(id,title)
-        VALUES (#{id},#{title})
+    <insert id="insertTodo" parameterType="hashmap">
+        INSERT INTO todolist(id,title,checked,sex)
+        VALUES (#{id},#{title},#{checked},#{sex})
     </insert>
 
     <delete id="deleteTodo" parameterType="string">
