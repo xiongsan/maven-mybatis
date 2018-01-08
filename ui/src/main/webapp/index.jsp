@@ -20,6 +20,14 @@
                 }
             })
         }
+        function getPageData() {
+            fableService("test","getPageData",{pageNo:1,pageSize:4},function (e) {
+                var result=e.data.data;
+                $.each(result,function (index, item) {
+                    $('#div1').append('<div>'+item.title+'<div>')
+                })
+            })
+        }
     </script>
 </head>
 <body>
@@ -30,6 +38,9 @@
     </button>
     <button onclick="addData()">
         点我添加数据
+    </button>
+    <button onclick="getPageData()">
+        点我获取分页数据
     </button>
     <div id="div1"></div>
 </div>

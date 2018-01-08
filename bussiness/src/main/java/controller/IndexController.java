@@ -8,7 +8,9 @@ import java.io.File;
 import java.io.IOException;
 
 
-
+/**
+ * 主要负责路由，上传，下载
+ */
 @Controller
 public class IndexController {
 

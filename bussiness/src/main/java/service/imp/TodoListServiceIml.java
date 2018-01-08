@@ -1,9 +1,12 @@
 package service.imp;
 
 import bean.TodoList;
+import com.fable.enclosure.bussiness.entity.PageResponse;
 import com.fable.enclosure.bussiness.entity.ResultKit;
 import com.fable.enclosure.bussiness.entity.ServiceResponse;
 import com.fable.enclosure.bussiness.service.impl.BaseServiceImpl;
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import mapper.TodoListMapper;
 import net.sf.ehcache.Cache;
 import net.sf.ehcache.CacheManager;
@@ -13,6 +16,7 @@ import org.springframework.stereotype.Service;
 import service.ITodoListService;
 import util.Tool;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
@@ -41,6 +45,12 @@ public class TodoListServiceIml extends BaseServiceImpl implements ITodoListServ
         Element element = new Element("todolist",list);
         cache.put(element);
         return ResultKit.serviceResponse(list);
+    }
+
+    public ServiceResponse getPageData(Map<String, Object> param){
+        Page<TodoList> result = PageHelper.startPage(Integer.parseInt(param.get("pageNo").toString()),Integer.parseInt(param.get("pageSize").toString()));
+        mapper.getTodoList();
+        return ResultKit.serviceResponse(PageResponse.wrap(result));
     }
 
     @Override
