@@ -58,6 +58,7 @@ public class Convert {
     static String ss = "reportId,a, b, c, e, f, g, h, i, l, m, n, o, q1, q2, q3, q4, x1, x2, x3, x4, y1, y2, y3, y4,modifor, modifyDate";
     public static void main(String[] args) {
         match();
+        System.out.println("说是我是是说说是我是是说说是我是是说说是我是是说说是我是是说说是我是是说".length());
 //        System.out.println(convertForUpdate(ss));
     }
 
@@ -165,8 +166,9 @@ public class Convert {
 
         //正则表达式
     public static void match(){
-        Pattern pattern = Pattern.compile("^[1-9]\\d{5}(18|19|([23]\\d))\\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\\d{3}[0-9Xx]$\n");
-        Matcher matcher = pattern.matcher("341126199001145332");
+        //不能以_.-开头和结尾，包含0-9a-zA-Z中文-（）.。_1到30个字符
+        Pattern pattern = Pattern.compile("^(?![-._])(?!.*?[-._]$)[a-zA-Z0-9_\\u4e00-\\u9fa5（）\\-.。]{1,30}$");
+        Matcher matcher = pattern.matcher("sdfgsd我._是。-（）");
         boolean b=matcher.matches();
 
         boolean c= Pattern.matches("a*b", "aaaaab");
