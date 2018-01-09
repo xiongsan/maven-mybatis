@@ -1,5 +1,4 @@
 .common{
-    position: absolute;
     border:solid 0.5px black;
     background: deepskyblue;
     border-radius: 50%;
@@ -11,9 +10,10 @@
     position:relative;
     opacity: 0.6;
     background: deepskyblue;
-    left: -0.5px;
-    border-left: black 0.5px solid;
-    border-right: black 0.5px solid;
+    top:50%;
+    left:-0.5px;
+    border-left:black 0.5px solid;
+    border-right:black 0.5px solid;
     border-bottom: black 0.5px solid;
     border-bottom-left-radius: 50%;
     border-bottom-right-radius: 50%;
@@ -39,15 +39,12 @@
 .ellipse:after{
     width: 150px;
     height: 150px;
-    top: 50%;
 }
 .ellipse1:after{
     width: 250px;
     height: 250px;
-    top: 50%;
 }
 .ellipse2:after{
     width: 300px;
     height: 300px;
-    top: 50%;
 }

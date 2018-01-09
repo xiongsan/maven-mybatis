@@ -14,9 +14,9 @@ import java.io.IOException;
 @Controller
 public class IndexController {
 
-    @RequestMapping("/pc")
+    @RequestMapping("/hanoi")
     public String pc() {
-        return "pc";
+        return "hanoi";
     }
 
     @RequestMapping("/uploadImg")

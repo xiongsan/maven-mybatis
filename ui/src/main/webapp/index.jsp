@@ -3,6 +3,7 @@
 <head>
     <script src="http://localhost:8080/js/jquery.min.js" type="application/javascript"></script>
     <script src="http://localhost:8080/js/enclosure.js" type="application/javascript"></script>
+    <script src="http://localhost:8080/js/ht.js" type="application/javascript"></script>
     <link rel="stylesheet" type="text/css"
           href="http://localhost:8080/css/index.css" />
     <script type="application/javascript">
@@ -30,6 +31,7 @@
                 })
             })
         }
+
     </script>
 </head>
 <body>
@@ -47,9 +49,10 @@
     <button onclick="getPageData()">
         点我获取分页数据
     </button>
-    <div class="ellipse common"></div>
-    <div class="ellipse1 common"></div>
-    <div class="ellipse2 common"></div>
+    <%--<div class="ellipse common"></div>--%>
+    <%--<div class="ellipse1 common"></div>--%>
+    <%--<div class="ellipse2 common"></div>--%>
+    <a href="http://localhost:8080/hanoi"><span>hanoi</span></a>
     <div id="div1"></div>
 </div>
 </body>
