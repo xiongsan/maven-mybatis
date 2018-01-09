@@ -7,7 +7,8 @@
  * 3. B -> C
  */
 
-var barNum = 11, // 圆盘个数
+var barNum = 5, // 圆盘个数
+    count=0,//步数
     cylinderHeight = barNum * 20 + 40, // 圆柱高度
     barrelMinORadius  = 50, // 圆盘最大外半径
     barrelIRadius = 10, // 圆盘内半径
@@ -35,7 +36,7 @@ var barNum = 11, // 圆盘个数
     // 动画参数
     params = {
         delay: 10,
-        duration: 50,
+        duration: 1000,
         easing: Easing['easeBoth']
     };
 
@@ -115,6 +116,12 @@ function moveAnimation(positionA, positionC){
             }
         };
         anim = ht.Default.startAnim(params);
+        count++;
+        var num = count.toString()
+        for (var i = 0; i < num.length; i++) {
+            var numElement = 'num' + i
+            $(`#${numElement}`).html(num.substr(num.length - i - 1, 1))
+        }
     }
 }
 
@@ -122,6 +129,11 @@ function moveAnimation(positionA, positionC){
  * 重置游戏
  * */
 function reset(){
+    count=0;
+    for (var i = 0; i < 7; i++) {
+        var numElement = 'num' + i;
+        $(`#${numElement}`).html(0);
+    }
     if(positions[0].barrels.length == 0){
         positions[0].barrels = positions[2].barrels;
     }
