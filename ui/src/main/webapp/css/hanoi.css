@@ -1,0 +1,21 @@
+.count-container {
+    width: 350px;
+    height: 50px;
+    position:relative;
+}
+.count:not(:last-child) {
+    margin-right: 1.8%;
+}
+.count {
+    width:44.6px;
+    background: #0a7cb5;
+    height: 100%;
+    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.num {
+    color: #fdffff;
+    font-size: 1.5rem;
+}
