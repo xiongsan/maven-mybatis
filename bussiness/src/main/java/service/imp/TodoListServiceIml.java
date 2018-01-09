@@ -60,7 +60,7 @@ public class TodoListServiceIml extends BaseServiceImpl implements ITodoListServ
 
     @Override
     public ServiceResponse addTodo(Map<String,Object> todo) {
-        todo.put("id", Tool.newGuid().toString());
+        todo.put("id", Tool.newGuid());
         todo.put("checked", 1);
         todo.put("title", names[new Random().nextInt(names.length)]);
         todo.put("sex", "男");
