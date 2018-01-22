@@ -5,6 +5,7 @@ import com.fable.enclosure.bussiness.entity.PageResponse;
 import com.fable.enclosure.bussiness.entity.ResultKit;
 import com.fable.enclosure.bussiness.entity.ServiceResponse;
 import com.fable.enclosure.bussiness.service.impl.BaseServiceImpl;
+import com.fable.enclosure.bussiness.util.Tool;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import mapper.TodoListMapper;
@@ -14,9 +15,8 @@ import net.sf.ehcache.Element;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import service.ITodoListService;
-import util.Tool;
 
-import javax.servlet.http.HttpServletRequest;
+import java.io.File;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
@@ -59,13 +59,31 @@ public class TodoListServiceIml extends BaseServiceImpl implements ITodoListServ
     }
 
     @Override
+    @SuppressWarnings("unchecked")
+    /*事物处理*/
     public ServiceResponse addTodo(Map<String,Object> todo) {
-        todo.put("id", Tool.newGuid());
-        todo.put("checked", 1);
-        todo.put("title", names[new Random().nextInt(names.length)]);
-        todo.put("sex", "男");
-        mapper.insertTodo(todo);
-        return ResultKit.success();
+        Tool.startTransaction();
+        try{
+            todo.put("id","123");
+            todo.put("checked", 0);
+            todo.put("title", names[new Random().nextInt(names.length)]);
+            mapper.insertTodo(todo);
+            todo.put("id", "123456");
+            todo.put("checked", 1);
+            todo.put("title", names[new Random().nextInt(names.length)]);
+            mapper.insertTodo(todo);
+            Tool.endTransaction();
+            return ResultKit.success();
+        }catch(Exception e){
+            Tool.rollBack();
+            e.printStackTrace();
+            return ResultKit.fail();
+        }
+    }
+
+    public String getFilePath(){
+        String url = System.getProperty("user.dir");
+        return url.substring(0, url.lastIndexOf(File.separator)) + File.separator + "user" + File.separator + "uploadFile";
     }
 
     @Override

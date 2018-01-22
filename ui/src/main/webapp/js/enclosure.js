@@ -1,5 +1,5 @@
 //参数中未定义为同步还是异步默认为同步，定义之后就为false
-var ajaxService = function (url, param,async,callback) {
+let ajaxService = function (url, param,async,callback) {
     const _param = JSON.stringify(param)
     $.ajax({
         url: url,
@@ -16,9 +16,7 @@ var ajaxService = function (url, param,async,callback) {
 function fableService(){
     const serviceId=arguments[0]
     const method=arguments[1]
-    const host=window.location.host//主机名加端口号
-    const pathName=window.location.pathname//容器名
-    var url = "http://"+host+pathName+"fableService?"
+    let url = "fableService?"
     url += "serviceId=" + serviceId
     url += "&method=" + method
     const thirdParam= arguments[2]
@@ -36,3 +34,27 @@ function fableService(){
     }
     ajaxService(url,thirdParam,undefined,arguments[3])
 }
+
+function upload(param){
+    let formData = new FormData();
+        formData.append("file", document.getElementById(param).files[0]);
+        $.ajax({
+            url: "/upload/test/getFilePath",
+            type: "POST",
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function (e) {
+                if (e.status ==='1') {
+                    const map=e.data;
+                    console.log(map,'----------')
+                    alert("上传成功！");
+                }
+            },
+            error: function () {
+                alert("上传失败！");
+            }
+        });
+}
+
+const serverPath='http://'+window.location.host+window.location.pathname

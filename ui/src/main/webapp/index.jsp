@@ -7,6 +7,9 @@
     <link rel="stylesheet" type="text/css"
           href="http://localhost:8080/css/index.css" />
     <script type="application/javascript">
+        $(function () {
+            $('#imgLabel').attr("src",serverPath+'showPic/test/getFilePath/123')
+        })
         function getData() {
             fableService("test","getData",function (e) {
                 var result=e.data;
@@ -49,10 +52,10 @@
     <button onclick="getPageData()">
         点我获取分页数据
     </button>
-    <%--<div class="ellipse common"></div>--%>
-    <%--<div class="ellipse1 common"></div>--%>
-    <%--<div class="ellipse2 common"></div>--%>
+        文件：<input id="file" type="file"/><br/>
+    <button onclick="upload('file')">上传</button>
     <a href="http://localhost:8080/hanoi"><span>hanoi</span></a>
+    <img id="imgLabel"/>
     <div id="div1"></div>
 </div>
 </body>
