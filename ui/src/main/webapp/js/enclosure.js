@@ -39,7 +39,7 @@ function upload(param){
     let formData = new FormData();
         formData.append("file", document.getElementById(param).files[0]);
         $.ajax({
-            url: "/upload/test/getFilePath",
+            url: "/upload",
             type: "POST",
             data: formData,
             contentType: false,

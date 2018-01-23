@@ -16,7 +16,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import service.ITodoListService;
 
-import java.io.File;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
@@ -79,11 +78,6 @@ public class TodoListServiceIml extends BaseServiceImpl implements ITodoListServ
             e.printStackTrace();
             return ResultKit.fail();
         }
-    }
-
-    public String getFilePath(){
-        String url = System.getProperty("user.dir");
-        return url.substring(0, url.lastIndexOf(File.separator)) + File.separator + "user" + File.separator + "uploadFile";
     }
 
     @Override

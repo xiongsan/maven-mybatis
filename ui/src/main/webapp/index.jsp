@@ -6,9 +6,10 @@
     <script src="http://localhost:8080/js/ht.js" type="application/javascript"></script>
     <link rel="stylesheet" type="text/css"
           href="http://localhost:8080/css/index.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="http://localhost:8080/img/storz.ico"/>
     <script type="application/javascript">
         $(function () {
-            $('#imgLabel').attr("src",serverPath+'showPic/test/getFilePath/123')
+            $('#imgLabel').attr("src",serverPath+'showPic/123')
         })
         function getData() {
             fableService("test","getData",function (e) {
@@ -55,6 +56,7 @@
         文件：<input id="file" type="file"/><br/>
     <button onclick="upload('file')">上传</button>
     <a href="http://localhost:8080/hanoi"><span>hanoi</span></a>
+    <a href="http://localhost:8080/download/数据库设计.doc/b9d51c7a-3298-42c3-9537-126a0cc96a3c">下载</a>
     <img id="imgLabel"/>
     <div id="div1"></div>
 </div>
