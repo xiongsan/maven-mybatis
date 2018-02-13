@@ -9,7 +9,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="http://localhost:8080/img/storz.ico"/>
     <script type="application/javascript">
         $(function () {
-            $('#imgLabel').attr("src",serverPath+'showPic/123')
+            $('#imgLabel').attr("src",serverPath+'showPic/7ce9e88a-4c61-4a04-b04c-b506dc3ad694')
         })
         function getData() {
             fableService("test","getData",function (e) {
@@ -56,7 +56,7 @@
         文件：<input id="file" type="file"/><br/>
     <button onclick="upload('file')">上传</button>
     <a href="http://localhost:8080/hanoi"><span>hanoi</span></a>
-    <a href="http://localhost:8080/download/数据库设计.doc/b9d51c7a-3298-42c3-9537-126a0cc96a3c">下载</a>
+    <a href="http://localhost:8080/download/美图.png/7ce9e88a-4c61-4a04-b04c-b506dc3ad694">下载</a>
     <img id="imgLabel"/>
     <div id="div1"></div>
 </div>
