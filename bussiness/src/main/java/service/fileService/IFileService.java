@@ -1,6 +1,8 @@
-package service;
+package service.fileService;
 
 import com.fable.enclosure.bussiness.entity.ServiceResponse;
+
+import java.util.Map;
 
 /**
  * <p>
@@ -22,5 +24,7 @@ import com.fable.enclosure.bussiness.entity.ServiceResponse;
 public interface IFileService {
 
     String getFileFolder();
+
+    ServiceResponse deleteFile(Map<String,Object> param);
 
 }

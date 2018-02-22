@@ -9,7 +9,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="http://localhost:8080/img/storz.ico"/>
     <script type="application/javascript">
         $(function () {
-            $('#imgLabel').attr("src",serverPath+'showPic/7ce9e88a-4c61-4a04-b04c-b506dc3ad694')
+            $('#imgLabel').attr("src",serverPath+'showPic/63b09a03-a5c2-44c0-a2b5-64eed870adc0')
         })
         function getData() {
             fableService("test","getData",function (e) {
@@ -36,6 +36,16 @@
             })
         }
 
+        function deleteFile() {
+            fableService("fileService","deleteFile",{fileUrl:'123'},function (e) {
+               if(e.status==='1'){
+                   alert('删除成功')
+               }
+               else{
+                   alert(e.tips)
+               }
+            })
+        }
     </script>
 </head>
 <body>
@@ -57,6 +67,9 @@
     <button onclick="upload('file')">上传</button>
     <a href="http://localhost:8080/hanoi"><span>hanoi</span></a>
     <a href="http://localhost:8080/download/美图.png/7ce9e88a-4c61-4a04-b04c-b506dc3ad694">下载</a>
+    <button onclick="deleteFile()">
+        删除文件
+    </button>
     <img id="imgLabel"/>
     <div id="div1"></div>
 </div>
