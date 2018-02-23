@@ -26,5 +26,9 @@ public interface IFileService {
     String getFileFolder();
 
     ServiceResponse deleteFile(Map<String,Object> param);
+    
+    ServiceResponse getFileList(Map<String,Object> param);
+    
+    ServiceResponse addFile(Map<String,Object> param);
 
 }

@@ -9,7 +9,7 @@ import java.io.IOException;
 
 
 /**
- * 主要负责路由，上传，下载
+ * 主要负责路由
  */
 @Controller
 public class IndexController {
@@ -19,10 +19,4 @@ public class IndexController {
         return "hanoi";
     }
 
-    @RequestMapping("/uploadImg")
-    public void uploadImg(@RequestParam("file") CommonsMultipartFile file) throws IllegalStateException, IOException {
-        String home = System.getProperties().getProperty("user.home");
-        String savePath = home+File.separator+"monitor-icons";
-        file.transferTo(new File(savePath,file.getOriginalFilename()));
-    }
 }

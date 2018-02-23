@@ -25,6 +25,9 @@
                 if(e.status==='1'){
                     alert('添加成功')
                 }
+                else{
+                    alert(e.tips)
+                }
             })
         }
         function getPageData() {

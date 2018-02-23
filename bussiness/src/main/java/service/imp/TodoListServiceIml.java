@@ -76,7 +76,7 @@ public class TodoListServiceIml extends BaseServiceImpl implements ITodoListServ
         }catch(Exception e){
             Tool.rollBack();
             e.printStackTrace();
-            return ResultKit.fail();
+            return ResultKit.fail(e.getMessage());
         }
     }
 
