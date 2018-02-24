@@ -20,7 +20,11 @@ class Home extends Component {
             collapsed: !this.state.collapsed,
         });
     }
-    /* <Link />不需要此方法*/
+    /* <Menu.Item key="2">
+     <Icon type="video-camera"/>
+     <span className="nav-text">nav 2</span>
+     <Link to="/navi2" />
+     </Menu.Item>不需要此方法*/
     menuClick(param){
        this.props.history.push(param.key)
     }
@@ -38,15 +42,13 @@ class Home extends Component {
                             <Icon type="user"/>
                             <span className="nav-text">nav 1</span>
                         </Menu.Item>
-                        <Menu.Item key="2">
+                        <Menu.Item key="/navi2">
                             <Icon type="video-camera"/>
                             <span className="nav-text">nav 2</span>
-                            <Link to="/navi2" />
                         </Menu.Item>
-                        <Menu.Item key="3">
+                        <Menu.Item key="/navi3">
                             <Icon type="upload"/>
                             <span className="nav-text">nav 3</span>
-                            <Link to="/navi3" />
                         </Menu.Item>
                     </Menu>
                 </Sider>
