@@ -13,10 +13,24 @@ let ajaxService = function (url, param,async,callback) {
     })
 }
 
+let ajaxServiceNew = function (url, param,async,callback) {
+    $.ajax({
+        url: url,
+        type: 'POST',
+        async:async===undefined,
+        dataType: 'json',
+        contentType:'application/json',
+        data: JSON.stringify(param),
+        success:function (data) {
+            callback(data)
+        }
+    })
+}
+
 function fableService(){
     const serviceId=arguments[0]
     const method=arguments[1]
-    let url = "fableService?"
+    let url = "baseController/oldService?"
     url += "serviceId=" + serviceId
     url += "&method=" + method
     const thirdParam= arguments[2]
@@ -35,11 +49,21 @@ function fableService(){
     ajaxService(url,thirdParam,undefined,arguments[3])
 }
 
+function fableServiceNew(){
+    let url = "/baseController/newService"
+    const secondParam= arguments[1]
+    if(typeof secondParam==='function'){
+        ajaxServiceNew(url,arguments[0],undefined,arguments[1])
+        return
+    }
+    ajaxServiceNew(url,arguments[0],arguments[1],arguments[2])
+}
+
 function upload(param){
     let formData = new FormData();
         formData.append("file", document.getElementById(param).files[0]);
         $.ajax({
-            url: "/upload",
+            url: "/baseController/upload",
             type: "POST",
             data: formData,
             contentType: false,
