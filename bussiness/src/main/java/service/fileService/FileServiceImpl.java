@@ -1,9 +1,6 @@
 package service.fileService;
 
-import bean.TodoList;
-import com.fable.enclosure.bussiness.entity.PageResponse;
 import com.fable.enclosure.bussiness.entity.ResultKit;
-import com.fable.enclosure.bussiness.entity.ServiceRequest;
 import com.fable.enclosure.bussiness.entity.ServiceResponse;
 import com.fable.enclosure.bussiness.service.impl.BaseServiceImpl;
 import com.github.pagehelper.Page;
@@ -75,7 +72,7 @@ public class FileServiceImpl extends BaseServiceImpl implements IFileService{
     public ServiceResponse getFileList(Map<String, Object> param) {
         Page<Map<String,Object>> result = PageHelper.startPage(Integer.parseInt(param.get("pageNo").toString()),Integer.parseInt(param.get("pageSize").toString()));
         mapper.getFileList();
-        return ResultKit.serviceResponse(PageResponse.wrap(result));
+        return ServiceResponse.wrap(result);
     }
 
     @Override

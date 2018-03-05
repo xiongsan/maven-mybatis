@@ -1,8 +1,8 @@
 package service.imp;
 
 import bean.TodoList;
-import com.fable.enclosure.bussiness.entity.PageResponse;
 import com.fable.enclosure.bussiness.entity.ResultKit;
+import com.fable.enclosure.bussiness.entity.ServiceRequest;
 import com.fable.enclosure.bussiness.entity.ServiceResponse;
 import com.fable.enclosure.bussiness.service.impl.BaseServiceImpl;
 import com.fable.enclosure.bussiness.util.Tool;
@@ -46,14 +46,14 @@ public class TodoListServiceIml extends BaseServiceImpl implements ITodoListServ
         return ResultKit.serviceResponse(list);
     }
 
-    public ServiceResponse getPageData(Map<String, Object> param){
-        Page<TodoList> result = PageHelper.startPage(Integer.parseInt(param.get("pageNo").toString()),Integer.parseInt(param.get("pageSize").toString()));
+    public ServiceResponse getPageData(ServiceRequest param){
+        Page<TodoList> result = PageHelper.startPage(param.getPageNo(),param.getPageSize());
         mapper.getTodoList();
-        return ResultKit.serviceResponse(PageResponse.wrap(result));
+        return ServiceResponse.wrap(result);
     }
 
     @Override
-    public void modifyTodoList(Map<String, Object> param) {
+    public void modifyTodoList(Map<String,Object> param) {
          mapper.updateTodoList(param);
     }
 
@@ -63,6 +63,7 @@ public class TodoListServiceIml extends BaseServiceImpl implements ITodoListServ
     public ServiceResponse addTodo(Map<String,Object> todo) {
         Tool.startTransaction();
         try{
+            todo.put("", "");
             todo.put("id","123");
             todo.put("checked", 0);
             todo.put("title", names[new Random().nextInt(names.length)]);

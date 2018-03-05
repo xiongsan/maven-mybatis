@@ -1,84 +1,68 @@
-//参数中未定义为同步还是异步默认为同步，定义之后就为false
-let ajaxService = function (url, param,async,callback) {
-    const _param = JSON.stringify(param)
-    $.ajax({
-        url: url,
-        type: 'POST',
-        async:async===undefined,
-        dataType: 'json',
-        data: { data: _param },
-        success:function (data) {
-            callback(data)
-        }
-    })
-}
+;(function ($) {
+    //插件所有功能都写在这个函数下
 
-let ajaxServiceNew = function (url, param,async,callback) {
-    $.ajax({
-        url: url,
-        type: 'POST',
-        async:async===undefined,
-        dataType: 'json',
-        contentType:'application/json',
-        data: JSON.stringify(param),
-        success:function (data) {
-            callback(data)
-        }
-    })
-}
+    var serverPath = 'http://' + window.location.host + window.location.pathname;
 
-function fableService(){
-    const serviceId=arguments[0]
-    const method=arguments[1]
-    let url = "baseController/oldService?"
-    url += "serviceId=" + serviceId
-    url += "&method=" + method
-    const thirdParam= arguments[2]
-    if(typeof thirdParam==='function'){
-        ajaxService(url,undefined,undefined,arguments[2])
-        return
-    }
-    if(typeof thirdParam==='boolean'){
-        ajaxService(url,undefined,thirdParam,arguments[3])
-        return
-    }
-    if(typeof arguments[3]==='boolean'){
-        ajaxService(url,thirdParam,arguments[3],arguments[4])
-        return
-    }
-    ajaxService(url,thirdParam,undefined,arguments[3])
-}
+    var async = true;
 
-function fableServiceNew(){
-    let url = "/baseController/newService"
-    const secondParam= arguments[1]
-    if(typeof secondParam==='function'){
-        ajaxServiceNew(url,arguments[0],undefined,arguments[1])
-        return
-    }
-    ajaxServiceNew(url,arguments[0],arguments[1],arguments[2])
-}
+    var param = {};
 
-function upload(param){
-    let formData = new FormData();
-        formData.append("file", document.getElementById(param).files[0]);
-        $.ajax({
-            url: "/baseController/upload",
-            type: "POST",
-            data: formData,
-            contentType: false,
-            processData: false,
-            success: function (e) {
-                if (e.status ==='1') {
-                    const map=e.data;
-                    console.log(map,'----------')
-                    alert("上传成功！");
+    var api = {
+        config: function (opts) {
+            //没有参数传入，直接返回默认参数
+            if(!opts) return serverPath;
+            //有参数传入，通过key将options的值更新为用户的值
+            param={}
+            for(var key in opts) {
+                if(key==='async'){
+                    async = opts[async];
                 }
-            },
-            error: function () {
-                alert("上传失败！");
+                else{
+                    param[key] = opts[key];
+                }
             }
-        });
-}
-
-const serverPath='http://'+window.location.host+window.location.pathname
+            return this;
+        },
+        listen: function listen(elem) {
+            //...
+            return this;
+        },
+        startService: function () {
+            let url = "/baseController/service"
+            $.ajax({
+                url: url,
+                type: 'POST',
+                async: async,
+                dataType: 'json',
+                contentType: 'application/json',
+                data: JSON.stringify(param),
+                success: function (data) {
+                    param.callback(data)
+                }
+            })
+        },
+        upload: function (param,callback) {
+            var files=document.getElementById(param).files
+            if(!files.length){
+                alert('请选择要上传的文件')
+                return
+            }
+            let formData = new FormData();
+            formData.append("file", files[0]);
+            $.ajax({
+                url: "/baseController/upload",
+                type: "POST",
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function (e) {
+                    callback(e)
+                },
+                error: function () {
+                    alert("上传失败！");
+                }
+            });
+        }
+    }
+    this.sweets=api
+})(jQuery);

@@ -1,8 +1,8 @@
 package util;
 
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONException;
-import com.alibaba.fastjson.JSONObject;
+import bean.TodoList;
+import com.alibaba.fastjson.*;
+import com.fable.enclosure.bussiness.entity.ServiceRequest;
 
 import java.math.BigDecimal;
 import java.util.regex.Matcher;
@@ -56,11 +56,11 @@ public class Convert {
 
     //eg
     static String ss = "reportId,a, b, c, e, f, g, h, i, l, m, n, o, q1, q2, q3, q4, x1, x2, x3, x4, y1, y2, y3, y4,modifor, modifyDate";
-    public static void main(String[] args) {
-        match();
-        System.out.println("说是我是是说说是我是是说说是我是是说说是我是是说说是我是是说说是我是是说".length());
-//        System.out.println(convertForUpdate(ss));
-    }
+//    public static void main(String[] args) {
+//        match();
+//        System.out.println("说是我是是说说是我是是说说是我是是说说是我是是说说是我是是说说是我是是说".length());
+////        System.out.println(convertForUpdate(ss));
+//    }
 
 
 
@@ -173,5 +173,19 @@ public class Convert {
 
         boolean c= Pattern.matches("a*b", "aaaaab");
         System.out.println(b);
+    }
+    public static void main(String[] args) {
+//        try {
+//           Ia ia= (Ia) new Test().getClass().getClassLoader().loadClass("ForTest").newInstance();
+//           ia.function();
+//        } catch (InstantiationException e) {
+//            e.printStackTrace();
+//        } catch (IllegalAccessException e) {
+//            e.printStackTrace();
+//        } catch (ClassNotFoundException e) {
+//            e.printStackTrace();
+//        }
+        ServiceRequest<TodoList> param = JSON.parseObject("{serviceId: \"test\", method: \"getPageData\", pageNo: 1, pageSize: 10, param: {id:'1'}}", new TypeReference<ServiceRequest<bean.TodoList>>(){});
+        System.out.println(param);
     }
     }
