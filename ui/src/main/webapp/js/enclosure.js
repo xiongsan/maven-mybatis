@@ -1,25 +1,39 @@
 ;(function ($) {
     //插件所有功能都写在这个函数下
 
-    var serverPath = 'http://' + window.location.host + window.location.pathname;
+    const options={
+        async:true,
+        serverPath:'http://' + window.location.host + window.location.pathname
+    }
 
-    var async = true;
-
-    var param = {};
+    const ajaxService=function (param,callback,failCallback) {
+        let url = "/baseController/service"
+        $.ajax({
+            url: url,
+            type: 'POST',
+            async: options.async,
+            dataType: 'json',
+            contentType: 'application/json',
+            data: JSON.stringify(param),
+            success: function (data) {
+                callback(data)
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                console.log(`数据获取失败:${url}`)
+                failCallback ? failCallback(errorThrown) : void (0)
+            }
+        })
+        /*options.async如果被设置成false，在生命周期内，就永远为false，不方便之后代码调用*/
+        !options.async?options.async=true:void(0)
+    }
 
     var api = {
         config: function (opts) {
             //没有参数传入，直接返回默认参数
-            if(!opts) return serverPath;
+            if(!opts) return this;
             //有参数传入，通过key将options的值更新为用户的值
-            param={}
             for(var key in opts) {
-                if(key==='async'){
-                    async = opts[async];
-                }
-                else{
-                    param[key] = opts[key];
-                }
+              options[key]=opts[key]
             }
             return this;
         },
@@ -27,18 +41,12 @@
             //...
             return this;
         },
-        startService: function () {
-            let url = "/baseController/service"
-            $.ajax({
-                url: url,
-                type: 'POST',
-                async: async,
-                dataType: 'json',
-                contentType: 'application/json',
-                data: JSON.stringify(param),
-                success: function (data) {
-                    param.callback(data)
-                }
+        getOptions:function () {
+            return options.serverPath
+        },
+        startService: function (param) {
+            return new Promise(function (resolve, reject) {
+                return ajaxService(param, resolve, reject);
             })
         },
         upload: function (param,callback) {

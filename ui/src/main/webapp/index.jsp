@@ -9,44 +9,49 @@
     <link rel="shortcut icon" type="image/x-icon" href="http://localhost:8080/img/storz.ico"/>
     <script type="application/javascript">
         $(function () {
-            $('#imgLabel').attr("src",sweets.config()+'baseController/showPic/63b09a03-a5c2-44c0-a2b5-64eed870adc0')
+            $('#imgLabel').attr("src",sweets.getOptions()+'baseController/showPic/63b09a03-a5c2-44c0-a2b5-64eed870adc0')
         })
+
         function getData() {
-            sweets.config({serviceId:'test',method:'getData',callback:function (e) {
+            var param={serviceId:'test',method:'getData'}
+            sweets.startService(param).then(function (e) {
                 var result=e.data;
                 $.each(result,function (index, item) {
                     $('#div1').append('<div>'+item.title+'<div>')
                 })
-            }}).startService()
+            })
         }
         function addData() {
-            sweets.config({serviceId:'test',method:'addTodo',param:{sex:'男'},callback:function (e) {
+            var param={serviceId:'test',method:'addTodo',param:{sex:'男'}}
+            sweets.startService(param).then(function (e) {
                 if(e.status==='1'){
                     alert('添加成功')
                 }
                 else{
                     alert(e.tips)
                 }
-            }}).startService()
+            })
         }
         function getPageData() {
-            sweets.config({serviceId:'test',method:'getPageData',pageNo:1,pageSize:10,param:{title:'张三'},callback:function (e) {
+            var param={serviceId:'test',method:'getPageData',pageNo:1,pageSize:10,param:{title:'张三'}}
+            sweets.startService(param).then(function (e) {
                 var result=e.list;
                 $.each(result,function (index, item) {
                     $('#div1').append('<div>'+item.title+'<div>')
                 })
-            }}).startService()
+            })
         }
 
         function deleteFile() {
-            sweets.config({serviceId:'fileService',method:'deleteFile',param:{fileUrl:'4f773423-4bfb-483a-ac73-3d729d9a600a'},callback:function (e) {
+            var param={serviceId:'fileService',method:'deleteFile',param:{fileUrl:'4f773423-4bfb-483a-ac73-3d729d9a600a'}}
+            sweets.startService(param).then(function (e) {
                 if(e.status==='1'){
                     alert('删除成功')
                 }
                 else{
                     alert(e.tips)
                 }
-            }}).startService()
+            })
         }
         function upload() {
             sweets.upload('file',function (e) {
