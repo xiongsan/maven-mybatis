@@ -40,15 +40,15 @@ public class TodoListServiceIml extends BaseServiceImpl implements ITodoListServ
         if(cache.get("todolist")!=null){
             return ResultKit.serviceResponse(cache.get("todolist").getValue());
         }
-        List<TodoList> list = mapper.getTodoList();
+        List<TodoList> list = mapper.getTodoList(new TodoList());
         Element element = new Element("todolist",list);
         cache.put(element);
         return ResultKit.serviceResponse(list);
     }
 
-    public ServiceResponse getPageData(ServiceRequest param){
+    public ServiceResponse getPageData(ServiceRequest<TodoList> param){
         Page<TodoList> result = PageHelper.startPage(param.getPageNo(),param.getPageSize());
-        mapper.getTodoList();
+        mapper.getTodoList(param.getParam());
         return ServiceResponse.wrap(result);
     }
 
@@ -60,17 +60,16 @@ public class TodoListServiceIml extends BaseServiceImpl implements ITodoListServ
     @Override
     @SuppressWarnings("unchecked")
     /*事物处理*/
-    public ServiceResponse addTodo(Map<String,Object> todo) {
+    public ServiceResponse addTodo(TodoList todo) {
         Tool.startTransaction();
         try{
-            todo.put("", "");
-            todo.put("id","123");
-            todo.put("checked", 0);
-            todo.put("title", names[new Random().nextInt(names.length)]);
+            todo.setTitle(names[new Random().nextInt(names.length)]);
+            todo.setId(Tool.newGuid());
+            todo.setChecked(1);
             mapper.insertTodo(todo);
-            todo.put("id", "123456");
-            todo.put("checked", 1);
-            todo.put("title", names[new Random().nextInt(names.length)]);
+            todo.setTitle(names[new Random().nextInt(names.length)]);
+            todo.setId(Tool.newGuid());
+            todo.setChecked(0);
             mapper.insertTodo(todo);
             Tool.endTransaction();
             return ResultKit.success();

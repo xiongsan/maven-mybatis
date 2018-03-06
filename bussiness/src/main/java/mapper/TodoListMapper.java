@@ -12,11 +12,11 @@ import java.util.Map;
 @Repository
 public interface TodoListMapper {
 
-    List<TodoList> getTodoList();
+    List<TodoList> getTodoList(TodoList todo);
 
     void updateTodoList(Map<String, Object> param);
 
-    void insertTodo(Map<String,Object> todo);
+    void insertTodo(TodoList todo);
 
     void deleteTodo(Map<String,Object> param);
 }

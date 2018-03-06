@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="mapper.TodoListMapper" >
-    <select id="getTodoList" resultType="bean.TodoList">
-        SELECT * FROM todolist
+    <select id="getTodoList" resultType="bean.TodoList" parameterType="bean.TodoList">
+        SELECT * FROM todolist WHERE 1=1
+        <if test="title !=null and title != ''">
+            AND TITLE=#{title}
+        </if>
     </select>
 
     <update id="updateTodoList" parameterType="map">

@@ -30,7 +30,7 @@
             }}).startService()
         }
         function getPageData() {
-            sweets.config({serviceId:'test',method:'getPageData',pageNo:1,pageSize:10,param:{},callback:function (e) {
+            sweets.config({serviceId:'test',method:'getPageData',pageNo:1,pageSize:10,param:{title:'张三'},callback:function (e) {
                 var result=e.list;
                 $.each(result,function (index, item) {
                     $('#div1').append('<div>'+item.title+'<div>')
@@ -51,6 +51,7 @@
         function upload() {
             sweets.upload('file',function (e) {
                 console.log(e.data)
+                alert('上传成功')
             })
         }
     </script>

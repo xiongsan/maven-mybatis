@@ -5,6 +5,7 @@ import com.alibaba.fastjson.TypeReference;
 import com.fable.enclosure.bussiness.entity.ServiceRequest;
 
 import java.lang.reflect.Method;
+import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -38,6 +39,5 @@ public class Test {
 //        } catch (ClassNotFoundException e) {
 //            e.printStackTrace();
 //        }
-        ServiceRequest<TodoList> param = JSON.parseObject("{serviceId: \"test\", method: \"getPageData\", pageNo: 1, pageSize: 10, param: {}}", new TypeReference<ServiceRequest<TodoList>>(){});
     }
 }

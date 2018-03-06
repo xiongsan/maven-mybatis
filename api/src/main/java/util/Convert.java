@@ -5,6 +5,7 @@ import com.alibaba.fastjson.*;
 import com.fable.enclosure.bussiness.entity.ServiceRequest;
 
 import java.math.BigDecimal;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -185,7 +186,12 @@ public class Convert {
 //        } catch (ClassNotFoundException e) {
 //            e.printStackTrace();
 //        }
-        ServiceRequest<TodoList> param = JSON.parseObject("{serviceId: \"test\", method: \"getPageData\", pageNo: 1, pageSize: 10, param: {id:'1'}}", new TypeReference<ServiceRequest<bean.TodoList>>(){});
-        System.out.println(param);
+//        ServiceRequest<TodoList> param = JSON.parseObject("{serviceId: \"test\", method: \"getPageData\", pageNo: 1, pageSize: 10, param: {id:'1'}}", new TypeReference<ServiceRequest<bean.TodoList>>(){});
+//        ServiceRequest<Map<String,Object>> param1= JSON.parseObject("{serviceId: \"test\", method: \"addTodo\", param: {sex: \"男\"}}", new TypeReference<ServiceRequest<Map<String,Object>>>(){});
+//        System.out.println(param1);
+        String json = "{id:123,name:456}";
+        JSONObject jsonObject = JSONObject.parseObject(json);
+        System.out.println(jsonObject.remove("id"));
+        System.out.println(jsonObject);
     }
     }
