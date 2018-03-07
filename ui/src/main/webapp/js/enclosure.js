@@ -27,7 +27,7 @@
         !options.async?options.async=true:void(0)
     }
 
-    var api = {
+    this.sweets = {
         config: function (opts) {
             //没有参数传入，直接返回默认参数
             if(!opts) return this;
@@ -72,5 +72,4 @@
             });
         }
     }
-    this.sweets=api
 })(jQuery);

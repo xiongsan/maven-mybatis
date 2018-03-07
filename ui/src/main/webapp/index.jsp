@@ -43,7 +43,7 @@
         }
 
         function deleteFile() {
-            var param={serviceId:'fileService',method:'deleteFile',param:{fileUrl:'4f773423-4bfb-483a-ac73-3d729d9a600a'}}
+            var param={serviceId:'fileService',method:'deleteFile',param:{fileUrl:'75819a54-3f07-46d6-92e1-57419276d2f4'}}
             sweets.startService(param).then(function (e) {
                 if(e.status==='1'){
                     alert('删除成功')
@@ -79,7 +79,7 @@
         文件：<input id="file" type="file"/><br/>
     <button onclick="upload()">上传</button>
     <a href="http://localhost:8080/hanoi"><span>hanoi</span></a>
-    <a href="http://localhost:8080/baseController/download/美图.png/7ce9e88a-4c61-4a04-b04c-b506dc3ad694">下载</a>
+    <a href="http://localhost:8080/baseController/download/美图.docx/75819a54-3f07-46d6-92e1-57419276d2f4">下载</a>
     <button onclick="deleteFile()">
         删除文件
     </button>

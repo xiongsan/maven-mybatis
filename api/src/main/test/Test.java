@@ -29,15 +29,15 @@ import java.util.Map;
 public class Test {
 
     public static void main(String[] args) {
-//        try {
-//           Ia ia= (Ia) new Test().getClass().getClassLoader().loadClass("ForTest").newInstance();
-//           ia.function();
-//        } catch (InstantiationException e) {
-//            e.printStackTrace();
-//        } catch (IllegalAccessException e) {
-//            e.printStackTrace();
-//        } catch (ClassNotFoundException e) {
-//            e.printStackTrace();
-//        }
+        try {
+           Ia ia= (Ia) new Test().getClass().getClassLoader().loadClass("ForTest").newInstance();
+           ia.function();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }

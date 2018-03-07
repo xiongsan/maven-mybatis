@@ -60,9 +60,10 @@ public class TodoListServiceIml extends BaseServiceImpl implements ITodoListServ
     @Override
     @SuppressWarnings("unchecked")
     /*事物处理*/
-    public ServiceResponse addTodo(TodoList todo) {
+    public ServiceResponse addTodo(ServiceRequest<TodoList> request) {
         Tool.startTransaction();
         try{
+            TodoList todo = request.getParam();
             todo.setTitle(names[new Random().nextInt(names.length)]);
             todo.setId(Tool.newGuid());
             todo.setChecked(1);

@@ -1,6 +1,7 @@
 package service.fileService;
 
 import com.fable.enclosure.bussiness.entity.ResultKit;
+import com.fable.enclosure.bussiness.entity.ServiceRequest;
 import com.fable.enclosure.bussiness.entity.ServiceResponse;
 import com.fable.enclosure.bussiness.service.impl.BaseServiceImpl;
 import com.github.pagehelper.Page;
@@ -55,11 +56,11 @@ public class FileServiceImpl extends BaseServiceImpl implements IFileService{
      * @return
      */
     @Override
-    public ServiceResponse deleteFile(Map<String, Object> param) {
-            File file = new File(getFileFolder(), param.get("fileUrl").toString());
+    public ServiceResponse deleteFile(ServiceRequest<Map<String,String>> param) {
+            File file = new File(getFileFolder(), param.getParam().get("fileUrl"));
             if (file.exists()) {
                 if (file.delete()){
-                    mapper.deleteFile(param);
+                    mapper.deleteFile(param.getParam());
                     return ResultKit.success();
                 }
                 return ResultKit.fail("删除文件失败");
@@ -69,14 +70,14 @@ public class FileServiceImpl extends BaseServiceImpl implements IFileService{
     }
 
     @Override
-    public ServiceResponse getFileList(Map<String, Object> param) {
-        Page<Map<String,Object>> result = PageHelper.startPage(Integer.parseInt(param.get("pageNo").toString()),Integer.parseInt(param.get("pageSize").toString()));
+    public ServiceResponse getFileList(ServiceRequest<Map<String,String>> param) {
+        Page<Map<String,Object>> result = PageHelper.startPage(param.getPageNo(),param.getPageSize());
         mapper.getFileList();
         return ServiceResponse.wrap(result);
     }
 
     @Override
-    public ServiceResponse addFile(Map<String, Object> param) {
-        return ResultKit.serviceResponse(mapper.addFile(param));
+    public ServiceResponse addFile(ServiceRequest<Map<String,String>> param) {
+        return ResultKit.serviceResponse(mapper.addFile(param.getParam()));
     }
 }

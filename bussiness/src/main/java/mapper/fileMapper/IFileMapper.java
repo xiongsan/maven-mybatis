@@ -29,7 +29,7 @@ import java.util.Map;
 public interface IFileMapper {
     List<Map<String,Object>> getFileList();
 
-    boolean addFile(Map<String,Object> param);
+    boolean addFile(Map<String,String> param);
 
-    boolean deleteFile(Map<String,Object> param);
+    boolean deleteFile(Map<String,String> param);
 }

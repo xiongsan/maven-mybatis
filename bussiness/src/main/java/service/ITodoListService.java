@@ -1,6 +1,7 @@
 package service;
 
 import bean.TodoList;
+import com.fable.enclosure.bussiness.entity.ServiceRequest;
 import com.fable.enclosure.bussiness.entity.ServiceResponse;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,7 +16,7 @@ public interface ITodoListService {
 
     void modifyTodoList(Map<String, Object> param);
 
-    ServiceResponse addTodo(TodoList todo);
+    ServiceResponse addTodo(ServiceRequest<TodoList> request);
 
     void cancelTodo(Map<String,Object> param);
 }
