@@ -12,9 +12,6 @@ public class DynamicProxy implements InvocationHandler {
 
     private Object target;
 
-    public void setTarget(Object target) {
-        this.target = target;
-    }
     /**
      * 绑定委托对象并返回一个代理类
      * @param target
@@ -41,18 +38,6 @@ public class DynamicProxy implements InvocationHandler {
         Account account= (Account )proxy.getInstance(new AccountImpl());
         account.query("娃哈哈");
 
-        //第二种方式不需要用Proxy.newProxyInstance，反射的事我们自己来实现
-        DynamicProxy proxy1 = new DynamicProxy();
-        proxy1.setTarget(new AccountImpl());
-        try {
-            proxy1.invoke(proxy, Class.forName("proxy.AccountImpl").getMethod("query", String.class),new Object[]{"爹哈哈"});
-        } catch (Throwable throwable) {
-            throwable.printStackTrace();
-        }
-
-        //代理AccountImpl2
-        DynamicProxy proxy2 = new DynamicProxy();
-        // 在这里进行真正的对象传入,你们才是熊孩子，我现在已经是熊大人了
         Account account2= (Account )proxy.getInstance(new AccountImpl2());
         account2.query("爷哈哈");
     }

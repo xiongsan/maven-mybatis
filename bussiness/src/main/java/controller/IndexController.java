@@ -19,4 +19,9 @@ public class IndexController {
         return "hanoi";
     }
 
+    @RequestMapping("/liveApproval")
+    public String liveApproval() {
+        return "liveApproval";
+    }
+
 }

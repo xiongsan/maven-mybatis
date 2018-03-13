@@ -79,6 +79,7 @@
         文件：<input id="file" type="file"/><br/>
     <button onclick="upload()">上传</button>
     <a href="http://localhost:8080/hanoi"><span>hanoi</span></a>
+    <a href="http://localhost:8080/liveApproval"><span>liveApproval</span></a>
     <a href="http://localhost:8080/baseController/download/美图.docx/75819a54-3f07-46d6-92e1-57419276d2f4">下载</a>
     <button onclick="deleteFile()">
         删除文件
