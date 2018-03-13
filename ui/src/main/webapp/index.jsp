@@ -13,17 +13,15 @@
         })
 
         function getData() {
-            var param={serviceId:'test',method:'getData'}
-            sweets.startService(param).then(function (e) {
-                var result=e.data;
+            sweets.startService('test','getData').then(function (e) {
+                var result=e.object;
                 $.each(result,function (index, item) {
                     $('#div1').append('<div>'+item.title+'<div>')
                 })
             })
         }
         function addData() {
-            var param={serviceId:'test',method:'addTodo',param:{sex:'男'}}
-            sweets.startService(param).then(function (e) {
+            sweets.startService('test','addTodo',{param:{sex:'男'}}).then(function (e) {
                 if(e.status==='1'){
                     alert('添加成功')
                 }
@@ -32,31 +30,27 @@
                 }
             })
         }
-        function getPageData() {
-            var param={serviceId:'test',method:'getPageData',pageNo:1,pageSize:10,param:{title:'张三'}}
-            sweets.startService(param).then(function (e) {
-                var result=e.list;
-                $.each(result,function (index, item) {
-                    $('#div1').append('<div>'+item.title+'<div>')
-                })
-            })
-        }
-
-        function deleteFile() {
-            var param={serviceId:'fileService',method:'deleteFile',param:{fileUrl:'75819a54-3f07-46d6-92e1-57419276d2f4'}}
-            sweets.startService(param).then(function (e) {
-                if(e.status==='1'){
-                    alert('删除成功')
-                }
-                else{
-                    alert(e.tips)
-                }
-            })
-        }
         function upload() {
             sweets.upload('file',function (e) {
-                console.log(e.data)
-                alert('上传成功')
+                if(e.status==='1'){
+                    sweets.startService('fileService','addFile',{param:e.object}).then(function (e2) {
+                        if(e2.status==='1'){
+                            alert('上传成功')
+                        }
+                        else{
+                            console.log('入库失败')
+                            //处理事物操作删除之前上传的文件
+                            sweets.startService('fileService','deleteFile',{param:e.object}).then(function () {
+                                if(e.status==='1'){
+                                    alert('事务：处理删除文件成功')
+                                }
+                                else{
+                                    alert('事务：处理删除文件失败')
+                                }
+                            })
+                        }
+                    })
+                }
             })
         }
     </script>
@@ -68,22 +62,15 @@
 </div>
 <div>
     <button onclick="getData()">
-        点我获取数据perfect
+        点我获取数据
     </button>
     <button onclick="addData()">
         点我添加数据
-    </button>
-    <button onclick="getPageData()">
-        点我获取分页数据
     </button>
         文件：<input id="file" type="file"/><br/>
     <button onclick="upload()">上传</button>
     <a href="http://localhost:8080/hanoi"><span>hanoi</span></a>
     <a href="http://localhost:8080/liveApproval"><span>liveApproval</span></a>
-    <a href="http://localhost:8080/baseController/download/美图.docx/75819a54-3f07-46d6-92e1-57419276d2f4">下载</a>
-    <button onclick="deleteFile()">
-        删除文件
-    </button>
     <img id="imgLabel"/>
     <div id="div1"></div>
 </div>

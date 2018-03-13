@@ -18,7 +18,9 @@
 	<link rel="stylesheet" href="http://localhost:8080/css/pages/kscc.css" type="text/css" />
 	<link rel="shortcut icon" type="image/x-icon" href="http://localhost:8080/images/icons/logo.png"/>
 	<script type="text/javascript" charset="utf-8" src="http://localhost:8080/js/lib/require.js"></script>
+	<script type="text/javascript" charset="utf-8" src="http://localhost:8080/js/jquery.js"></script>
 	<script type="text/javascript" charset="utf-8" src="http://localhost:8080/js/lib/config.js"></script>
+	<script src="http://localhost:8080/js/enclosure.js" type="application/javascript"></script>
 	<style>
 		.noBtn {width: 80px;} .yesBtn{width: 80px;}
 		#filedownload {

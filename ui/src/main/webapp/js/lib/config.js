@@ -112,7 +112,8 @@
 			"fileUpload":"lib/ajaxfileupload",
 			"date5.0":"lib/laydate5.0.min",
 			"autoSelect":"lib/jquery.autoSelect",
-			"areaSelect":"lib/areaSelect.min"
+			"areaSelect":"lib/areaSelect.min",
+			"enclosure":"lib/enclosure"
 		},
 		map: {
 	        '*': {

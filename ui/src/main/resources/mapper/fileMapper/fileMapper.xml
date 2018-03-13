@@ -11,6 +11,6 @@
     </insert>
 
     <delete id="deleteFile" parameterType="hashmap">
-        DELETE FROM todolist WHERE id=#{id}
+        DELETE FROM filelist WHERE fileUrl=#{fileUrl}
     </delete>
 </mapper>

@@ -4,13 +4,14 @@ import com.fable.enclosure.bussiness.entity.ResultKit;
 import com.fable.enclosure.bussiness.entity.ServiceRequest;
 import com.fable.enclosure.bussiness.entity.ServiceResponse;
 import com.fable.enclosure.bussiness.service.impl.BaseServiceImpl;
+import com.fable.enclosure.bussiness.util.Tool;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import mapper.fileMapper.IFileMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.io.File;
+import java.util.Date;
 import java.util.Map;
 
 /**
@@ -77,7 +78,10 @@ public class FileServiceImpl extends BaseServiceImpl implements IFileService{
     }
 
     @Override
-    public ServiceResponse addFile(ServiceRequest<Map<String,String>> param) {
+    public ServiceResponse addFile(ServiceRequest<Map<String,Object>> param) {
+        Map<String, Object> params = param.getParam();
+        params.put("id", Tool.newGuid());
+        params.put("createTime", new Date());
         return ResultKit.serviceResponse(mapper.addFile(param.getParam()));
     }
 }

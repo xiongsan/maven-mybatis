@@ -30,6 +30,6 @@ public interface IFileService {
     
     ServiceResponse getFileList(ServiceRequest<Map<String,String>> param);
     
-    ServiceResponse addFile(ServiceRequest<Map<String,String>> param);
+    ServiceResponse addFile(ServiceRequest<Map<String,Object>> param);
 
 }

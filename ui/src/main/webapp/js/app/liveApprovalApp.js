@@ -1,4 +1,5 @@
-define(["base","datatables.net"],function(base,DataTable){
+define(["base","datatables.net","enclosure"],function(base,DataTable){
+    var grid1date = null;
 function setTable(){
             var grid1Option ={
                 "searching":false,
@@ -12,8 +13,7 @@ function setTable(){
                 "language":{"url":$.base+"/js/lib/chinese.json"},
                 "ajax":{
                     "type":"post",
-                    "url":$.base+"/baseController/service",
-                    "contentType":"application/json",
+                    "url":$.base+"/baseController/service?serviceId=fileService&method=getFileList",
                     "data": function ( d ) {
                         d.start =d.start==0?d.start:d.start+2;
                         d.length = 12;
@@ -23,16 +23,14 @@ function setTable(){
                         }
                         var fileName='123';
                         var params={
-                            "pageNo": d.start/d.length+1,
-                            "pageSize": d.length,
-                            "serviceId":'fileService',
-                            "method":'getFileList',
-                            "param":{
-                                "fileName":fileName,//申请方
-                                "createTime": createTime,//申请结束时间
-                            }
+                            pageNo: d.start/d.length+1,
+                                pageSize: d.length,
+                                param:{
+                                    fileName:fileName,//申请方
+                                    createTime: createTime,//申请结束时间
+                                }
                         };
-                        return JSON.stringify(params);
+                        return {param:JSON.stringify(params)};
                     }
                 },
                 "columns":[
@@ -75,9 +73,10 @@ function setTable(){
                     },
                     {"render":function(data,type,row,meta){
 
-                        html =  "<div class='clearfix'>" +
-                            "<div style='display:inline-block;'><button class='btn btn-link liveView' rowId='"+row.id+"'>删除</button></div>";
-                        return html;
+                        html1 =  "<div class='clearfix'>" +
+                            "<div style='display:inline-block;'><button class='btn btn-link delete' rowId='"+row.fileUrl+"'>删除</button></div>&nbsp;&nbsp;&nbsp;&nbsp;";
+                        html2 =  `<a href='http://localhost:8080/baseController/download/${row.fileName}/${row.fileUrl}'>下载</a>`;
+                        return html1+html2;
                     },
                         "targets":4
                     }
@@ -85,12 +84,20 @@ function setTable(){
 
                 "drawCallback":function(setting){
                     $("#tblLiveApproval_length").hide();
-                    $(".liveView").off().on("click",function(){
-                        alert(123)
+                    $(".delete").off().on("click",function(){
+                        var fileUrl=$(this).attr("rowId")
+                        sweets.startService("fileService","deleteFile",{param:{fileUrl}}).then(function (e) {
+                            if(e.status==='1'){
+                                grid1date.ajax.reload()
+                            }
+                            else{
+                                alert('删除失败')
+                            }
+                        })
                     });
                 }
             }
-            $("#tblLiveApproval").DataTable(grid1Option);
+                 grid1date= $("#tblLiveApproval").DataTable(grid1Option);
 	    };
 
 	    function setPage(){
