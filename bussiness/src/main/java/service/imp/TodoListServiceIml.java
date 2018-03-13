@@ -32,7 +32,7 @@ public class TodoListServiceIml extends BaseServiceImpl implements ITodoListServ
     @Autowired
     private CacheManager cacheManager;
 
-    private String[] names=new String[]{"张三","李四","王二麻"};
+    private String[] names=new String[]{"张三","李四","王二麻","赵六","傻根","来福","二狗子","小花"};
 
     @SuppressWarnings("unchecked")
     public ServiceResponse getData() {
@@ -82,7 +82,8 @@ public class TodoListServiceIml extends BaseServiceImpl implements ITodoListServ
     }
 
     @Override
-    public void cancelTodo(Map<String,Object> param) {
-        mapper.deleteTodo(param);
+    public ServiceResponse deleteTodo(ServiceRequest<TodoList> request) {
+        mapper.deleteTodo(request.getParam());
+        return ResultKit.success();
     }
 }

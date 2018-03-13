@@ -24,4 +24,9 @@ public class IndexController {
         return "liveApproval";
     }
 
+    @RequestMapping("/todolist")
+    public String todolist() {
+        return "todolist";
+    }
+
 }

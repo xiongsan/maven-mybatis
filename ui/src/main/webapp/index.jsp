@@ -21,9 +21,9 @@
             })
         }
         function addData() {
-            sweets.startService('test','addTodo',{param:{sex:'男'}}).then(function (e) {
+            sweets.startService('test','addTodo',{param:{sex:'女'}}).then(function (e) {
                 if(e.status==='1'){
-                    alert('添加成功')
+                    console.log('addTodo success')
                 }
                 else{
                     alert(e.tips)
@@ -70,7 +70,8 @@
         文件：<input id="file" type="file"/><br/>
     <button onclick="upload()">上传</button>
     <a href="http://localhost:8080/hanoi"><span>hanoi</span></a>
-    <a href="http://localhost:8080/liveApproval"><span>liveApproval</span></a>
+    <a href="http://localhost:8080/liveApproval"><span>filelist</span></a>
+    <a href="http://localhost:8080/todolist"><span>todolist</span></a>
     <img id="imgLabel"/>
     <div id="div1"></div>
 </div>

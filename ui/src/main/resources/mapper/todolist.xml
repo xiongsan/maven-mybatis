@@ -26,7 +26,7 @@
         VALUES (#{id},#{title},#{checked},#{sex})
     </insert>
 
-    <delete id="deleteTodo" parameterType="string">
+    <delete id="deleteTodo" parameterType="bean.TodoList">
         DELETE FROM todolist WHERE id=#{id}
     </delete>
 </mapper>

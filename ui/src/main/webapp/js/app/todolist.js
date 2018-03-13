@@ -13,21 +13,15 @@ function setTable(){
                 "language":{"url":$.base+"/js/lib/chinese.json"},
                 "ajax":{
                     "type":"post",
-                    "url":$.base+"/baseController/service?serviceId=fileService&method=getFileList",
+                    "url":$.base+"/baseController/service?serviceId=test&method=getPageData",
                     "data": function ( d ) {
                         d.start =d.start==0?d.start:d.start+2;
                         d.length = 22;
-                        var createTime = $("#applicationEndTime").val();
-                        if(createTime !=''){
-                            createTime = createTime+':00';
-                        }
-                        var fileName='123';
                         var params={
                             pageNo: d.start/d.length+1,
                                 pageSize: d.length,
                                 param:{
-                                    fileName:fileName,//申请方
-                                    createTime: createTime,//申请结束时间
+
                                 }
                         };
                         return {param:JSON.stringify(params)};
@@ -35,9 +29,9 @@ function setTable(){
                 },
                 "columns":[
                     {"title":"序号","data":"id","sWidth":"4%"},
-                    {"title":"文件地址", "data":"fileUrl","sWidth":"24%"},
-                    {"title":"文件名称", "data":"fileName","sWidth":"24%"},
-                    {"title":"创建时间", "data":"createTime","sWidth":"24%"},
+                    {"title":"名字", "data":"title","sWidth":"24%"},
+                    {"title":"检查", "data":"checked","sWidth":"24%"},
+                    {"title":"性别", "data":"sex","sWidth":"24%"},
                     {"title":"操作", "data":"operate","sWidth":"24%"}
                 ],
                 "columnDefs":[
@@ -58,25 +52,24 @@ function setTable(){
                     {
                         "render":function(data,type,row,meta){
                             var html="";
-                            html="<span class='widthLength' title='"+data+"' style='width:100%;text-align: left'>"+row.fileName+"</span>";
+                            html="<span class='widthLength' title='"+data+"' style='width:100%;text-align: left'>"+data+"</span>";
                             return html;
                         },
                         "targets":2
                     },
                     {
                         "render":function(data,type,row,meta){
-                            if(data != null && data != ''){
-                                return (new Date(data)).format("YYYY-MM-DD HH:mm:SS");
-                            }
+                            var html="";
+                            html="<span class='widthLength' title='"+data+"' style='width:100%;text-align: left'>"+data+"</span>";
+                            return html;
                         },
                         "targets":3
                     },
                     {"render":function(data,type,row,meta){
 
-                        html1 =  "<div class='clearfix'>" +
-                            "<div style='display:inline-block;'><button class='btn btn-link delete' rowId='"+row.fileUrl+"'>删除</button></div>&nbsp;&nbsp;&nbsp;&nbsp;";
-                        html2 =  `<a href='http://localhost:8080/baseController/download/${row.fileName}/${row.fileUrl}'>下载</a>`;
-                        return html1+html2;
+                        return  "<div class='clearfix'>" +
+                            "<div style='display:inline-block;'><button class='btn btn-link delete' rowId='"+row.id+"'>删除</button></div>&nbsp;&nbsp;&nbsp;&nbsp;";
+
                     },
                         "targets":4
                     }
@@ -85,8 +78,8 @@ function setTable(){
                 "drawCallback":function(setting){
                     $("#tblLiveApproval_length").hide();
                     $(".delete").off().on("click",function(){
-                        var fileUrl=$(this).attr("rowId")
-                        sweets.startService("fileService","deleteFile",{param:{fileUrl}}).then(function (e) {
+                        var id=$(this).attr("rowId")
+                        sweets.startService("test","deleteTodo",{param:{id}}).then(function (e) {
                             if(e.status==='1'){
                                 grid1date.ajax.reload()
                             }

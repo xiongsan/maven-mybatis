@@ -18,5 +18,5 @@ public interface ITodoListService {
 
     ServiceResponse addTodo(ServiceRequest<TodoList> request);
 
-    void cancelTodo(Map<String,Object> param);
+    ServiceResponse deleteTodo(ServiceRequest<TodoList> request);
 }
