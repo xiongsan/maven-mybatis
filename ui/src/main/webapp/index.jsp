@@ -2,14 +2,14 @@
 <html>
 <head>
     <script src="${pageContext.request.contextPath}/js/jquery.min.js" type="application/javascript"></script>
-    <script src="${pageContext.request.contextPath}/js/enclosure.js" type="application/javascript"></script>
+    <script src="${pageContext.request.contextPath}/js/lib/enclosure.js" type="application/javascript"></script>
     <script src="${pageContext.request.contextPath}/js/ht.js" type="application/javascript"></script>
     <link rel="stylesheet" type="text/css"
           href="${pageContext.request.contextPath}/css/index.css" />
     <link rel="shortcut icon" type="image/x-icon" href="${pageContext.request.contextPath}/img/storz.ico"/>
     <script type="application/javascript">
         $(function () {
-            $('#imgLabel').attr("src",sweets.path+'/baseController/showPic/63b09a03-a5c2-44c0-a2b5-64eed870adc0')
+            $('#imgLabel').attr("src",sweets.showPic('63b09a03-a5c2-44c0-a2b5-64eed870adc0'))
         })
 
         function getData() {

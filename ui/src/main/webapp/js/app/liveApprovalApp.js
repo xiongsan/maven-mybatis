@@ -75,7 +75,7 @@ function setTable(){
 
                         html1 =  "<div class='clearfix'>" +
                             "<div style='display:inline-block;'><button class='btn btn-link delete' rowId='"+row.fileUrl+"'>删除</button></div>&nbsp;&nbsp;&nbsp;&nbsp;";
-                        html2 =  `<a href='http://localhost:8080/baseController/download/${row.fileName}/${row.fileUrl}'>下载</a>`;
+                        html2 =  `<a href='${sweets.download(row.fileName,row.fileUrl)}'>下载</a>`;
                         return html1+html2;
                     },
                         "targets":4

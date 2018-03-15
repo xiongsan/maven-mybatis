@@ -114,6 +114,12 @@
         getOptions:function () {
             return options.serverPath
         },
+        showPic:function (url) {
+            return  `${serverPath}/baseController/showPic/${url}`
+        },
+        download:function (name,url) {
+            return `${serverPath}/baseController/download/${name}/${url}`
+        },
         startService: function (serviceId,method,param) {
             return new Promise(function (resolve, reject) {
                 return ajaxService(serviceId,method,param, resolve, reject);
