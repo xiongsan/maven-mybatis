@@ -1,9 +1,16 @@
 ;(function ($) {
     //插件所有功能都写在这个函数下
 
+    const curWwwPath = window.document.location.href;
+    var pathName = window.document.location.pathname;
+    const pos = curWwwPath.indexOf(pathName);
+    const localhostPath = curWwwPath.substring(0,pos);
+    const projectName = pathName.substring(0,pathName.substr(1).indexOf('/')+1);
+    const serverPath = localhostPath+projectName;
+
     const options={
         async:true,
-        serverPath:'http://' + window.location.host + window.location.pathname
+        serverPath:serverPath
     }
 
     /**
@@ -11,8 +18,8 @@
      * 月(M)、日(d)、小时(h)、分(m)、秒(s)、季度(q) 可以用 1-2 个占位符，
      * 年(y)可以用 1-4 个占位符，毫秒(S)只能用 1 个占位符(是 1-3 位的数字)
      * 例子：
-     * (new Date()).Format("yyyy-MM-dd hh:mm:ss.S") ==> 2006-07-02 08:09:04.423
-     * (new Date()).Format("yyyy-M-d h:m:s.S")      ==> 2006-7-2 8:9:4.18
+     * (new Date()).Format("YYYY-MM-DD HH:mm:S") ==> 2006-07-02 08:09:04
+     * (new Date()).Format("YYYY-M-D H:m:S")      ==> 2006-7-2 8:9:4
      * @param fmt
      * @returns {*}
      */
@@ -69,8 +76,9 @@
         return date
     }
 
+
     const ajaxService=function (serviceId,method,param,callback,failCallback) {
-        let url = `/baseController/service?serviceId=${serviceId}&method=${method}`
+        let url = serverPath+`/baseController/service?serviceId=${serviceId}&method=${method}`
         $.ajax({
             url: url,
             type: 'POST',
@@ -104,12 +112,17 @@
             return this;
         },
         getOptions:function () {
-            return options.serverPath
+            return options
         },
+        path:serverPath,
         startService: function (serviceId,method,param) {
             return new Promise(function (resolve, reject) {
                 return ajaxService(serviceId,method,param, resolve, reject);
             })
+        },
+        getPageUrl:function (serviceId,method) {
+            const url=serverPath+`/baseController/service?serviceId=${serviceId}&method=${method}`
+            return url
         },
         upload: function (param,callback) {
             var files=document.getElementById(param).files
@@ -120,7 +133,7 @@
             let formData = new FormData();
             formData.append("file", files[0]);
             $.ajax({
-                url: "/baseController/upload",
+                url: serverPath+"/baseController/upload",
                 type: "POST",
                 data: formData,
                 contentType: false,

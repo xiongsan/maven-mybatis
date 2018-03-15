@@ -9,11 +9,11 @@ function setTable(){
                 "paging":true,
                 "stateSave":true,
                 "ordering":false,
-                "lengthMenu":[12],
+                "lengthMenu":[22],
                 "language":{"url":$.base+"/js/lib/chinese.json"},
                 "ajax":{
                     "type":"post",
-                    "url":$.base+"/baseController/service?serviceId=fileService&method=getFileList",
+                    "url":sweets.getPageUrl("fileService",'getFileList'),
                     "data": function ( d ) {
                         d.start =d.start==0?d.start:d.start+2;
                         d.length = 22;
@@ -50,7 +50,7 @@ function setTable(){
                     {
                         "render":function(data,type,row,meta){
                             var html="";
-                            html="<span class='widthLength widthLengthEx' style='width:100%;text-align: left' title='"+data+"'>"+data+"</span>";
+                            html="<span class='widthLength widthLengthEx' style='width:100%;text-align: center' title='"+data+"'>"+data+"</span>";
                             return html;
                         },
                         "targets":1
@@ -58,7 +58,7 @@ function setTable(){
                     {
                         "render":function(data,type,row,meta){
                             var html="";
-                            html="<span class='widthLength' title='"+data+"' style='width:100%;text-align: left'>"+row.fileName+"</span>";
+                            html="<span class='widthLength' title='"+data+"' style='width:100%;text-align: center'>"+row.fileName+"</span>";
                             return html;
                         },
                         "targets":2

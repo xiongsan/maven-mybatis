@@ -18,12 +18,12 @@
         }
     </style>
     <link rel="stylesheet" type="text/css"
-          href="http://localhost:8080/css/hanoi.css" />
-    <script src="http://localhost:8080/js/jquery.min.js" type="application/javascript"></script>
-    <script src="http://localhost:8080/js/ht.js" type="application/javascript"></script>
-    <script src="http://localhost:8080/js/randomColor.js" type="application/javascript"></script>
-    <script src="http://localhost:8080/js/easing.js" type="application/javascript"></script>
-    <script src="http://localhost:8080/js/index.js" type="application/javascript"></script>
+          href="${pageContext.request.contextPath}/css/hanoi.css" />
+    <script src="${pageContext.request.contextPath}/js/jquery.min.js" type="application/javascript"></script>
+    <script src="${pageContext.request.contextPath}/js/ht.js" type="application/javascript"></script>
+    <script src="${pageContext.request.contextPath}/js/randomColor.js" type="application/javascript"></script>
+    <script src="${pageContext.request.contextPath}/js/easing.js" type="application/javascript"></script>
+    <script src="${pageContext.request.contextPath}/js/index.js" type="application/javascript"></script>
 
 </head>
 <body onload="init()">

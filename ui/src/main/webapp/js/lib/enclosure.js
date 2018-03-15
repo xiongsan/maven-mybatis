@@ -1,9 +1,16 @@
 ;(function ($) {
     //插件所有功能都写在这个函数下
 
+    const curWwwPath = window.document.location.href;
+    var pathName = window.document.location.pathname;
+    const pos = curWwwPath.indexOf(pathName);
+    const localhostPath = curWwwPath.substring(0,pos);
+    const projectName = pathName.substring(0,pathName.substr(1).indexOf('/')+1);
+    const serverPath = localhostPath+projectName;
+
     const options={
         async:true,
-        serverPath:'http://' + window.location.host + window.location.pathname
+        serverPath:serverPath
     }
 
     /**
@@ -71,7 +78,7 @@
 
 
     const ajaxService=function (serviceId,method,param,callback,failCallback) {
-        let url = `/baseController/service?serviceId=${serviceId}&method=${method}`
+        let url = serverPath+`/baseController/service?serviceId=${serviceId}&method=${method}`
         $.ajax({
             url: url,
             type: 'POST',
@@ -112,6 +119,10 @@
                 return ajaxService(serviceId,method,param, resolve, reject);
             })
         },
+        getPageUrl:function (serviceId,method) {
+            const url=serverPath+`/baseController/service?serviceId=${serviceId}&method=${method}`
+            return url
+        },
         upload: function (param,callback) {
             var files=document.getElementById(param).files
             if(!files.length){
@@ -121,7 +132,7 @@
             let formData = new FormData();
             formData.append("file", files[0]);
             $.ajax({
-                url: "/baseController/upload",
+                url: serverPath+"/baseController/upload",
                 type: "POST",
                 data: formData,
                 contentType: false,

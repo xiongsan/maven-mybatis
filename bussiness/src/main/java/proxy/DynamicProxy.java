@@ -34,7 +34,7 @@ public class DynamicProxy implements InvocationHandler {
     public static void main(String[] args) {
         //第一种方式
         DynamicProxy proxy = new DynamicProxy();
-        // 在这里进行真正的对象传入,你们才是熊孩子，我现在已经是熊大人了
+
         Account account= (Account )proxy.getInstance(new AccountImpl());
         account.query("娃哈哈");
 

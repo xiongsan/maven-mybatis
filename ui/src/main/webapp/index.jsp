@@ -1,15 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <html>
 <head>
-    <script src="http://localhost:8080/js/jquery.min.js" type="application/javascript"></script>
-    <script src="http://localhost:8080/js/enclosure.js" type="application/javascript"></script>
-    <script src="http://localhost:8080/js/ht.js" type="application/javascript"></script>
+    <script src="${pageContext.request.contextPath}/js/jquery.min.js" type="application/javascript"></script>
+    <script src="${pageContext.request.contextPath}/js/enclosure.js" type="application/javascript"></script>
+    <script src="${pageContext.request.contextPath}/js/ht.js" type="application/javascript"></script>
     <link rel="stylesheet" type="text/css"
-          href="http://localhost:8080/css/index.css" />
-    <link rel="shortcut icon" type="image/x-icon" href="http://localhost:8080/img/storz.ico"/>
+          href="${pageContext.request.contextPath}/css/index.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="${pageContext.request.contextPath}/img/storz.ico"/>
     <script type="application/javascript">
         $(function () {
-            $('#imgLabel').attr("src",sweets.getOptions()+'baseController/showPic/63b09a03-a5c2-44c0-a2b5-64eed870adc0')
+            $('#imgLabel').attr("src",sweets.path+'/baseController/showPic/63b09a03-a5c2-44c0-a2b5-64eed870adc0')
         })
 
         function getData() {
@@ -69,9 +69,9 @@
     </button>
         文件：<input id="file" type="file"/><br/>
     <button onclick="upload()">上传</button>
-    <a href="http://localhost:8080/hanoi"><span>hanoi</span></a>
-    <a href="http://localhost:8080/liveApproval"><span>filelist</span></a>
-    <a href="http://localhost:8080/todolist"><span>todolist</span></a>
+    <a href="${pageContext.request.contextPath}/hanoi"><span>hanoi</span></a>
+    <a href="${pageContext.request.contextPath}/liveApproval"><span>filelist</span></a>
+    <a href="${pageContext.request.contextPath}/todolist"><span>todolist</span></a>
     <img id="imgLabel"/>
     <div id="div1"></div>
 </div>
