@@ -91,7 +91,7 @@ function setTable(){
                                 grid1date.ajax.reload()
                             }
                             else{
-                                alert('删除失败')
+                                alert(e.tips)
                             }
                         })
                     });

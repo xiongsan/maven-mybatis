@@ -54,8 +54,7 @@ public class FileServiceImpl extends BaseServiceImpl implements IFileService{
     /**
      * 删除文件，根据项目需要，操作进行数据库操作
      * @param param
-     * @return
-     */
+     * @return     */
     @Override
     public ServiceResponse deleteFile(ServiceRequest<Map<String,String>> param) {
             File file = new File(getFileFolder(), param.getParam().get("fileUrl"));
