@@ -23,8 +23,8 @@ import java.util.Random;
 /**
  * Created by Wanghairui on 2017/6/9.
  */
-@Service("test")
-public class TodoListServiceIml extends BaseServiceImpl implements ITodoListService{
+@Service
+public class TodoListServiceImpl extends BaseServiceImpl implements ITodoListService{
 
     @Autowired
     private TodoListMapper mapper;

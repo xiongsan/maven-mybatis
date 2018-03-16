@@ -31,7 +31,7 @@ import java.util.Map;
  * </p>
  * <p> Copyright : 江苏飞博软件股份有限公司 </p>
  */
-@Service("fileService")
+@Service
 public class FileServiceImpl extends BaseServiceImpl implements IFileService{
 
     

@@ -13,7 +13,7 @@
         })
 
         function getData() {
-            sweets.startService('test','getData').then(function (e) {
+            sweets.startService('todoListServiceImpl','getData').then(function (e) {
                 var result=e.object;
                 $.each(result,function (index, item) {
                     $('#div1').append('<div>'+item.title+'<div>')
@@ -21,7 +21,7 @@
             })
         }
         function addData() {
-            sweets.startService('test','addTodo',{param:{sex:'女'}}).then(function (e) {
+            sweets.startService('todoListServiceImpl','addTodo',{param:{sex:'女'}}).then(function (e) {
                 if(e.status==='1'){
                     console.log('addTodo success')
                 }

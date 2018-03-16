@@ -13,7 +13,7 @@ function setTable(){
                 "language":{"url":$.base+"/js/lib/chinese.json"},
                 "ajax":{
                     "type":"post",
-                    "url":sweets.getPageUrl("fileService",'getFileList'),
+                    "url":sweets.getPageUrl("fileServiceImpl",'getFileList'),
                     "data": function ( d ) {
                         d.start =d.start==0?d.start:d.start+2;
                         d.length = 22;
@@ -86,7 +86,7 @@ function setTable(){
                     $("#tblLiveApproval_length").hide();
                     $(".delete").off().on("click",function(){
                         var fileUrl=$(this).attr("rowId")
-                        sweets.startService("fileService","deleteFile",{param:{fileUrl}}).then(function (e) {
+                        sweets.startService("fileServiceImpl","deleteFile",{param:{fileUrl}}).then(function (e) {
                             if(e.status==='1'){
                                 grid1date.ajax.reload()
                             }
