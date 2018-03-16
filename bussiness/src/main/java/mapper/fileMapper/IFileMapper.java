@@ -27,7 +27,7 @@ import java.util.Map;
  */
 @Repository
 public interface IFileMapper {
-    List<Map<String,Object>> getFileList();
+    List<Map<String,Object>> getFileList(Map<String,String> param);
 
     boolean addFile(Map<String,Object> param);
 

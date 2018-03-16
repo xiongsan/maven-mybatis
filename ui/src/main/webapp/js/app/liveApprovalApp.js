@@ -17,17 +17,11 @@ function setTable(){
                     "data": function ( d ) {
                         d.start =d.start==0?d.start:d.start+2;
                         d.length = 22;
-                        var createTime = $("#applicationEndTime").val();
-                        if(createTime !=''){
-                            createTime = createTime+':00';
-                        }
-                        var fileName='123';
                         var params={
                             pageNo: d.start/d.length+1,
                                 pageSize: d.length,
                                 param:{
-                                    fileName:fileName,//申请方
-                                    createTime: createTime,//申请结束时间
+                                    fileName:$("#searchApprovalMessage").val(),//申请方
                                 }
                         };
                         return {param:JSON.stringify(params)};
@@ -112,6 +106,11 @@ function setTable(){
 					 format: 'yyyy-MM-dd HH:mm'
 				 }
 			 });
+
+            //依据直播名称查询
+            $(".fuzzySearchBtn").on("click",function(){
+                grid1date.ajax.reload();
+            });
 
         };
 

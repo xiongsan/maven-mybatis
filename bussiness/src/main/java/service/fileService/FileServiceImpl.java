@@ -72,7 +72,7 @@ public class FileServiceImpl extends BaseServiceImpl implements IFileService{
     @Override
     public ServiceResponse getFileList(ServiceRequest<Map<String,String>> param) {
         Page<Map<String,Object>> result = PageHelper.startPage(param.getPageNo(),param.getPageSize());
-        mapper.getFileList();
+        mapper.getFileList(param.getParam());
         return ServiceResponse.wrap(result);
     }
 
