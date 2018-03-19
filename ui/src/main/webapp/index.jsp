@@ -33,14 +33,14 @@
         function upload() {
             sweets.upload('file',function (e) {
                 if(e.status==='1'){
-                    sweets.startService('fileService','addFile',{param:e.object}).then(function (e2) {
+                    sweets.startService('fileServiceImpl','addFile',{param:e.object}).then(function (e2) {
                         if(e2.status==='1'){
                             alert('上传成功')
                         }
                         else{
                             console.log('入库失败')
                             //处理事物操作删除之前上传的文件
-                            sweets.startService('fileService','deleteFile',{param:e.object}).then(function () {
+                            sweets.startService('fileServiceImpl','deleteFile',{param:e.object}).then(function () {
                                 if(e.status==='1'){
                                     alert('事务：处理删除文件成功')
                                 }

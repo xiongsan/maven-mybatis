@@ -37,7 +37,7 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context-support</artifactId>
-            <version>5.0.2.RELEASE</version>
+            <version>3.2.0.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
@@ -226,7 +226,7 @@
         <dependency>
             <groupId>com.fable.enclosure</groupId>
             <artifactId>ssc</artifactId>
-            <version>0.8</version>
+            <version>0.1</version>
         </dependency>
         <dependency>
             <groupId>com.github.pagehelper</groupId>
