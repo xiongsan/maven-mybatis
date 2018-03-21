@@ -10,6 +10,8 @@ import com.github.pagehelper.PageHelper;
 import mapper.fileMapper.IFileMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.util.Date;
 import java.util.Map;
@@ -34,6 +36,9 @@ import java.util.Map;
 @Service
 public class FileServiceImpl extends BaseServiceImpl implements IFileService{
 
+    final private String ideaContainer = File.separator+"target";
+    final private String normalContainer = File.separator+"webapps";
+
     
     @Autowired
     IFileMapper mapper;
@@ -42,13 +47,17 @@ public class FileServiceImpl extends BaseServiceImpl implements IFileService{
      * @return 文件父级文件夹
      */
     @Override
-    public String getFileFolder() {
-        String url = System.getProperty("user.dir");
-        return url.substring(0, url.lastIndexOf(File.separator)) +
-                File.separator +
-                "user" +
-                File.separator +
-                "uploadFile";
+    public String getFileFolder(HttpServletRequest request) {
+        String uploadPath =request.getServletContext().getRealPath(
+                File.separator);
+        if(uploadPath.contains(normalContainer)){
+            uploadPath = uploadPath.substring(0, uploadPath.indexOf(normalContainer));
+        }
+        else{
+            uploadPath = uploadPath.substring(0, uploadPath.indexOf(ideaContainer));
+        }
+        uploadPath = uploadPath.substring(0, uploadPath.lastIndexOf(File.separator));
+        return uploadPath+File.separator+"uploadFile";
     }
 
     /**
@@ -57,7 +66,7 @@ public class FileServiceImpl extends BaseServiceImpl implements IFileService{
      * @return     */
     @Override
     public ServiceResponse deleteFile(ServiceRequest<Map<String,String>> param) {
-            File file = new File(getFileFolder(), param.getParam().get("fileUrl"));
+            File file = new File(getFileFolder(param.getRequest()), param.getParam().get("fileUrl"));
             if (file.exists()) {
                 if (file.delete()){
                     mapper.deleteFile(param.getParam());
