@@ -32,4 +32,6 @@ public interface IFileMapper {
     boolean addFile(Map<String,Object> param);
 
     boolean deleteFile(Map<String,String> param);
+
+    List<Map<String, String>> showPic();
 }

@@ -33,4 +33,6 @@ public interface IFileService {
     
     ServiceResponse addFile(ServiceRequest<Map<String,Object>> param);
 
+    ServiceResponse showPic();
+
 }

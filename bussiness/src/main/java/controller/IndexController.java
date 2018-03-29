@@ -29,4 +29,9 @@ public class IndexController {
         return "todolist";
     }
 
+    @RequestMapping("/picture")
+    public String picture() {
+        return "picture";
+    }
+
 }

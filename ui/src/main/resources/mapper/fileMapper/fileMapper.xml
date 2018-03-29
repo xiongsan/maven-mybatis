@@ -17,4 +17,7 @@
     <delete id="deleteFile" parameterType="hashmap">
         DELETE FROM filelist WHERE fileUrl=#{fileUrl}
     </delete>
+    <select id="showPic" resultType="hashmap">
+        select * from filelist where fileName regexp 'png|jpg|gif|bmp';
+    </select>
 </mapper>

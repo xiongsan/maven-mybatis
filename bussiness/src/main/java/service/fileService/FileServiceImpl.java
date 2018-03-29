@@ -92,4 +92,11 @@ public class FileServiceImpl extends BaseServiceImpl implements IFileService{
         params.put("createTime", new Date());
         return ResultKit.serviceResponse(mapper.addFile(param.getParam()));
     }
+
+    @Override
+    public ServiceResponse showPic() {
+        return ResultKit.serviceResponse(mapper.showPic());
+    }
+
+
 }

@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <html>
 <head>
-    <script src="${pageContext.request.contextPath}/js/jquery.min.js" type="application/javascript"></script>
-    <script src="${pageContext.request.contextPath}/js/lib/enclosure.js" type="application/javascript"></script>
-    <script src="${pageContext.request.contextPath}/js/ht.js" type="application/javascript"></script>
+    <script src="/js/jquery.min.js" type="application/javascript"></script>
+    <script src="/js/lib/enclosure.js" type="application/javascript"></script>
+    <script src="/js/ht.js" type="application/javascript"></script>
     <link rel="stylesheet" type="text/css"
-          href="${pageContext.request.contextPath}/css/index.css" />
-    <link rel="shortcut icon" type="image/x-icon" href="${pageContext.request.contextPath}/img/storz.ico"/>
+          href="/css/index.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="/img/storz.ico"/>
     <script type="application/javascript">
         $(function () {
             $('#imgLabel').attr("src",sweets.showPic('63b09a03-a5c2-44c0-a2b5-64eed870adc0'))
@@ -69,9 +69,10 @@
     </button>
         文件：<input id="file" type="file"/><br/>
     <button onclick="upload()">上传</button>
-    <a href="${pageContext.request.contextPath}/hanoi"><span>hanoi</span></a>
-    <a href="${pageContext.request.contextPath}/liveApproval"><span>filelist</span></a>
-    <a href="${pageContext.request.contextPath}/todolist"><span>todolist</span></a>
+    <a href="/hanoi"><span>hanoi</span></a>
+    <a href="/liveApproval"><span>filelist</span></a>
+    <a href="/todolist"><span>todolist</span></a>
+    <a href="/picture"><span>picture</span></a>
     <img id="imgLabel"/>
     <div id="div1"></div>
 </div>

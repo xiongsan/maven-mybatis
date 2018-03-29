@@ -62,7 +62,6 @@
         }
         if(pattern.indexOf("HH")>-1){
             const hourIndex = pattern.indexOf("HH")
-            console.log('hehe')
             date.setHours(this.substring(hourIndex,hourIndex+2))
         }
         if(pattern.indexOf("mm")>-1){
