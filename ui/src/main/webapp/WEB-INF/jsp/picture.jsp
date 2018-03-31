@@ -14,7 +14,7 @@
 	<script type="text/javascript" charset="utf-8" src="/js/lib/config.js"></script>
 </head>
 <body>
-<div id="myCarousel" class="carousel slide" style="width: 60%;height:100%;margin: 0 auto;overflow: hidden;">
+<div id="myCarousel" class="carousel slide" style="height:100%;margin: 0 auto;overflow: hidden;">
 	<!-- 轮播（Carousel）指标 -->
 	<ol class="carousel-indicators">
 	</ol>

@@ -13,6 +13,10 @@ define(["base","enclosure"],function(base){
                     html2=!index?'<li data-target="#myCarousel" data-slide-to="'+index+'" class="active"></li>':
                         '<li data-target="#myCarousel" data-slide-to="'+index+'"></li>'
                     $('.carousel-indicators').append(html2)
+                    var height=document.body.clientHeight;
+                    var width=height*0.75
+                    $('img').css({height:height,width:width})
+                    $('#myCarousel').css({width:width})
                 })
             }
         })

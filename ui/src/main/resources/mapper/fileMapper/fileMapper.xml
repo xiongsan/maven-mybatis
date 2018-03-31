@@ -18,6 +18,6 @@
         DELETE FROM filelist WHERE fileUrl=#{fileUrl}
     </delete>
     <select id="showPic" resultType="hashmap">
-        select * from filelist where fileName regexp 'png|jpg|gif|bmp';
+        select * from filelist where fileName regexp 'png|jpg|gif|bmp' ORDER BY createTime DESC ;
     </select>
 </mapper>

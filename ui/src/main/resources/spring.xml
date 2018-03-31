@@ -93,14 +93,6 @@
 		</property>
 	</bean>
 
-	<!--很奇怪，spring4.2.4release里没有ehcache，被放到context-support里了，fuck，找了半天-->
-	<bean id="cacheManager"
-		  class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
-		<property name="configLocation">
-			<value>classpath:ehcache.xml</value>
-		</property>
-	</bean>
-
 	<!-- 支持上传文件 -->
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
 	<bean class="com.fable.enclosure.bussiness.util.SpringContextUtil"/>

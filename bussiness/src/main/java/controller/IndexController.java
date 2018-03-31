@@ -1,11 +1,8 @@
 package controller;
 
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.commons.CommonsMultipartFile;
-import java.io.File;
-import java.io.IOException;
 
 
 /**
@@ -14,11 +11,17 @@ import java.io.IOException;
 @Controller
 public class IndexController {
 
+    @RequestMapping("/home")
+    public String home() {
+        return "home";
+    }
+
     @RequestMapping("/hanoi")
     public String pc() {
         return "hanoi";
     }
 
+    @RequiresPermissions("/liveApproval")
     @RequestMapping("/liveApproval")
     public String liveApproval() {
         return "liveApproval";
