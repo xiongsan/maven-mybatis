@@ -37,4 +37,10 @@ public class IndexController {
         return "picture";
     }
 
+    @RequestMapping("/error")
+    public String error() {
+        return "error";
+    }
+
+
 }
