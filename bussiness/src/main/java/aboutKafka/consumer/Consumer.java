@@ -29,7 +29,7 @@ import java.util.Properties;
  * </p>
  * <p> Copyright : 江苏飞博软件股份有限公司 </p>
  */
-public class Test {
+public class Consumer {
     public static void main(String[] args){
         Properties props = new Properties();
         props.put("bootstrap.servers", "192.168.20.197:9092");
@@ -51,7 +51,7 @@ public class Test {
 //
 //            }
 //        });
-        consumer.subscribe(Arrays.asList("netflow"));
+        consumer.subscribe(Arrays.asList("netflow","test1","test2"));
         while (true) {
             ConsumerRecords<String, String> records = consumer.poll(100);
             for (ConsumerRecord<String, String> record : records){

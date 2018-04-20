@@ -1,11 +1,10 @@
 package util;
 
-import bean.TodoList;
-import com.alibaba.fastjson.*;
-import com.fable.enclosure.bussiness.entity.ServiceRequest;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONException;
+import com.alibaba.fastjson.JSONObject;
 
 import java.math.BigDecimal;
-import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -103,11 +102,11 @@ public class Convert {
     }
 
     //判断是否偶数
-    private boolean function(int i){
+    private static boolean function(int i){
             return i%2==0;
     }
-    private boolean function1(int i){
-        return !(i%2==1);
+    private static boolean isOdd(int i){
+        return i % 2 == 1;
     }
 
     //json转化
@@ -189,9 +188,10 @@ public class Convert {
 //        ServiceRequest<TodoList> param = JSON.parseObject("{serviceId: \"test\", method: \"getPageData\", pageNo: 1, pageSize: 10, param: {id:'1'}}", new TypeReference<ServiceRequest<bean.TodoList>>(){});
 //        ServiceRequest<Map<String,Object>> param1= JSON.parseObject("{serviceId: \"test\", method: \"addTodo\", param: {sex: \"男\"}}", new TypeReference<ServiceRequest<Map<String,Object>>>(){});
 //        System.out.println(param1);
-        String json = "{id:123,name:456}";
-        JSONObject jsonObject = JSONObject.parseObject(json);
-        System.out.println(jsonObject.remove("id"));
-        System.out.println(jsonObject);
+//        String json = "{id:123,name:456}";
+//        JSONObject jsonObject = JSONObject.parseObject(json);
+//        System.out.println(jsonObject.remove("id"));
+//        System.out.println(jsonObject);
+        System.out.println(isOdd(-3));
     }
     }

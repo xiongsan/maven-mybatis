@@ -15,8 +15,8 @@ function setTable(){
                     "type":"post",
                     "url":sweets.getPageUrl("fileServiceImpl",'getFileList'),
                     "data": function ( d ) {
-                        d.start =d.start==0?d.start:d.start+2;
-                        d.length = 22;
+                        d.start =!d.start?d.start:d.start+2;
+                        d.length = 20;
                         var params={
                             pageNo: d.start/d.length+1,
                                 pageSize: d.length,
