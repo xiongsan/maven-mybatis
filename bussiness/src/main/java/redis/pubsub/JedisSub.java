@@ -23,7 +23,7 @@ public class JedisSub {
             @Override
             public void run() {
                 try {
-                    Jedis jedis = new Jedis("127.0.0.1", 6379);
+                    Jedis jedis = new Jedis("192.168.20.197", 6379);
                     jedis.subscribe(new RedisListener(), "CCTV-1");
                 } catch (Exception e) {
                     e.printStackTrace();

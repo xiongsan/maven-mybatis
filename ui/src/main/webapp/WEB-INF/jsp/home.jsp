@@ -14,12 +14,23 @@
         })
 
         function getData() {
-            sweets.startService('todoListServiceImpl','getData').then(function (e) {
-                var result=e.object;
-                $.each(result,function (index, item) {
-                    $('#div1').append('<div>'+item.title+'<div>')
-                })
-            })
+//            sweets.startService('todoListServiceImpl','getData').then(function (e) {
+//                var result=e.object;
+//                $.each(result,function (index, item) {
+//                    $('#div1').append('<div>'+item.title+'<div>')
+//                })
+//            })
+            var url="ws://"+sweets.getOptions().substr(7)+"/websocket";
+//            if(ws){
+//                ws.close();
+//            }
+                    var ws=new WebSocket(url);
+                    ws.onmessage=function (e) {
+                        console.log(e.data)
+                    }
+                    ws.onclose=function (e) {
+                        console.log("websocket is closed")
+                    }
         }
         function addData() {
             sweets.startService('todoListServiceImpl','addTodo',{param:{sex:'女'}}).then(function (e) {

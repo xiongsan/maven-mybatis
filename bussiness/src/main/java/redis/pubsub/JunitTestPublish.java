@@ -36,7 +36,7 @@ public class JunitTestPublish {
             //第四个参数timeout，为10秒，四千万数据量集合上操作最多一次大概超时5秒
             //redis.clients.jedis.Protocol.DEFAULT_TIMEOUT = 2000 为两秒
             //通过以下构造方法，设置超时允许时间为10s，不太会出现socket timeout超时问题
-            this.jedisPool = new JedisPool(config, "127.0.0.1", 6379, 100000);
+            this.jedisPool = new JedisPool(config, "192.168.20.197", 6379, 100000);
         }
         return this.jedisPool;
     }

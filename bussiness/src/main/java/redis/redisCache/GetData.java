@@ -7,10 +7,8 @@ import org.junit.Test;
 import org.springframework.util.StringUtils;
 import redis.clients.jedis.Jedis;
 import redis.pubsub.JunitTestPublish;
-import service.userService.UserService;
 
-import java.io.*;
-import java.util.Date;
+import java.io.IOException;
 import java.util.List;
 
 /**

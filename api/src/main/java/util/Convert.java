@@ -171,27 +171,15 @@ public class Convert {
         Matcher matcher = pattern.matcher("sdfgsd我._是。-（）");
         boolean b=matcher.matches();
 
+        Pattern pattern1 = Pattern.compile("((25[0-5]|2[0-4]\\d|((1\\d{2})|([1-9]?\\d)))\\.){3}(25[0-5]|2[0-4]\\d|((1\\d{2})|([1-9]?\\d)|\\*))");
+
         boolean c= Pattern.matches("a*b", "aaaaab");
-        System.out.println(b);
+//        System.out.println(b);
+        Matcher matcher1 = pattern1.matcher("192.168.20.12365");
+        boolean d = matcher1.matches();
+        System.out.println(d+"------------");
     }
     public static void main(String[] args) {
-//        try {
-//           Ia ia= (Ia) new Test().getClass().getClassLoader().loadClass("ForTest").newInstance();
-//           ia.function();
-//        } catch (InstantiationException e) {
-//            e.printStackTrace();
-//        } catch (IllegalAccessException e) {
-//            e.printStackTrace();
-//        } catch (ClassNotFoundException e) {
-//            e.printStackTrace();
-//        }
-//        ServiceRequest<TodoList> param = JSON.parseObject("{serviceId: \"test\", method: \"getPageData\", pageNo: 1, pageSize: 10, param: {id:'1'}}", new TypeReference<ServiceRequest<bean.TodoList>>(){});
-//        ServiceRequest<Map<String,Object>> param1= JSON.parseObject("{serviceId: \"test\", method: \"addTodo\", param: {sex: \"男\"}}", new TypeReference<ServiceRequest<Map<String,Object>>>(){});
-//        System.out.println(param1);
-//        String json = "{id:123,name:456}";
-//        JSONObject jsonObject = JSONObject.parseObject(json);
-//        System.out.println(jsonObject.remove("id"));
-//        System.out.println(jsonObject);
-        System.out.println(isOdd(-3));
+match();
     }
     }
