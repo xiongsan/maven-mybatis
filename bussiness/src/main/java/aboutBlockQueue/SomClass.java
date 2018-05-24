@@ -1,9 +1,6 @@
 package aboutBlockQueue;
 
 import java.lang.reflect.ParameterizedType;
-import java.sql.SQLOutput;
-import java.util.List;
-import java.util.concurrent.BlockingQueue;
 
 /**
  * <p>

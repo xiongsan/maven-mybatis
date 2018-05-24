@@ -1,8 +1,6 @@
 package redis.pubsub;
 
-import org.apache.poi.util.StringUtil;
 import org.junit.Test;
-import org.springframework.util.StringUtils;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;

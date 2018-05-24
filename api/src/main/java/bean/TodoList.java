@@ -1,7 +1,5 @@
 package bean;
 
-import lombok.Data;
-
 /**
  * Created by Wanghairui on 2017/6/9.
  */

@@ -2,8 +2,6 @@ package aboutJson;
 
 import entity.User;
 
-import javax.naming.Name;
-
 /**
  * <p>
  * Title :

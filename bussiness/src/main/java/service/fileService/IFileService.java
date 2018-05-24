@@ -1,7 +1,5 @@
 package service.fileService;
 
-import com.fable.enclosure.bussiness.entity.ServiceRequest;
-import com.fable.enclosure.bussiness.entity.ServiceResponse;
 import com.fable.enclosure.bussiness.interfaces.BaseRequest;
 import com.fable.enclosure.bussiness.interfaces.BaseResponse;
 

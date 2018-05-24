@@ -1,10 +1,7 @@
 package mapper.fileMapper;
 
-import com.fable.enclosure.bussiness.entity.ServiceResponse;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
-import javax.xml.ws.Service;
 import java.util.List;
 import java.util.Map;
 

@@ -1,7 +1,5 @@
 package aboutBlockQueue;
 
-import java.lang.ref.ReferenceQueue;
-
 /**
  * <p>
  * Title :
