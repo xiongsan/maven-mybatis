@@ -24,8 +24,8 @@ import org.apache.shiro.crypto.hash.SimpleHash;
  */
 public class PasswordHelper {
     private static RandomNumberGenerator randomNumberGenerator = new SecureRandomNumberGenerator();
-    private String algorithmName = "md5";
-    private final int hashIterations = 2;
+    private static final String algorithmName = "md5";
+    private static final int hashIterations = 2;
 
     public void encryptPassword(User user) {
         // User对象包含最基本的字段Username和Password
