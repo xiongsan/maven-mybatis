@@ -1,15 +1,10 @@
 package aboutKafka.consumer;
 
-import com.alibaba.fastjson.JSONObject;
-import org.apache.kafka.clients.consumer.ConsumerRebalanceListener;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
-import org.apache.kafka.common.TopicPartition;
 
 import java.util.Arrays;
-import java.util.Collection;
-import java.util.Iterator;
 import java.util.Properties;
 
 /**

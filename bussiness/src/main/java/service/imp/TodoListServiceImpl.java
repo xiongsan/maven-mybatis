@@ -1,10 +1,10 @@
 package service.imp;
 
 import bean.TodoList;
-import com.fable.enclosure.bussiness.entity.ResultKit;
-import com.fable.enclosure.bussiness.entity.ServiceRequest;
-import com.fable.enclosure.bussiness.entity.ServiceResponse;
+import com.fable.enclosure.bussiness.interfaces.BaseRequest;
+import com.fable.enclosure.bussiness.interfaces.BaseResponse;
 import com.fable.enclosure.bussiness.service.impl.BaseServiceImpl;
+import com.fable.enclosure.bussiness.util.ResultKit;
 import com.fable.enclosure.bussiness.util.Tool;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
@@ -14,9 +14,7 @@ import net.sf.ehcache.CacheManager;
 import net.sf.ehcache.Element;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import service.ITodoListService;
 
-import java.io.File;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
@@ -36,7 +34,7 @@ public class TodoListServiceImpl extends BaseServiceImpl implements ITodoListSer
     private String[] names=new String[]{"张三","李四","王二麻","赵六","傻根","来福","二狗子","小花"};
 
     @SuppressWarnings("unchecked")
-    public ServiceResponse getData() {
+    public BaseResponse getData() {
         Cache cache=cacheManager.getCache("test");
         if(cache.get("todolist")!=null){
             return ResultKit.serviceResponse(cache.get("todolist").getValue());
@@ -47,10 +45,10 @@ public class TodoListServiceImpl extends BaseServiceImpl implements ITodoListSer
         return ResultKit.serviceResponse(list);
     }
 
-    public ServiceResponse getPageData(ServiceRequest<TodoList> param){
+    public BaseResponse getPageData(BaseRequest<TodoList> param){
         Page<TodoList> result = PageHelper.startPage(param.getPageNo(),param.getPageSize());
         mapper.getTodoList(param.getParam());
-        return ServiceResponse.wrap(result);
+        return ResultKit.wrap(result);
     }
 
     @Override
@@ -61,7 +59,7 @@ public class TodoListServiceImpl extends BaseServiceImpl implements ITodoListSer
     @Override
     @SuppressWarnings("unchecked")
     /*事物处理*/
-    public ServiceResponse addTodo(ServiceRequest<TodoList> request) {
+    public BaseResponse addTodo(BaseRequest<TodoList> request) {
         Tool.startTransaction();
         try{
             TodoList todo = request.getParam();
@@ -83,7 +81,7 @@ public class TodoListServiceImpl extends BaseServiceImpl implements ITodoListSer
     }
 
     @Override
-    public ServiceResponse deleteTodo(ServiceRequest<TodoList> request) {
+    public BaseResponse deleteTodo(BaseRequest<TodoList> request) {
         mapper.deleteTodo(request.getParam());
         return ResultKit.success();
     }

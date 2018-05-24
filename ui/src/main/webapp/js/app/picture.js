@@ -3,7 +3,7 @@ define(["base","enclosure"],function(base){
     function showPic() {
         sweets.startService('fileServiceImpl','showPic').then(function (e) {
             if(e.status==='1'){
-                var data=e.object
+                var data=e.data
                 $.each(data,function (index,item) {
                     var html1;
                     var html2;

@@ -2,6 +2,8 @@ package service.fileService;
 
 import com.fable.enclosure.bussiness.entity.ServiceRequest;
 import com.fable.enclosure.bussiness.entity.ServiceResponse;
+import com.fable.enclosure.bussiness.interfaces.BaseRequest;
+import com.fable.enclosure.bussiness.interfaces.BaseResponse;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
@@ -27,12 +29,12 @@ public interface IFileService {
 
     String getFileFolder(HttpServletRequest request);
 
-    ServiceResponse deleteFile(ServiceRequest<Map<String,String>> param);
-    
-    ServiceResponse getFileList(ServiceRequest<Map<String,String>> param);
-    
-    ServiceResponse addFile(ServiceRequest<Map<String,Object>> param);
+    BaseResponse deleteFile(BaseRequest<Map<String,String>> param);
 
-    ServiceResponse showPic();
+    BaseResponse getFileList(BaseRequest<Map<String,String>> param);
+
+    BaseResponse addFile(BaseRequest<Map<String,Object>> param);
+
+    BaseResponse showPic();
 
 }

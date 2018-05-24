@@ -1,18 +1,16 @@
 package service.userService;
 
-import com.fable.enclosure.bussiness.entity.ResultKit;
-import com.fable.enclosure.bussiness.entity.ServiceRequest;
-import com.fable.enclosure.bussiness.entity.ServiceResponse;
+import com.fable.enclosure.bussiness.interfaces.BaseRequest;
+import com.fable.enclosure.bussiness.interfaces.BaseResponse;
 import com.fable.enclosure.bussiness.service.impl.BaseServiceImpl;
+import com.fable.enclosure.bussiness.util.ResultKit;
 import entity.User;
-import mapper.user.UserMapper;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.ExcessiveAttemptsException;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -36,7 +34,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Service
 public class UserService extends BaseServiceImpl {
 
-    public ServiceResponse login(ServiceRequest<User> request){
+    public BaseResponse login(BaseRequest<User> request){
         User user = request.getParam();
         UsernamePasswordToken token = new UsernamePasswordToken(user.getLoginName(),user.getPassword());
         Subject subject = SecurityUtils.getSubject();

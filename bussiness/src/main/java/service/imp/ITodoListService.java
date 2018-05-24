@@ -1,8 +1,10 @@
-package service;
+package service.imp;
 
 import bean.TodoList;
 import com.fable.enclosure.bussiness.entity.ServiceRequest;
 import com.fable.enclosure.bussiness.entity.ServiceResponse;
+import com.fable.enclosure.bussiness.interfaces.BaseRequest;
+import com.fable.enclosure.bussiness.interfaces.BaseResponse;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
@@ -12,11 +14,13 @@ import java.util.Map;
  */
 public interface ITodoListService {
 
-    ServiceResponse getData();
+    BaseResponse getData();
 
     void modifyTodoList(Map<String, Object> param);
 
-    ServiceResponse addTodo(ServiceRequest<TodoList> request);
+    BaseResponse addTodo(BaseRequest<TodoList> request);
 
-    ServiceResponse deleteTodo(ServiceRequest<TodoList> request);
+    BaseResponse deleteTodo(BaseRequest<TodoList> request);
+
+    BaseResponse getPageData(BaseRequest<TodoList> param);
 }

@@ -1,9 +1,9 @@
 package service.fileService;
 
-import com.fable.enclosure.bussiness.entity.ResultKit;
-import com.fable.enclosure.bussiness.entity.ServiceRequest;
-import com.fable.enclosure.bussiness.entity.ServiceResponse;
+import com.fable.enclosure.bussiness.interfaces.BaseRequest;
+import com.fable.enclosure.bussiness.interfaces.BaseResponse;
 import com.fable.enclosure.bussiness.service.impl.BaseServiceImpl;
+import com.fable.enclosure.bussiness.util.ResultKit;
 import com.fable.enclosure.bussiness.util.Tool;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
@@ -65,7 +65,7 @@ public class FileServiceImpl extends BaseServiceImpl implements IFileService{
      * @param param
      * @return     */
     @Override
-    public ServiceResponse deleteFile(ServiceRequest<Map<String,String>> param) {
+    public BaseResponse deleteFile(BaseRequest<Map<String,String>> param) {
             File file = new File(getFileFolder(param.getRequest()), param.getParam().get("fileUrl"));
             if (file.exists()) {
                 if (file.delete()){
@@ -79,14 +79,14 @@ public class FileServiceImpl extends BaseServiceImpl implements IFileService{
     }
 
     @Override
-    public ServiceResponse getFileList(ServiceRequest<Map<String,String>> param) {
+    public BaseResponse getFileList(BaseRequest<Map<String,String>> param) {
         Page<Map<String,Object>> result = PageHelper.startPage(param.getPageNo(),param.getPageSize());
         mapper.getFileList(param.getParam());
-        return ServiceResponse.wrap(result);
+        return ResultKit.wrap(result);
     }
 
     @Override
-    public ServiceResponse addFile(ServiceRequest<Map<String,Object>> param) {
+    public BaseResponse addFile(BaseRequest<Map<String,Object>> param) {
         Map<String, Object> params = param.getParam();
         params.put("id", Tool.newGuid());
         params.put("createTime", new Date());
@@ -94,7 +94,7 @@ public class FileServiceImpl extends BaseServiceImpl implements IFileService{
     }
 
     @Override
-    public ServiceResponse showPic() {
+    public BaseResponse showPic() {
         return ResultKit.serviceResponse(mapper.showPic());
     }
 
