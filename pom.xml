@@ -8,9 +8,9 @@
     <artifactId>maven-mybatis</artifactId>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>sdk</module>
-        <module>server</module>
-        <module>test_ui</module>
+        <module>api</module>
+        <module>bussiness</module>
+        <module>ui</module>
     </modules>
     <packaging>pom</packaging>
 
