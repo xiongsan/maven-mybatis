@@ -42,4 +42,14 @@ public class TodoList {
     public void setSex(String sex) {
         this.sex = sex;
     }
+
+    @Override
+    public String toString() {
+        return "TodoList{" +
+                "id='" + id + '\'' +
+                ", title='" + title + '\'' +
+                ", checked=" + checked +
+                ", sex='" + sex + '\'' +
+                '}';
+    }
 }

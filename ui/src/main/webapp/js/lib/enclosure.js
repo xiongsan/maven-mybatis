@@ -23,7 +23,7 @@
      * @param fmt
      * @returns {*}
      */
-    Date.prototype.format = function (fmt) {
+    Date.prototype.format = function (fmt="YYYY-MM-DD HH:mm:SS") {
         var o = {
             "M+": this.getMonth() + 1,                 //月份
             "D+": this.getDate(),                    //日
@@ -46,7 +46,7 @@
      * @param pattern
      * @returns {Date}
      */
-    String.prototype.toDate = function (pattern = 'YYYY-MM-DD') {
+    String.prototype.toDate = function (pattern = 'YYYY-MM-DD HH:mm:SS') {
         let date = new Date()
         if (pattern.indexOf("YYYY") > -1) {
             const yearIndex = pattern.indexOf("YYYY")
@@ -90,6 +90,14 @@
             error: function (XMLHttpRequest, textStatus, errorThrown) {
                 console.log(`数据获取失败:${url}`)
                 failCallback ? failCallback(errorThrown) : void (0)
+            },
+            complete:function (xhr, textStatus) {
+                if (xhr.getResponseHeader("sessionstatus") == "timeOut") {
+                    if (xhr.getResponseHeader("loginPath")) {
+                        console.log("会话过期，请重新登陆!");
+                        window.top.location.replace(xhr.getResponseHeader("loginPath"));
+                    }
+                }
             }
         })
         /*options.async如果被设置成false，在生命周期内，就永远为false，不方便之后代码调用*/

@@ -1,8 +1,6 @@
-package service.userService;
+package controller;
 
-import com.fable.enclosure.bussiness.interfaces.BaseRequest;
 import com.fable.enclosure.bussiness.interfaces.BaseResponse;
-import com.fable.enclosure.bussiness.service.impl.BaseServiceImpl;
 import com.fable.enclosure.bussiness.util.ResultKit;
 import entity.User;
 import org.apache.shiro.SecurityUtils;
@@ -11,8 +9,9 @@ import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
-import org.springframework.stereotype.Service;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * <p>
@@ -23,19 +22,19 @@ import org.springframework.web.servlet.ModelAndView;
  * </p>
  * <p>
  * Author :Hairui
- * Date :2018/3/30
- * Time :17:30
+ * Date :2018/5/24
+ * Time :15:06
  * </p>
  * <p>
  * Department :
  * </p>
  * <p> Copyright : 江苏飞博软件股份有限公司 </p>
  */
-@Service
-public class UserService extends BaseServiceImpl {
+@RestController
+public class LoginController {
 
-    public BaseResponse login(BaseRequest<User> request){
-        User user = request.getParam();
+    @RequestMapping("/toLogin")
+    public BaseResponse toLogin(@RequestBody User user){
         UsernamePasswordToken token = new UsernamePasswordToken(user.getLoginName(),user.getPassword());
         Subject subject = SecurityUtils.getSubject();
         try {
@@ -48,11 +47,10 @@ public class UserService extends BaseServiceImpl {
             return ResultKit.fail("username error!");
         } catch (ExcessiveAttemptsException eae) {
             // 捕获错误登录过多的异常
-            ModelAndView mv = new ModelAndView("error");
-            mv.addObject("message", "times error");
             return ResultKit.fail("fail times a lot error !");
         }
         subject.getSession().setAttribute("user", user);
         return ResultKit.success();
     }
+
 }

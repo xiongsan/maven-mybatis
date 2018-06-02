@@ -1,4 +1,6 @@
-package aboutJson;
+package aboutListener;
+
+import entity.User;
 
 /**
  * <p>
@@ -9,14 +11,14 @@ package aboutJson;
  * </p>
  * <p>
  * Author :Hairui
- * Date :2018/5/23
- * Time :13:24
+ * Date :2018/5/30
+ * Time :9:58
  * </p>
  * <p>
  * Department :
  * </p>
  * <p> Copyright : 江苏飞博软件股份有限公司 </p>
  */
-interface BaseParam {
-
+public interface IListener {
+    void onEvent(User user);
 }

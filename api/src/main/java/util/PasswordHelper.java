@@ -39,7 +39,7 @@ public class PasswordHelper {
     public static void main(String[] args) {
         User user = new User();
         user.setLoginName("admin");
-        user.setPassword("000000");
+        user.setPassword("123456");
         new PasswordHelper().encryptPassword(user);
         System.out.println(user.getPassword()+"               "+user.getSalt());
 

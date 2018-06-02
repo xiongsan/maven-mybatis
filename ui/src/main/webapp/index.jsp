@@ -118,19 +118,25 @@
 //                $("#codeMessage").text("验证码错误");
 //                return
 //                }
-        sweets.startService('userService','login',
-            {param:{loginName: $("input[name='name']").val(),
-                password: $("input[name='password']").val()}}
-                ).then(function (e) {
-            if (e.status==='1') {
-                $("form").attr({
-                    "action": '/home',
-                    "target": "_self"
-                });
-                $("form").submit();
-            }
-            else {
-                alert(e.tips)
+        $.ajax({
+            url:'/toLogin',
+            type:"post",
+            contentType:"application/json;charset=UTF-8",
+            data:JSON.stringify({"loginName":$("input[name='name']").val(), "password":$("input[name='password']").val()}),
+            success:function(e){
+                if(e.status==='1'){
+                    $("form").attr({
+                        "action": '/home',
+                        "target": "_self"
+                    });
+                    $("form").submit();
+                }
+                else{
+                    alert(e.tips)
+                }
+            },
+            error:function(){
+
             }
         })
     }

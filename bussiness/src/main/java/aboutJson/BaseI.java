@@ -1,5 +1,6 @@
 package aboutJson;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import entity.User;
 
 /**
@@ -19,9 +20,20 @@ import entity.User;
  * </p>
  * <p> Copyright : 江苏飞博软件股份有限公司 </p>
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class BaseI<T> implements Base {
 
     private User name;
+
+    private int age;
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
 
     public User getName() {
         return name;
@@ -34,7 +46,8 @@ public class BaseI<T> implements Base {
     @Override
     public String toString() {
         return "BaseI{" +
-                "name='" + name + '\'' +
+                "name=" + name +
+                ", age=" + age +
                 '}';
     }
 }
