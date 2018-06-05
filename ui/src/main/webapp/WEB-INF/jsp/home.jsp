@@ -33,7 +33,7 @@
                     }
         }
         function addData() {
-            sweets.startService('todoListServiceImpl','addTodo',{param:{sex:'女'}}).then(function (e) {
+            sweets.startService({serviceId:'todoListServiceImpl',method:'addTodo',param:{sex:'女'}}).then(function (e) {
                 if(e.status==='1'){
                     console.log('addTodo success')
                 }
@@ -45,14 +45,14 @@
         function upload() {
             sweets.upload('file',function (e) {
                 if(e.status==='1'){
-                    sweets.startService('fileServiceImpl','addFile',{param:e.data}).then(function (e2) {
+                    sweets.startService({serviceId:'fileServiceImpl',method:'addFile',param:e.data}).then(function (e2) {
                         if(e2.status==='1'){
                             alert('上传成功')
                         }
                         else{
                             console.log('入库失败')
                             //处理事物操作删除之前上传的文件
-                            sweets.startService('fileServiceImpl','deleteFile',{param:e.data}).then(function () {
+                            sweets.startService({serviceId:'fileServiceImpl',method:'deleteFile',param:e.data}).then(function () {
                                 if(e.status==='1'){
                                     alert('事务：处理删除文件成功')
                                 }

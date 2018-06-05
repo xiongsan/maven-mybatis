@@ -13,18 +13,21 @@ function setTable(){
                 "language":{"url":$.base+"/js/lib/chinese.json"},
                 "ajax":{
                     "type":"post",
-                    "url":sweets.getPageUrl("fileServiceImpl",'getFileList'),
+                    "url":sweets.getPageUrl(),
+                    contentType:'application/json;charset=UTF-8',
                     "data": function ( d ) {
                         d.start =!d.start?d.start:d.start+2;
                         d.length = 20;
                         var params={
+                            serviceId:'fileServiceImpl',
+                            method:'getFileList',
                             pageNo: d.start/d.length+1,
                                 pageSize: d.length,
                                 param:{
                                     fileName:$("#searchApprovalMessage").val(),//申请方
                                 }
                         };
-                        return {param:JSON.stringify(params)};
+                        return JSON.stringify(params);
                     }
                 },
                 "columns":[
@@ -80,7 +83,7 @@ function setTable(){
                     $("#tblLiveApproval_length").hide();
                     $(".delete").off().on("click",function(){
                         var fileUrl=$(this).attr("rowId")
-                        sweets.startService("fileServiceImpl","deleteFile",{param:{fileUrl}}).then(function (e) {
+                        sweets.startService({serviceId:'fileServiceImpl',method:'deleteFile',param:{fileUrl}}).then(function (e) {
                             if(e.status==='1'){
                                 grid1date.ajax.reload()
                             }

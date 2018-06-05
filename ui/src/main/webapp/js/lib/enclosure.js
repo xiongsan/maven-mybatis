@@ -76,14 +76,15 @@
     }
 
 
-    const ajaxService=function (serviceId,method,param,callback,failCallback) {
-        let url = serverPath+`/baseController/service?serviceId=${serviceId}&method=${method}`
+    const ajaxService=function (param,callback,failCallback) {
+        let url = serverPath+'/baseController/service'
         $.ajax({
             url: url,
             type: 'POST',
             async: options.async,
             dataType: 'json',
-            data:{param:JSON.stringify(param)},
+            contentType:'application/json;charset=UTF-8',
+            data:JSON.stringify(param),
             success: function (data) {
                 callback(data)
             },
@@ -92,7 +93,10 @@
                 failCallback ? failCallback(errorThrown) : void (0)
             },
             complete:function (xhr, textStatus) {
-                if (xhr.getResponseHeader("sessionstatus") == "timeOut") {
+                if (xhr.getResponseHeader("xxsClean") === "1") {
+                        alert('不安全的请求')
+                }
+                else if (xhr.getResponseHeader("sessionstatus") === "timeOut") {
                     if (xhr.getResponseHeader("loginPath")) {
                         console.log("会话过期，请重新登陆!");
                         window.top.location.replace(xhr.getResponseHeader("loginPath"));
@@ -127,13 +131,13 @@
         download:function (name,url) {
             return `${serverPath}/baseController/download/${name}/${url}`
         },
-        startService: function (serviceId,method,param) {
+        startService: function (param) {
             return new Promise(function (resolve, reject) {
-                return ajaxService(serviceId,method,param, resolve, reject);
+                return ajaxService(param, resolve, reject);
             })
         },
-        getPageUrl:function (serviceId,method) {
-            const url=serverPath+`/baseController/service?serviceId=${serviceId}&method=${method}`
+        getPageUrl:function () {
+            const url=serverPath+'/baseController/service'
             return url
         },
         upload: function (param,callback) {

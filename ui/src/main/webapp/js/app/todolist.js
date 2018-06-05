@@ -13,18 +13,21 @@ function setTable(){
                 "language":{"url":$.base+"/js/lib/chinese.json"},
                 "ajax":{
                     "type":"post",
-                    "url":sweets.getPageUrl("todoListServiceImpl",'getPageData'),
+                    "url":sweets.getPageUrl(),
+                    contentType:'application/json;charset=UTF-8',
                     "data": function ( d ) {
                         d.start =d.start==0?d.start:d.start+2;
                         d.length = 22;
                         var params={
+                            serviceId:'todoListServiceImpl',
+                            method:'getPageData',
                             pageNo: d.start/d.length+1,
                                 pageSize: d.length,
                                 param:{
 
                                 }
                         };
-                        return {param:JSON.stringify(params)};
+                        return JSON.stringify(params);
                     }
                 },
                 "columns":[
@@ -79,7 +82,7 @@ function setTable(){
                     $("#tblLiveApproval_length").hide();
                     $(".delete").off().on("click",function(){
                         var id=$(this).attr("rowId")
-                        sweets.startService("todoListServiceImpl","deleteTodo",{param:{id}}).then(function (e) {
+                        sweets.startService({serviceId:'todoListServiceImpl',method:'deleteTodo',param:{id}}).then(function (e) {
                             if(e.status==='1'){
                                 grid1date.ajax.reload()
                             }

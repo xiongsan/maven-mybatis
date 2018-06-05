@@ -119,7 +119,7 @@
 //                return
 //                }
         $.ajax({
-            url:'/toLogin',
+            url:'/toLogin?name=zhangsan&age=4*',
             type:"post",
             contentType:"application/json;charset=UTF-8",
             data:JSON.stringify({"loginName":$("input[name='name']").val(), "password":$("input[name='password']").val()}),
@@ -132,11 +132,25 @@
                     $("form").submit();
                 }
                 else{
-                    alert(e.tips)
+                    //非法请求e为空
+                    if(e){
+                        alert(e.tips)
+                    }
                 }
             },
             error:function(){
 
+            },
+            complete:function (xhr, textStatus) {
+                if (xhr.getResponseHeader("xxsClean") === "1") {
+                    alert('不安全的请求')
+                }
+                else if (xhr.getResponseHeader("sessionstatus") === "timeOut") {
+                    if (xhr.getResponseHeader("loginPath")) {
+                        console.log("会话过期，请重新登陆!");
+                        window.top.location.replace(xhr.getResponseHeader("loginPath"));
+                    }
+                }
             }
         })
     }

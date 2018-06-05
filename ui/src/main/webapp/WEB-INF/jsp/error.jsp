@@ -5,7 +5,7 @@
 </head>
 <body >
 <div>
-   未授权
+   未授权或者非法请求
 </div>
 </body>
 </html>

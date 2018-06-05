@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<anti-samy-rules xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="antisamy.xsd">
+<directives>
+    <directive name="omitXmlDeclaration" value="true" />
+    <directive name="omitDoctypeDeclaration" value="true" />
+</directives>
+<common-regexps>
+
+    <regexp name="htmlTitle" value="[a-zA-Z0-9\s\-_',:\[\]!\./\\\(\)&amp;]*" />
+
+    <regexp name="onsiteURL" value="([\p{L}\p{N}\p{Zs}/\.\?=&amp;\-~])+" />
+
+    <regexp name="offsiteURL" value="(\s)*((ht|f)tp(s?)://|mailto:)[A-Za-z0-9]+[~a-zA-Z0-9-_\.@\#\$%&amp;;:,\?=/\+!\(\)]*(\s)*" />
+
+</common-regexps>
+<common-attributes>
+
+    <attribute name="title" description="The 'title' attribute provides text that shows up in a 'tooltip' when a user hovers their mouse over the element">
+
+        <regexp-list>
+
+        <regexp name="htmlTitle" />
+
+        </regexp-list>
+
+    </attribute>
+
+</common-attributes>
+<global-tag-attributes>
+
+    <attribute name="title" />
+
+</global-tag-attributes>
+<tags-to-encode>
+
+   <tag>g</tag>
+
+   <tag>grin</tag>
+
+</tags-to-encode>
+<tag-rules>
+
+   <!--  Remove  -->
+
+   <tag name="script" action="remove" />
+
+   <!--  Truncate  -->
+
+   <tag name="br" action="truncate" />
+
+   <!--  Validate -->
+
+   <tag name="p" action="validate">
+
+   <attribute name="align" />
+
+   </tag>
+
+</tag-rules>
+<css-rules>
+    <property name="text-decoration" default="none" description="">
+        <category-list>
+            <category value="visual" />
+        </category-list>
+        <literal-list>
+            <literal value="underline" />
+            <literal value="overline" />
+            <literal value="line-through" />
+        </literal-list>
+    </property>
+</css-rules>
+</anti-samy-rules>
