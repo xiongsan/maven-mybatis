@@ -28,6 +28,8 @@ public class TestPi {
 //            inner++;
 //        }
 //        System.out.println(4.0*inner/sum);
-        System.out.println(UUID.randomUUID().toString().length());
+//        System.out.println(UUID.randomUUID().toString().length());
+            String value = "_saml_pki_cert_subject";
+            System.out.println(value.equals("_saml_pki_cert_subject"));
     }
 }

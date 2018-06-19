@@ -119,7 +119,7 @@
 //                return
 //                }
         $.ajax({
-            url:'/toLogin?name=zhangsan&age=4*',
+            url:'/toLogin',
             type:"post",
             contentType:"application/json;charset=UTF-8",
             data:JSON.stringify({"loginName":$("input[name='name']").val(), "password":$("input[name='password']").val()}),

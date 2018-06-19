@@ -180,6 +180,6 @@ public class Convert {
         System.out.println(d+"------------");
     }
     public static void main(String[] args) {
-match();
+        System.out.println(reverse("123456"));
     }
     }

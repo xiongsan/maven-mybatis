@@ -17,7 +17,7 @@
  */
 public class HanoiTest {
     public static void main(String[] args) {
-        function(2,'a','b','c');
+        function(3,'a','b','c');
     }
 
     public static void function(int i,char a,char b,char c){
