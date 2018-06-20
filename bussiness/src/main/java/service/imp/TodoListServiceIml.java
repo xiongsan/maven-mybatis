@@ -26,13 +26,13 @@ public class TodoListServiceIml implements ITodoListService {
     @Override
     @SuppressWarnings("unchecked")
     public List<TodoList> todoList() {
-        Cache cache=cacheManager.getCache("test");
-        if(cache.get("todolist")!=null){
-            return (List<TodoList>)cache.get("todolist").getValue();
-        }
+//        Cache cache=cacheManager.getCache("test");
+//        if(cache.get("todolist")!=null){
+//            return (List<TodoList>)cache.get("todolist").getValue();
+//        }
         List<TodoList> list = mapper.getTodoList();
-        Element element = new Element("todolist",list);
-        cache.put(element);
+//        Element element = new Element("todolist",list);
+//        cache.put(element);
         return list;
     }
 
