@@ -27,12 +27,13 @@
 
 	<!-- 自动扫描且只扫描包 -->
 	<mvc:annotation-driven />
-	<context:component-scan base-package="controller,mapper,service"/>
+	<context:component-scan base-package="com.fable.enclosure.bussiness.controller,controller,mapper,service"/>
 	<!-- spring和MyBatis完美整合，不需要mybatis的配置映射文件 -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<!-- 自动扫描mapping.xml文件 -->
 		<property name="mapperLocations" value="classpath:mapper/*.xml" />
+		<property name="configLocation" value="classpath:mybatis-config.xml"/>
 	</bean>
 
 	<!--    DAO接口所在包名，Spring会自动查找其下的类   -->
@@ -64,32 +65,9 @@
 		</mvc:message-converters>
 	</mvc:annotation-driven>
 
-	<!--视图解析器-->
-	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/app/" />
-        <property name="suffix" value=".jsp" />
-	</bean>
-
 	<!--访问静态资源-->
-	<mvc:resources location="/js/" mapping="/js/**" />
 	<mvc:resources location="/dist/" mapping="/dist/**" />
-
-     <!--json转换器-->
-	<!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping" />此类貌似没啥用-->
-	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
-		<property name="messageConverters">
-			<list>
-				<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
-					<property name="supportedMediaTypes">
-						<list>
-							<value>text/html;charset=UTF-8</value>
-							<value>application/json;charset=UTF-8</value>
-						</list>
-					</property>
-				</bean>
-			</list>
-		</property>
-	</bean>
+	<mvc:resources location="/img/" mapping="/img/**" />
 
 	<!--很奇怪，spring4.2.4release里没有ehcache，被放到context-support里了，fuck，找了半天-->
 	<bean id="cacheManager"
@@ -99,6 +77,7 @@
 		</property>
 	</bean>
 
+	<bean class="com.fable.enclosure.bussiness.util.SpringContextUtil"/>
 	<!-- 支持上传文件 -->
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
 </beans>

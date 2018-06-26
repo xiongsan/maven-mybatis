@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="mapper.UserMapper" >
-    <select id="getUserList" resultType="bean.User" parameterType="bean.User">
-        SELECT  id,account,`name`,`password`,email,telephone,`status`,delete_flag deleteFlag,operation_permission operationPermission,roles FROM  rc_user WHERE 1=1 AND  delete_flag = 0
-        <if test="name != null  and  name != ''">
-            AND name LIKE '%${name}%'
-        </if>
-        ORDER  BY create_date DESC
+<mapper namespace="mapper.user.UserMapper" >
+    <select id="findRoles" resultType="string">
+        SELECT name FROM role R LEFT JOIN user_role UR ON R.id=UR.roleId
+         LEFT JOIN user_info US ON US.id=UR.userId
+         WHERE US.loginName=#{loginName}
     </select>
-    <select id="getUser" resultType="bean.User">
-        SELECT * from rc_user WHERE id=#{id}
+    <select id="findPermissions" resultType="string">
+          SELECT pageUrl FROM menu M LEFT JOIN role_menu RM ON M.id=RM.menuId
+          LEFT JOIN role R ON R.id=RM.roleId
+          LEFT JOIN user_role UR ON UR.roleId =R.id
+         LEFT JOIN user_info US ON US.id=UR.userId
+         WHERE US.loginName=#{loginName}
+    </select>
+    <select id="findByUsername" resultType="bean.User">
+    SELECT * FROM user_info WHERE loginName=#{loginName}
     </select>
 </mapper>
