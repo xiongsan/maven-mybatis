@@ -1,5 +1,7 @@
 package filter;
 
+import org.apache.shiro.SecurityUtils;
+
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -50,6 +52,8 @@ public class SessionFilter implements Filter {
             return;
         }
 // 登陆url
+       boolean boolea= SecurityUtils.getSubject().isAuthenticated();
+        System.out.println(boolea);
         String uri= httpRequest.getRequestURI();
         String path = uri.substring(uri.lastIndexOf("/"));
         //首页和登陆请求无需判断

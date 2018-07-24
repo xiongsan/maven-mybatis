@@ -1,5 +1,6 @@
 package redis.pubsub;
 
+import redis.clients.jedis.BinaryJedisPubSub;
 import redis.clients.jedis.JedisPubSub;
 
 /**

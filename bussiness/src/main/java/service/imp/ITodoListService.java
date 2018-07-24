@@ -20,4 +20,5 @@ public interface ITodoListService {
     BaseResponse deleteTodo(BaseRequest<TodoList> request);
 
     BaseResponse getPageData(BaseRequest<TodoList> param);
+    BaseResponse addTodoTest(TodoList param);
 }

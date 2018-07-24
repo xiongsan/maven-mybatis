@@ -13,7 +13,9 @@ import net.sf.ehcache.Cache;
 import net.sf.ehcache.CacheManager;
 import net.sf.ehcache.Element;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Map;
@@ -84,5 +86,27 @@ public class TodoListServiceImpl extends BaseServiceImpl implements ITodoListSer
     public BaseResponse deleteTodo(BaseRequest<TodoList> request) {
         mapper.deleteTodo(request.getParam());
         return ResultKit.success();
+    }
+
+    @Transactional
+    public BaseResponse addTodoTest(TodoList request) {
+//        Tool.startTransaction();
+//        try{
+            TodoList todo = request;
+            todo.setTitle(names[new Random().nextInt(names.length)]);
+            todo.setId(Tool.newGuid());
+            todo.setChecked(1);
+            mapper.insertTodo(todo);
+//            todo.setTitle(names[new Random().nextInt(names.length)]);
+//            todo.setId(Tool.newGuid());
+//            todo.setChecked(0);
+//            mapper.insertTodo(todo);
+//            Tool.endTransaction();
+            return ResultKit.success();
+//        }catch(Exception e){
+//            Tool.rollBack();
+//            e.printStackTrace();
+//            return ResultKit.fail(e.getMessage());
+//        }
     }
 }

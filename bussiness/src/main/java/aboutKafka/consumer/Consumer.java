@@ -34,23 +34,11 @@ public class Consumer {
         props.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         props.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         final KafkaConsumer<String, String> consumer = new KafkaConsumer<>(props);
-//        consumer.subscribe(Arrays.asList("netflow"),new ConsumerRebalanceListener() {
-//            public void onPartitionsRevoked(Collection<TopicPartition> collection) {
-//            }
-//            public void onPartitionsAssigned(Collection<TopicPartition> collection) {
-//                //将偏移设置到最开始
-//                Iterator<TopicPartition> it=collection.iterator();
-//                while (it.hasNext()){
-//                    consumer.seekToBeginning(collection);
-//                }
-//
-//            }
-//        });
         consumer.subscribe(Arrays.asList("netflow","test1","test2"));
         while (true) {
             ConsumerRecords<String, String> records = consumer.poll(100);
             for (ConsumerRecord<String, String> record : records){
-                System.out.println(record.toString());
+//                System.out.println(record.toString());
                 System.out.printf("offset = %d, key = %s, value = %s%n", record.offset(), record.key(), record.value());
 //                JSONObject jsonObject = JSONObject.parseObject(record.value());
 //                JSONObject netflow = jsonObject.getJSONObject("netflow");

@@ -1,6 +1,7 @@
 package proxy;
 
 import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
@@ -31,7 +32,7 @@ public class DynamicProxy implements InvocationHandler {
         return result;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InstantiationException, InvocationTargetException {
         //第一种方式
         DynamicProxy proxy = new DynamicProxy();
 
@@ -40,5 +41,11 @@ public class DynamicProxy implements InvocationHandler {
 
         Account account2= (Account )proxy.getInstance(new AccountImpl2());
         account2.query("爷哈哈");
+
+        DynamicProxy clasz =
+        DynamicProxy.class.newInstance();
+        Account account1=(Account)clasz.getInstance(new AccountImpl());
+        account1.query("123");
+
     }
 }

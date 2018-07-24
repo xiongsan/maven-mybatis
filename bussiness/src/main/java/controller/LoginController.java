@@ -1,14 +1,20 @@
 package controller;
 
+import bean.TodoList;
+import com.fable.enclosure.bussiness.interfaces.BaseRequest;
 import com.fable.enclosure.bussiness.interfaces.BaseResponse;
 import com.fable.enclosure.bussiness.util.ResultKit;
 import entity.User;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.subject.Subject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import service.imp.ITodoListService;
+import service.imp.TodoListServiceImpl;
 
 /**
  * <p>
@@ -29,6 +35,9 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class LoginController {
+
+    @Autowired
+    ITodoListService todoListService;
 
     @RequestMapping("/toLogin")
     public BaseResponse toLogin(@RequestBody User user) {
@@ -52,4 +61,8 @@ public class LoginController {
         return ResultKit.success();
     }
 
+    @RequestMapping("/addTodo")
+    public BaseResponse getTodoListService(@RequestBody TodoList request) {
+        return todoListService.addTodoTest(request);
+    }
 }
