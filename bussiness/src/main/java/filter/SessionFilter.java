@@ -39,18 +39,18 @@ public class SessionFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         HttpServletResponse httpResponse = (HttpServletResponse) response;
-        if(verify(httpRequest)){
-                try {
-                    if(isAjaxRequest(httpRequest)){
-                        httpResponse.addHeader("xxsClean", "1");
-                        return;
-                    }
-                    httpRequest.getRequestDispatcher("/error").forward(httpRequest, httpResponse);
-                }  catch (Exception e) {
-                    e.printStackTrace();
-                }
-            return;
-        }
+//        if(verify(httpRequest)){
+//                try {
+//                    if(isAjaxRequest(httpRequest)){
+//                        httpResponse.addHeader("xxsClean", "1");
+//                        return;
+//                    }
+//                    httpRequest.getRequestDispatcher("/error").forward(httpRequest, httpResponse);
+//                }  catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+//            return;
+//        }
 // 登陆url
        boolean boolea= SecurityUtils.getSubject().isAuthenticated();
         System.out.println(boolea);

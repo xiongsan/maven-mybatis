@@ -1,7 +1,8 @@
 define(["base","enclosure"],function(base){
 
     function showPic() {
-        sweets.startService('fileServiceImpl','showPic').then(function (e) {
+
+        sweets.startService({serviceId:'fileServiceImpl',method:'showPic'}).then(function (e) {
             if(e.status==='1'){
                 var data=e.data
                 $.each(data,function (index,item) {

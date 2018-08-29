@@ -161,7 +161,7 @@ COMMENT='用户信息表'
 -- Records of user_info
 -- ----------------------------
 BEGIN;
-INSERT INTO `user_info` VALUES  ('1', 'wanghr', '1a6662fda0b983e863c4ca6d083df9c6', '王海瑞', '2018-03-30 00:00:00', '0', 'ecc04543b6e3a68eaba58a7e1007102a')
+INSERT INTO `user_info` VALUES  ('1', 'wanghr', '1a6662fda0b983e863c4ca6d083df9c6', '王海瑞', '2018-03-30 00:00:00', '0', 'ecc04543b6e3a68eaba58a7e1007102a');
 COMMIT;
 
 -- ----------------------------
