@@ -21,10 +21,10 @@ function setTable(){
                         var params={
                             serviceId:'todoListServiceImpl',
                             method:'getPageData',
-                            pageNo: d.start/d.length+1,
-                                pageSize: d.length,
                                 param:{
-
+                                    pageNo: d.start/d.length+1,
+                                    pageSize: d.length,
+                                    param:{}
                                 }
                         };
                         return JSON.stringify(params);

@@ -21,9 +21,9 @@ function setTable(){
                         var params={
                             serviceId:'fileServiceImpl',
                             method:'getFileList',
-                            pageNo: d.start/d.length+1,
-                                pageSize: d.length,
                                 param:{
+                                    pageNo: d.start/d.length+1,
+                                    pageSize: d.length,
                                     fileName:$("#searchApprovalMessage").val(),//申请方
                                 }
                         };

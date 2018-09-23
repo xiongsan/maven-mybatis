@@ -6,12 +6,12 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title id="someTitle">任务列表</title>
-	<link rel="stylesheet" href="/css/lib/bootstrap-3.3.5/css/bootstrap.min.css" type="text/css" />
-	<link rel="shortcut icon" type="image/x-icon" href="/images/icons/logo.png"/>
-	<script type="text/javascript" charset="utf-8" src="/js/lib/require.js"></script>
-	<script type="text/javascript" charset="utf-8" src="/js/jquery.js"></script>
-	<script type="text/javascript" charset="utf-8" src="/js/lib/bootstrap.min.js"></script>
-	<script type="text/javascript" charset="utf-8" src="/js/lib/config.js"></script>
+	<link rel="stylesheet" href="/abc/css/lib/bootstrap-3.3.5/css/bootstrap.min.css" type="text/css" />
+	<link rel="shortcut icon" type="image/x-icon" href="/abc/images/icons/logo.png"/>
+	<script type="text/javascript" charset="utf-8" src="/abc/js/lib/require.js"></script>
+	<script type="text/javascript" charset="utf-8" src="/abc/js/jquery.js"></script>
+	<script type="text/javascript" charset="utf-8" src="/abc/js/lib/bootstrap.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="/abc/js/lib/config.js"></script>
 </head>
 <body>
 <div id="myCarousel" class="carousel slide" style="height:100%;margin: 0 auto;overflow: hidden;">

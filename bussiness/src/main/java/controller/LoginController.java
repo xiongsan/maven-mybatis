@@ -1,7 +1,6 @@
 package controller;
 
 import bean.TodoList;
-import com.fable.enclosure.bussiness.interfaces.BaseRequest;
 import com.fable.enclosure.bussiness.interfaces.BaseResponse;
 import com.fable.enclosure.bussiness.util.ResultKit;
 import entity.User;
@@ -11,10 +10,8 @@ import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import service.imp.ITodoListService;
-import service.imp.TodoListServiceImpl;
+import service.todolist.ITodoListService;
 
 /**
  * <p>
@@ -58,6 +55,7 @@ public class LoginController {
             return ResultKit.fail("account was locked !");
         }
         subject.getSession().setAttribute("user", user);
+        subject.getSession().setTimeout(0);
         return ResultKit.success();
     }
 

@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.UUID;
 
 /**
@@ -19,17 +20,15 @@ import java.util.UUID;
  */
 public class TestPi {
     public static void main(String[] args) {
-//        long sum=500000000l;
-//        int inner=0;
-//        for(int i=0;i<sum;i++){
-//            double x = new Random().nextDouble();
-//            double y = new Random().nextDouble();
-//            if(Math.pow(x,2)+Math.pow(y,2)<1)
-//            inner++;
-//        }
-//        System.out.println(4.0*inner/sum);
-//        System.out.println(UUID.randomUUID().toString().length());
-            String value = "_saml_pki_cert_subject";
-            System.out.println(value.equals("_saml_pki_cert_subject"));
+        long sum=5000000l;
+        int inner=0;
+        for(int i=0;i<sum;i++){
+            double x = new Random().nextDouble();
+            double y = new Random().nextDouble();
+            if(Math.pow(x,2)+Math.pow(y,2)<1)
+            inner++;
+        }
+        System.out.println(4.0*inner/sum);
     }
 }
+

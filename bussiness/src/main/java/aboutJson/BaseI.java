@@ -20,8 +20,8 @@ import entity.User;
  * </p>
  * <p> Copyright : 江苏飞博软件股份有限公司 </p>
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
-public class BaseI<T> implements Base {
+//@JsonIgnoreProperties(ignoreUnknown = true)
+public class BaseI<T>{
 
     private User name;
 

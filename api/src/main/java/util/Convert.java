@@ -5,6 +5,9 @@ import com.alibaba.fastjson.JSONException;
 import com.alibaba.fastjson.JSONObject;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -179,7 +182,38 @@ public class Convert {
         boolean d = matcher1.matches();
         System.out.println(d+"------------");
     }
+    public int[] findCardPosition(int n){
+        //原索引
+        List<Integer> tempIndex = new ArrayList<>();
+        //移动后的索引
+        List<Integer> resultIndex = new ArrayList<>();
+        //原排列数组
+        int[] originalValue = new int[n];
+        //原索引赋值
+        for(int i=0;i<n;i++){
+            tempIndex.add(i);
+        }
+        //计算移动后的索引
+        while(tempIndex.size()>0){
+            resultIndex.add(tempIndex.get(0));
+            tempIndex.remove(0);
+            if(tempIndex.size()>0){
+                //原索引第二位放到末位（下面将首位移除，第二位变成了第一位）
+                tempIndex.add(tempIndex.get(0));
+                //从原索引中在移除第二位
+                tempIndex.remove(0);
+            }
+        }
+        //索引再和结果一一对应（此处的结果值是12345.。n顺序排列）
+        for(int i=0,j=i+1;i<resultIndex.size();i++,j++){
+            originalValue[resultIndex.get(i)]=j;
+        }
+        System.out.println(Arrays.toString(originalValue));
+        return originalValue;
+
+
+    }
     public static void main(String[] args) {
-        System.out.println(reverse("123456"));
+        new Convert().findCardPosition(9);
     }
     }

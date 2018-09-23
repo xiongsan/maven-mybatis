@@ -1,6 +1,9 @@
-import com.sun.org.apache.xpath.internal.operations.String;
+
+import com.fable.enclosure.bussiness.entity.ServiceRequest;
+import entity.User;
 
 import java.lang.reflect.Method;
+import java.lang.reflect.Type;
 import java.util.Map;
 
 /**
@@ -25,7 +28,7 @@ public class TestForGetMethod {
     public void test1(Map<String, Integer> param) {
 
     }
-    public void test1(String param) {
+    public void test1(User param) {
 
     }
 
@@ -34,19 +37,13 @@ public class TestForGetMethod {
     }
 
     public static void main(String[] args) throws NoSuchMethodException {
-        //ServiceRequest
-        //null
-
-//        Method m1=TestForGetMethod.class.getMethod("test1", null);
-//        System.out.println(m1);
-//
-//        Method m2 = TestForGetMethod.class.getMethod("test1", Map.class);
-//        System.out.println(m2);
-//        Map<String, Object> map = new HashMap<>();
 
         Method[] methods = TestForGetMethod.class.getDeclaredMethods();
         for (Method method:methods){
-            System.out.println(method.getName());
+            for (Type c : method.getGenericParameterTypes()) {
+                System.out.println(c.getTypeName());
+                System.out.println(TestForGetMethod.class.getName());
+            }
 
         }
     }

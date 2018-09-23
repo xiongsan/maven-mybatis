@@ -18,12 +18,12 @@
         }
     </style>
     <link rel="stylesheet" type="text/css"
-          href="/css/hanoi.css" />
-    <script src="/js/jquery.min.js" type="application/javascript"></script>
-    <script src="/js/ht.js" type="application/javascript"></script>
-    <script src="/js/randomColor.js" type="application/javascript"></script>
-    <script src="/js/easing.js" type="application/javascript"></script>
-    <script src="/js/index.js" type="application/javascript"></script>
+          href="/abc/css/hanoi.css" />
+    <script src="/abc/js/jquery.min.js" type="application/javascript"></script>
+    <script src="/abc/js/ht.js" type="application/javascript"></script>
+    <script src="/abc/js/randomColor.js" type="application/javascript"></script>
+    <script src="/abc/js/easing.js" type="application/javascript"></script>
+    <script src="/abc/js/index.js" type="application/javascript"></script>
 
 </head>
 <body onload="init()">

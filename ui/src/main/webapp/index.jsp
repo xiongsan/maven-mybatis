@@ -14,14 +14,14 @@
     <meta http-equiv="cache-control" content="no-cache, must-revalidate">
     <meta http-equiv="expires" content="0">
     <title>登录</title>
-    <link rel="stylesheet" href="/css/pages/kscc.css" type="text/css"/>
+    <link rel="stylesheet" href="/abc/css/pages/kscc.css" type="text/css"/>
     <link rel="shortcut icon" type="image/x-icon" href="/img/storz.ico"/>
-    <script src="/js/jquery.js"></script>
-    <script type="application/javascript" src="/js/lib/enclosure.js"></script>
-    <link rel="stylesheet" href="/css/lib/bootstrap-3.3.5/css/bootstrap.min.css"
+    <script src="/abc/js/jquery.js"></script>
+    <script type="application/javascript" src="/abc/js/lib/enclosure.js"></script>
+    <link rel="stylesheet" href="/abc/css/lib/bootstrap-3.3.5/css/bootstrap.min.css"
           type="text/css"/>
     <link rel="stylesheet"
-          href="/css/lib/bootstrap-3.3.5/css/bootstrap-responsive.css"
+          href="/abc/css/lib/bootstrap-3.3.5/css/bootstrap-responsive.css"
           type="text/css"/>
     <style>
         .Center-Container {
@@ -119,14 +119,14 @@
 //                return
 //                }
         $.ajax({
-            url:'/toLogin',
+            url:'/abc/toLogin',
             type:"post",
             contentType:"application/json;charset=UTF-8",
             data:JSON.stringify({"loginName":$("input[name='name']").val(), "password":$("input[name='password']").val()}),
             success:function(e){
                 if(e.status==='1'){
                     $("form").attr({
-                        "action": '/home',
+                        "action": '/abc/baseController/toView/home',
                         "target": "_self"
                     });
                     $("form").submit();

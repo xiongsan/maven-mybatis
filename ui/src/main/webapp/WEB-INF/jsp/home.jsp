@@ -2,15 +2,15 @@
 <%@taglib uri="http://shiro.apache.org/tags" prefix="shiro"%>
 <html>
 <head>
-    <script src="/js/jquery.min.js" type="application/javascript"></script>
-    <script src="/js/lib/enclosure.js" type="application/javascript"></script>
-    <script src="/js/ht.js" type="application/javascript"></script>
+    <script src="/abc/js/jquery.min.js" type="application/javascript"></script>
+    <script src="/abc/js/lib/enclosure.js" type="application/javascript"></script>
+    <script src="/abc/js/ht.js" type="application/javascript"></script>
     <link rel="stylesheet" type="text/css"
-          href="/css/index.css" />
+          href="/abc/css/index.css" />
     <link rel="shortcut icon" type="image/x-icon" href="/img/storz.ico"/>
     <script type="application/javascript">
         $(function () {
-            $('#imgLabel').attr("src",sweets.showPic('63b09a03-a5c2-44c0-a2b5-64eed870adc0'))
+            $('#imgLabel').attr("src",sweets.showPic('d6e163b4-7e30-4c70-b97c-f34ab00f1ec0'))
         })
 
         function getData() {
@@ -33,22 +33,22 @@
                     }
         }
         function addData() {
-            // sweets.startService({serviceId:'todoListServiceImpl',method:'addTodo',param:{sex:'女'}}).then(function (e) {
-            //     if(e.status==='1'){
-            //         console.log('addTodo success')
-            //     }
-            //     else{
-            //         alert(e.tips)
-            //     }
-            // })
+//             sweets.startService({serviceId:'todoListServiceImpl',method:'addTodo',param:{sex:'女'}}).then(function (e) {
+//                 if(e.status==='1'){
+//                     console.log('addTodo success')
+//                 }
+//                 else{
+//                     alert(e.tips)
+//                 }
+//             })
             $.ajax({
-                url:'/addTodo',
+                url:'/abc/addTodo',
                 type:"post",
                 contentType:"application/json;charset=UTF-8",
                 data:JSON.stringify({sex:'女'}),
                 success:function(e){
                     if(e.status==='1'){
-                       console.log("success---------")
+                        console.log("success---------")
                     }
                     else{
                         //非法请求e为空
@@ -58,7 +58,6 @@
                     }
                 },
                 error:function(){
-
                 },
                 complete:function (xhr, textStatus) {
                     if (xhr.getResponseHeader("xxsClean") === "1") {
@@ -75,6 +74,7 @@
         }
         function upload() {
             sweets.upload('file',function (e) {
+                console.log(e,'e================')
                 if(e.status==='1'){
                     sweets.startService({serviceId:'fileServiceImpl',method:'addFile',param:e.data}).then(function (e2) {
                         if(e2.status==='1'){
@@ -130,10 +130,10 @@
         </button>
         文件：<input id="file" type="file"/><br/>
         <button onclick="upload()">上传</button>
-        <a href="/hanoi"><span>hanoi</span></a>
-        <shiro:hasPermission name="/liveApproval"><a href="/liveApproval"><span>filelist</span></a></shiro:hasPermission>
-        <a href="/todolist"><span>todolist</span></a>
-        <a href="/picture"><span>picture</span></a>
+        <a href="/abc/baseController/toView/hanoi"><span>hanoi</span></a>
+        <shiro:hasPermission name="/liveApproval"><a href="/abc/baseController/toView/liveApproval"><span>filelist</span></a></shiro:hasPermission>
+        <a href="/abc/baseController/toView/todolist"><span>todolist</span></a>
+        <a href="/abc/baseController/toView/picture"><span>picture</span></a>
         <div id="div1"></div>
     </div>
 </div>

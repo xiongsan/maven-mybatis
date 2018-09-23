@@ -1,6 +1,7 @@
-package service.imp;
+package service.todolist;
 
 import bean.TodoList;
+import com.fable.enclosure.bussiness.entity.PageRequest;
 import com.fable.enclosure.bussiness.interfaces.BaseRequest;
 import com.fable.enclosure.bussiness.interfaces.BaseResponse;
 import com.fable.enclosure.bussiness.service.impl.BaseServiceImpl;
@@ -13,7 +14,6 @@ import net.sf.ehcache.Cache;
 import net.sf.ehcache.CacheManager;
 import net.sf.ehcache.Element;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -47,7 +47,7 @@ public class TodoListServiceImpl extends BaseServiceImpl implements ITodoListSer
         return ResultKit.serviceResponse(list);
     }
 
-    public BaseResponse getPageData(BaseRequest<TodoList> param){
+    public BaseResponse getPageData(PageRequest<TodoList> param){
         Page<TodoList> result = PageHelper.startPage(param.getPageNo(),param.getPageSize());
         mapper.getTodoList(param.getParam());
         return ResultKit.wrap(result);
@@ -61,10 +61,9 @@ public class TodoListServiceImpl extends BaseServiceImpl implements ITodoListSer
     @Override
     @SuppressWarnings("unchecked")
     /*事物处理*/
-    public BaseResponse addTodo(BaseRequest<TodoList> request) {
+    public BaseResponse addTodo(TodoList todo) {
         Tool.startTransaction();
         try{
-            TodoList todo = request.getParam();
             todo.setTitle(names[new Random().nextInt(names.length)]);
             todo.setId(Tool.newGuid());
             todo.setChecked(1);
@@ -83,8 +82,8 @@ public class TodoListServiceImpl extends BaseServiceImpl implements ITodoListSer
     }
 
     @Override
-    public BaseResponse deleteTodo(BaseRequest<TodoList> request) {
-        mapper.deleteTodo(request.getParam());
+    public BaseResponse deleteTodo(TodoList request) {
+        mapper.deleteTodo(request);
         return ResultKit.success();
     }
 

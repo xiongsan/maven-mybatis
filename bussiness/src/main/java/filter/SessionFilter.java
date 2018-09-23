@@ -83,7 +83,7 @@ public class SessionFilter implements Filter {
             }
             return;
         }
-            chain.doFilter(new RequestWrapper(httpRequest), response);
+            chain.doFilter(httpRequest, response);
     }
 
     @Override

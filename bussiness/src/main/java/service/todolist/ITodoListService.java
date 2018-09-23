@@ -1,6 +1,7 @@
-package service.imp;
+package service.todolist;
 
 import bean.TodoList;
+import com.fable.enclosure.bussiness.entity.PageRequest;
 import com.fable.enclosure.bussiness.interfaces.BaseRequest;
 import com.fable.enclosure.bussiness.interfaces.BaseResponse;
 
@@ -15,10 +16,10 @@ public interface ITodoListService {
 
     void modifyTodoList(Map<String, Object> param);
 
-    BaseResponse addTodo(BaseRequest<TodoList> request);
+    BaseResponse addTodo(TodoList todo);
 
-    BaseResponse deleteTodo(BaseRequest<TodoList> request);
+    BaseResponse deleteTodo(TodoList request);
 
-    BaseResponse getPageData(BaseRequest<TodoList> param);
+    BaseResponse getPageData(PageRequest<TodoList> param);
     BaseResponse addTodoTest(TodoList param);
 }
