@@ -1,7 +1,6 @@
 package proxy;
 
 import java.lang.reflect.InvocationHandler;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
@@ -32,20 +31,25 @@ public class DynamicProxy implements InvocationHandler {
         return result;
     }
 
-    public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InstantiationException, InvocationTargetException {
+    public static void main(String[] args) throws Throwable {
         //第一种方式
         DynamicProxy proxy = new DynamicProxy();
+        Class claszz = AccountImpl.class;
+        Method m = claszz.getMethod("query", String.class);
+        Account object=(Account)proxy.getInstance(new AccountImpl());
+//        Assert.notNull(m.getAnnotation(Transactional.class),"这个不能为空");
+        proxy.invoke(proxy,m,new Object[]{"test"});
 
-        Account account= (Account )proxy.getInstance(new AccountImpl());
-        account.query("娃哈哈");
-
-        Account account2= (Account )proxy.getInstance(new AccountImpl2());
-        account2.query("爷哈哈");
-
-        DynamicProxy clasz =
-        DynamicProxy.class.newInstance();
-        Account account1=(Account)clasz.getInstance(new AccountImpl());
-        account1.query("123");
+        AccountImpl account=new AccountImpl();
+        System.out.println(account);
+//
+//        Account account2= (Account )proxy.getInstance(new AccountImpl2());
+//        account2.query("爷哈哈");
+//
+//        DynamicProxy clasz =
+//        DynamicProxy.class.newInstance();
+//        Account account1=(Account)clasz.getInstance(new AccountImpl());
+//        account1.query("123");
 
     }
 }

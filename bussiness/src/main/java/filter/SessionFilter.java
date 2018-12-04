@@ -52,8 +52,8 @@ public class SessionFilter implements Filter {
 //            return;
 //        }
 // 登陆url
-       boolean boolea= SecurityUtils.getSubject().isAuthenticated();
-        System.out.println(boolea);
+       boolean bool= SecurityUtils.getSubject().isAuthenticated();
+        System.out.println("是否已认证："+bool);
         String uri= httpRequest.getRequestURI();
         String path = uri.substring(uri.lastIndexOf("/"));
         //首页和登陆请求无需判断

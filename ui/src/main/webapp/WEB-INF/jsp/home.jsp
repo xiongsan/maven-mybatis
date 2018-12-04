@@ -33,42 +33,16 @@
                     }
         }
         function addData() {
-//             sweets.startService({serviceId:'todoListServiceImpl',method:'addTodo',param:{sex:'女'}}).then(function (e) {
-//                 if(e.status==='1'){
-//                     console.log('addTodo success')
-//                 }
-//                 else{
-//                     alert(e.tips)
-//                 }
-//             })
-            $.ajax({
-                url:'/abc/addTodo',
-                type:"post",
-                contentType:"application/json;charset=UTF-8",
-                data:JSON.stringify({sex:'女'}),
-                success:function(e){
-                    if(e.status==='1'){
-                        console.log("success---------")
-                    }
-                    else{
-                        //非法请求e为空
-                        if(e){
-                            alert(e.tips)
-                        }
-                    }
-                },
-                error:function(){
-                },
-                complete:function (xhr, textStatus) {
-                    if (xhr.getResponseHeader("xxsClean") === "1") {
-                        alert('不安全的请求')
-                    }
-                    else if (xhr.getResponseHeader("sessionstatus") === "timeOut") {
-                        if (xhr.getResponseHeader("loginPath")) {
-                            console.log("会话过期，请重新登陆!");
-                            window.top.location.replace(xhr.getResponseHeader("loginPath"));
-                        }
-                    }
+            sweets.startService({
+                serviceId: 'todoListServiceImpl',
+                method: 'addTodoTest',
+                param: {sex: '女'}
+            }).then(function (e) {
+                if (e.status === '1') {
+                    console.log('addTodo success')
+                }
+                else {
+                    alert(e.tips)
                 }
             })
         }

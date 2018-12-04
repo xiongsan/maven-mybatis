@@ -9,7 +9,6 @@ import java.util.Map;
 /**
  * Created by Wanghairui on 2017/5/22.
  */
-@Repository
 public interface TodoListMapper {
 
     List<TodoList> getTodoList(TodoList todo);

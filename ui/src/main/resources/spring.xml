@@ -3,7 +3,7 @@
 	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	   xmlns:context="http://www.springframework.org/schema/context"
 	   xmlns:mvc="http://www.springframework.org/schema/mvc"
-	   xmlns:tx="http://www.springframework.org/schema/tx"
+	   xmlns:tx="http://www.springframework.org/schema/tx" xmlns:p="http://www.springframework.org/schema/p"
 	   xsi:schemaLocation="http://www.springframework.org/schema/beans
 	    http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
 		http://www.springframework.org/schema/context
@@ -27,7 +27,7 @@
 
 	<!-- 自动扫描且只扫描包 -->
 	<mvc:annotation-driven />
-	<context:component-scan base-package="com.fable.enclosure.bussiness.controller,controller,mapper,service"/>
+	<context:component-scan base-package="com.fable.enclosure.bussiness.controller,controller,service,activemq"/>
 	<!-- spring和MyBatis完美整合，不需要mybatis的配置映射文件 -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
@@ -81,4 +81,19 @@
 	<!-- 支持上传文件 -->
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
 	<bean class="com.fable.enclosure.bussiness.util.SpringContextUtil"/>
+	<bean id="smsSendService" class="schedule.Test" />
+	<bean id="smsSendServiceJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean"
+		  p:targetObject-ref="smsSendService" p:targetMethod="start" p:concurrent="false"/>
+
+	<bean id="smsSendServiceTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean"
+		  p:jobDetail-ref="smsSendServiceJob" p:cronExpression="0/5 * * * * ?"/>
+
+	<bean id="schedulerFactoryBean" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="applicationContextSchedulerContextKey" value="applicationContext" />
+		<property name="triggers">
+			<list>
+				<ref bean="smsSendServiceTrigger" />
+			</list>
+		</property>
+	</bean>
 </beans>

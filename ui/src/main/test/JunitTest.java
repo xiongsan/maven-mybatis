@@ -9,11 +9,11 @@ import service.todolist.ITodoListService;
  */
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration({"classpath:spring*.xml"})
+@ContextConfiguration({"classpath*:spring*.xml"})
 public class JunitTest {
 
     @Autowired
-    ITodoListService iTodoListService;
+    private ITodoListService iTodoListService;
 
     @Test
     public void test(){

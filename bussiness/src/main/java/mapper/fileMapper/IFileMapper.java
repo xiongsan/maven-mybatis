@@ -22,7 +22,6 @@ import java.util.Map;
  * </p>
  * <p> Copyright : 江苏飞博软件股份有限公司 </p>
  */
-@Repository
 public interface IFileMapper {
     List<Map<String,Object>> getFileList(Map<String,String> param);
 

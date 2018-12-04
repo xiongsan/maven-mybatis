@@ -1,8 +1,8 @@
 package service.todolist;
 
+import activemq.p2p.Publisher;
 import bean.TodoList;
 import com.fable.enclosure.bussiness.entity.PageRequest;
-import com.fable.enclosure.bussiness.interfaces.BaseRequest;
 import com.fable.enclosure.bussiness.interfaces.BaseResponse;
 import com.fable.enclosure.bussiness.service.impl.BaseServiceImpl;
 import com.fable.enclosure.bussiness.util.ResultKit;
@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.jms.JMSException;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
@@ -32,6 +33,9 @@ public class TodoListServiceImpl extends BaseServiceImpl implements ITodoListSer
 
     @Autowired
     private CacheManager cacheManager;
+
+    @Autowired
+    private Publisher publisher;
 
     private String[] names=new String[]{"张三","李四","王二麻","赵六","傻根","来福","二狗子","小花"};
 
@@ -61,9 +65,9 @@ public class TodoListServiceImpl extends BaseServiceImpl implements ITodoListSer
     @Override
     @SuppressWarnings("unchecked")
     /*事物处理*/
+    @Transactional
     public BaseResponse addTodo(TodoList todo) {
-        Tool.startTransaction();
-        try{
+
             todo.setTitle(names[new Random().nextInt(names.length)]);
             todo.setId(Tool.newGuid());
             todo.setChecked(1);
@@ -72,13 +76,8 @@ public class TodoListServiceImpl extends BaseServiceImpl implements ITodoListSer
             todo.setId(Tool.newGuid());
             todo.setChecked(0);
             mapper.insertTodo(todo);
-            Tool.endTransaction();
-            return ResultKit.success();
-        }catch(Exception e){
-            Tool.rollBack();
-            e.printStackTrace();
-            return ResultKit.fail(e.getMessage());
-        }
+
+        return ResultKit.success();
     }
 
     @Override
@@ -101,6 +100,11 @@ public class TodoListServiceImpl extends BaseServiceImpl implements ITodoListSer
 //            todo.setChecked(0);
 //            mapper.insertTodo(todo);
 //            Tool.endTransaction();
+        try {
+            publisher.sendMessage("JOBS.", "test");
+        } catch (JMSException e) {
+            e.printStackTrace();
+        }
             return ResultKit.success();
 //        }catch(Exception e){
 //            Tool.rollBack();

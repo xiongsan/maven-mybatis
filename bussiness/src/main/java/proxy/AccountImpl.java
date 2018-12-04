@@ -1,5 +1,7 @@
 package proxy;
 
+import org.springframework.transaction.annotation.Transactional;
+
 /**
  * Created by Wanghairui on 2017/6/1.
  */

@@ -1,6 +1,5 @@
 package controller;
 
-import bean.TodoList;
 import com.fable.enclosure.bussiness.interfaces.BaseResponse;
 import com.fable.enclosure.bussiness.util.ResultKit;
 import entity.User;
@@ -59,8 +58,4 @@ public class LoginController {
         return ResultKit.success();
     }
 
-    @RequestMapping("/addTodo")
-    public BaseResponse getTodoListService(@RequestBody TodoList request) {
-        return todoListService.addTodoTest(request);
-    }
 }

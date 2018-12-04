@@ -148,7 +148,7 @@ public class Convert {
         }
     }
 
-    //二分法查找元素
+    //二分法查找元素，顺序排列
     public static int erFenfa(int[] arr,int number) {
 
         int start = 0;
