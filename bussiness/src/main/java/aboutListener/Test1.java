@@ -19,7 +19,7 @@ import entity.User;
  * </p>
  * <p> Copyright : 江苏飞博软件股份有限公司 </p>
  */
-public class Test1 {
+public class  Test1 {
     public static void main(String[] args) {
         ISome iSome = new Some();
         iSome.add((user)-> System.out.println(user.getLoginName()));

@@ -19,7 +19,7 @@ package aboutZookeeper;
  */
 public class RegistryTest {
     public static void main(String[] args) throws InterruptedException {
-        new ServiceRegistryImpl("192.168.20.197:2181").register("TestService","192.168.20.197:8089");
+        new ServiceRegistryImpl("192.168.0.105:2181").register("TestService","192.168.0.100:8089");
         Thread.sleep(Long.MAX_VALUE);
     }
 }

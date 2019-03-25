@@ -1,5 +1,6 @@
 package redis.pubsub;
 
+import aboutZookeeper.distribute_lock.ZookeeperDisLock;
 import redis.clients.jedis.BinaryJedisPubSub;
 import redis.clients.jedis.JedisPubSub;
 
@@ -53,9 +54,15 @@ public class RedisListener extends JedisPubSub {
     }
 
     //订阅方收到消息回调
+    private int _int = 0;
     @Override
-    public void onMessage(String channel, String message) {
-        System.out.println("channel："+channel+" and message："+message);
+    public  void onMessage(String channel, String message) {
+//        ZookeeperDisLock.getZookeeperDisLock().getLock(Thread.currentThread().toString(),"test");
+        _int += 111;
+
+        System.out.println("channel："+channel+" and message："+message+"  _int值为"+_int);
+
+        _int -= 111;
     }
 
     @Override
