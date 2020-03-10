@@ -94,7 +94,7 @@
 <body>
 <div class="images-wrapper">
     <img id="imgLabel"/>
-    <video class="images-content">
+    <div class="images-content">
         <h2>Hello World!</h2>
         <button onclick="getData()">
             点我获取数据
@@ -109,9 +109,9 @@
         <a href="/abc/baseController/toView/todolist"><span>todolist</span></a>
         <a href="/abc/baseController/toView/picture"><span>picture</span></a>
         <div id="div1"></div>
-        <video width="352" height="264" controls >
-            <source src="/abc/img/diezhongdie.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'/>
-        </video>
+<%--        <video width="352" height="264" controls >--%>
+<%--            <source src="/abc/img/diezhongdie.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'/>--%>
+<%--        </video>--%>
     </div>
 </div>
 <script type="application/javascript">

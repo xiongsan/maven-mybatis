@@ -39,6 +39,7 @@ public class EasyTestZooDis {
         }
         else{
             System.out.println("抢购完,剩余"+num);
+            zookeeperDisLock.releaseConnection();
         }
         zookeeperDisLock.releaseLock("bussiness1");
     }

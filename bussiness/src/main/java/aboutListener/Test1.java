@@ -21,7 +21,9 @@ import entity.User;
  */
 public class  Test1 {
     public static void main(String[] args) {
-        ISome iSome = new Some();
-        iSome.add((user)-> System.out.println(user.getLoginName()));
+        Some iSome = new Some();
+        iSome.add(System.out::println);
+        iSome.send();
+
     }
 }

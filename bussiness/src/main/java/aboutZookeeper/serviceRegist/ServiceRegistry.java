@@ -1,4 +1,4 @@
-package aboutZookeeper;
+package aboutZookeeper.serviceRegist;
 
 /**
  * <p>

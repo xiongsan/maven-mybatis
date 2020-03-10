@@ -20,5 +20,5 @@ import entity.User;
  * <p> Copyright : 江苏飞博软件股份有限公司 </p>
  */
 public interface IListener {
-    void onEvent(User user);
+    void onEvent(String message);
 }

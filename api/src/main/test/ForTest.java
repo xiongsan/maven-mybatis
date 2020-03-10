@@ -1,3 +1,5 @@
+import org.springframework.transaction.annotation.Transactional;
+
 /**
  * <p>
  * Title :
@@ -18,7 +20,6 @@
 public class ForTest extends A{
 
 
-//    @Transactional
     public void doSomething(){
         System.out.println(123456);
     }

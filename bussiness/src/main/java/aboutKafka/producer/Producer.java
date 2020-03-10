@@ -27,7 +27,7 @@ import java.util.Properties;
 public class Producer {
     public static void main(String[] args) throws InterruptedException {
         Properties props = new Properties();
-        props.put("bootstrap.servers", "192.168.0.100:9092");
+        props.put("bootstrap.servers", "192.168.0.107:9092");
         props.put("acks", "all");
         props.put("retries", 0);
         props.put("batch.size", 16384);

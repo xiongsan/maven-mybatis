@@ -32,7 +32,7 @@ public class ZookeeperDisLock implements Watcher{
     private void connect(){
         this.releaseConnection();
         try {
-            zoo = new ZooKeeper("192.168.0.105:2181", 10000, this);
+            zoo = new ZooKeeper("192.168.0.107:2181", 10000, this);
             countDownLatch.await();
 
         } catch (Exception e) {

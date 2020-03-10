@@ -27,6 +27,99 @@ import java.util.regex.Pattern;
  * <p> Copyright : 江苏飞博软件股份有限公司 </p>
  */
 public class Convert {
+    /**
+     *
+     * @param originalSql
+     * @return
+     */
+    private String convertSqlForEntitySelect(String originalSql){
+        String[] strings=originalSql.split(",");
+        String newString = "";
+        for(int i=0;i<strings.length;i++){
+            String string = strings[i];
+            int index = string.indexOf("_");
+            if(index!=-1){
+                String old = string.charAt(index) + "" + string.charAt(index + 1);
+                String newS = ("" + string.charAt(index + 1)).toUpperCase();
+                if(i!=strings.length-1){
+                    if(i==0){
+                        newString +=string+" "+string.replace(old, newS).split(" ")[1] +",\n";
+                    }
+                    else{
+                        newString += string +" " +string.replace(old, newS) +",\n";
+                    }
+                }
+                else{
+                    newString +=string.split(" ")[1]+" " +string.replace(old, newS);
+                }
+            }
+            else{
+                if(i!=strings.length-1){
+                    newString += string +",\n";
+                }
+                else{
+                    newString += string+"\n";
+                }
+            }
+        }
+        return newString;
+    }
+
+    private String convertSqlForEntityUpdate(String originalSql){
+        String[] strings=originalSql.split(",");
+        String newString = "";
+        for(int i=0;i<strings.length;i++){
+            String string = strings[i];
+            int index = string.indexOf("_");
+            if(index!=-1){
+                String old = string.charAt(index) + "" + string.charAt(index + 1);
+                String newS = ("" + string.charAt(index + 1)).toUpperCase();
+                    if(i==0){
+                        newString +=string+"=#{"+string.replace(old, newS).split(" ")[1] +"},\n";
+                    }
+                    else{
+                        newString += string +"=#{" +string.replace(old, newS) +"},\n";
+                    }
+            }
+            else{
+                    newString += string +"=#{"+string +"},\n";
+            }
+        }
+        return newString;
+    }
+
+    private static String convertSqlForEntityInsert(String originalSql){
+        String[] strings=originalSql.split(",");
+        String newString = "";
+        for(int i=0;i<strings.length;i++){
+            String string = strings[i];
+            int index = string.indexOf("_");
+            if(index!=-1){
+                String old = string.charAt(index) + "" + string.charAt(index + 1);
+                String newS = ("" + string.charAt(index + 1)).toUpperCase();
+                if(i!=strings.length-1){
+                    if(i==0){
+                        newString +=string.replace(old, newS).split(" ")[1] +",";
+                    }
+                    else{
+                        newString += string.replace(old, newS) +",";
+                    }
+                }
+                else{
+                    newString +=string.replace(old, newS);
+                }
+            }
+            else{
+                if(i!=strings.length-1){
+                    newString += string +",";
+                }
+                else{
+                    newString += string+"";
+                }
+            }
+        }
+        return newString;
+    }
     public static String convertForUpdate(String s){
         String[] strings=s.split(",");
         StringBuffer sb = new StringBuffer();
@@ -56,6 +149,8 @@ public class Convert {
         }
         return sb.toString();
     }
+
+
 
     //eg
     static String ss = "reportId,a, b, c, e, f, g, h, i, l, m, n, o, q1, q2, q3, q4, x1, x2, x3, x4, y1, y2, y3, y4,modifor, modifyDate";
@@ -214,6 +309,7 @@ public class Convert {
 
     }
     public static void main(String[] args) {
-        new Convert().findCardPosition(9);
+        System.out.println(convertForInsert(convertSqlForEntityInsert("id, record_id, err_code, exception_info, create_date, state, reset_date")).replaceAll(" ",""));
+
     }
     }

@@ -1,6 +1,9 @@
 package entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * <p>
@@ -36,6 +39,17 @@ public class User implements Serializable{
     private int locked;
 
     private String salt;
+
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    private Date cjsj;
+
+    public Date getCjsj() {
+        return cjsj;
+    }
+
+    public void setCjsj(Date cjsj) {
+        this.cjsj = cjsj;
+    }
 
     public User(){
 

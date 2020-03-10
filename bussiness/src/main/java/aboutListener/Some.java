@@ -1,7 +1,5 @@
 package aboutListener;
 
-import entity.User;
-
 /**
  * <p>
  * Title :
@@ -20,15 +18,18 @@ import entity.User;
  * <p> Copyright : 江苏飞博软件股份有限公司 </p>
  */
 public class Some implements ISome {
+
+    private IListener listener;
+
     @Override
     public void add(IListener listener) {
-        User user = new User();
-        user.setLoginName("123456666");
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        this.listener = listener;
+    }
+
+    public void send(){
+        for (int i=0;i<10;i++)
+        {
+            listener.onEvent("123546");
         }
-        listener.onEvent(user);
     }
 }

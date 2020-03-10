@@ -16,7 +16,7 @@ public class Publisher {
     private Session session;
     private MessageProducer producer;
 
-    @PostConstruct
+//    @PostConstruct
     public void inti()throws JMSException{
         ConnectionFactory factory = new ActiveMQConnectionFactory("tcp://localhost:61616");
         connection = factory.createConnection();

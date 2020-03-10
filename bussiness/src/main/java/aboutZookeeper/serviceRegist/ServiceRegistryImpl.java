@@ -1,4 +1,4 @@
-package aboutZookeeper;
+package aboutZookeeper.serviceRegist;
 
 import org.apache.zookeeper.*;
 import org.slf4j.Logger;
@@ -50,7 +50,7 @@ public class ServiceRegistryImpl implements ServiceRegistry,Watcher {
     public void register(String serviceName, String serviceAddress) {
         try {
             String registryPath = REGISTRY_PATH;
-            if (zk.exists(registryPath, this) == null) {
+            if (zk.exists(registryPath, true) == null) {//watch参数 true 与 this一个效果
                 zk.create(registryPath, null, ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
                 logger.debug("create registry node:{}", registryPath);
             }
@@ -60,7 +60,7 @@ public class ServiceRegistryImpl implements ServiceRegistry,Watcher {
                 zk.create(servicePath, null, ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
                 logger.debug("create service node:{}", servicePath);
             }
-            //创建地址节点
+            //创建地址节点（临时节点）
             String addressPath = servicePath + "/address-";
             String addressNode = zk.create(addressPath, serviceAddress.getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL_SEQUENTIAL);
             logger.debug("create address node:{} => {}", addressNode, serviceAddress);

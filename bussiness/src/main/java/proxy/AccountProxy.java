@@ -1,14 +1,14 @@
 package proxy;
 
 /**
- * description:静态代理；
+ * description:静态代理；缺点是如果有很多接口，要去实现很多
  * Created by Wanghairui on 2017/6/1.
  */
 public class AccountProxy implements Account {
 
-    private AccountImpl accountImpl;
+    private Account accountImpl;
 
-    public AccountProxy(AccountImpl accountImpl) {
+    public AccountProxy(Account accountImpl) {
         this.accountImpl = accountImpl;
     }
 
@@ -22,5 +22,8 @@ public class AccountProxy implements Account {
     public static void main(String[] args) {
         AccountProxy accountProxy = new AccountProxy(new AccountImpl());
         accountProxy.query("哇哈哈");
+
+        AccountProxy accountProxy1 = new AccountProxy(new AccountImpl2());
+        accountProxy1.query("哇哈哈");
     }
 }

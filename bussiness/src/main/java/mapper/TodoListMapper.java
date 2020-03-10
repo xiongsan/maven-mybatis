@@ -11,7 +11,7 @@ import java.util.Map;
  */
 public interface TodoListMapper {
 
-    List<TodoList> getTodoList(TodoList todo);
+    List getTodoList(TodoList todo);
 
     void updateTodoList(Map<String, Object> param);
 

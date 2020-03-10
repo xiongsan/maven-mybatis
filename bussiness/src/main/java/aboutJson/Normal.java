@@ -59,7 +59,8 @@ public class Normal {
 //    }
 
     public static void main(String[] args) throws IOException, IllegalAccessException, InstantiationException, InvocationTargetException {
-        String json = "{\"age\":1,\"param\":{\"id\":\"1\"}}";
+        //年月日时分秒格式需要在实体类加一个注解指定，格式
+        String json = "{\"age\":1,\"param\":{\"ID\":\"1\",\"cjsj\":\"2019-10-11 10:00:00\"}}";
         //默认实体类中不存在此属性会报错
         ObjectMapper mapper = new ObjectMapper();
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);

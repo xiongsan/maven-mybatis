@@ -3,6 +3,7 @@ package aboutZookeeper.zookeeperWatcher;
 import org.apache.zookeeper.*;
 import org.apache.zookeeper.data.Stat;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -30,7 +31,7 @@ public class ZooKeeperWatcher implements Watcher{
     /** 定义session失效时间 */
     private static final int SESSION_TIMEOUT = 10000;
     /** zookeeper服务器地址 */
-    private static final String CONNECTION_ADDR = "192.168.0.105:2181";
+    private static final String CONNECTION_ADDR = "192.168.0.107:2181";
     /** zk父路径设置 */
     private static final String PARENT_PATH = "/testWatch";
     /** zk子路径设置 */
@@ -105,6 +106,8 @@ public class ZooKeeperWatcher implements Watcher{
      */
     public String readData(String path, boolean needWatch) {
         try {
+
+
             return new String(this.zk.getData(path, needWatch, null));
         } catch (Exception e) {
             e.printStackTrace();
@@ -237,7 +240,7 @@ public class ZooKeeperWatcher implements Watcher{
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                System.out.println(logPrefix + "数据内容: " + this.readData(PARENT_PATH, true));
+                System.out.println(logPrefix + "数据内容: " + this.readData(event.getPath(), true));
             }
             //更新子节点
             else if (Watcher.Event.EventType.NodeChildrenChanged == eventType) {
@@ -288,7 +291,7 @@ public class ZooKeeperWatcher implements Watcher{
         // 清理节点
         zkWatch.deleteAllTestPath();
 
-        if (zkWatch.createPath(PARENT_PATH, System.currentTimeMillis() + "")) {//2
+        if (zkWatch.createPath(PARENT_PATH, "初始化父节点的值")) {//2
 
             Thread.sleep(1000);
 
@@ -309,22 +312,23 @@ public class ZooKeeperWatcher implements Watcher{
             zkWatch.getChildren(PARENT_PATH, true);
 
             // 更新数据
-            zkWatch.writeData(PARENT_PATH, System.currentTimeMillis() + "");//3
+            zkWatch.writeData(PARENT_PATH, "修改父节点的值");//3
 
             System.out.println("parent data:  "+zkWatch.readData(PARENT_PATH, true));
 
             Thread.sleep(1000);
 
-            // 创建子节点，同理如果想要watch到NodeChildrenChanged状态，需要调用getChildren(CHILDREN_PATH, true)
-            zkWatch.createPath(CHILDREN_PATH, System.currentTimeMillis() + "");//4
+            // 创建子节点，
+            zkWatch.createPath(CHILDREN_PATH, "初始化子节点数据");//4
 
+            //同理如果想要watch到NodeChildrenChanged状态，需要调用getChildren(CHILDREN_PATH, true)
             System.out.println("children data:  "+zkWatch.readData(CHILDREN_PATH, true));
 
             Thread.sleep(1000);
 
             zkWatch.getChildren(CHILDREN_PATH, true);
 
-            zkWatch.writeData(CHILDREN_PATH, System.currentTimeMillis() + "");//parent:子节点变更，children：节点数据更新 5,6
+            zkWatch.writeData(CHILDREN_PATH,  "子节点数据变更");//parent:子节点变更，children：节点数据更新 5,6
 
             System.out.println("children data:  "+zkWatch.readData(CHILDREN_PATH, true));
         }
