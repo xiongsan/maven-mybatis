@@ -40,6 +40,7 @@ public class TodoListServiceImpl extends BaseServiceImpl implements ITodoListSer
     private String[] names=new String[]{"张三","李四","王二麻","赵六","傻根","来福","二狗子","小花"};
 
     @SuppressWarnings("unchecked")
+    @Override
     public BaseResponse getData() {
         Cache cache=cacheManager.getCache("test");
         if(cache.get("todolist")!=null){
@@ -51,6 +52,7 @@ public class TodoListServiceImpl extends BaseServiceImpl implements ITodoListSer
         return ResultKit.serviceResponse(list);
     }
 
+    @Override
     public BaseResponse getPageData(PageRequest<TodoList> param){
         Page<TodoList> result = PageHelper.startPage(param.getPageNo(),param.getPageSize());
         mapper.getTodoList(param.getParam());
@@ -87,6 +89,7 @@ public class TodoListServiceImpl extends BaseServiceImpl implements ITodoListSer
     }
 
     @Transactional
+    @Override
     public BaseResponse addTodoTest(TodoList request) {
 //        Tool.startTransaction();
 //        try{

@@ -3,8 +3,10 @@ package util;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONException;
 import com.alibaba.fastjson.JSONObject;
+import org.jasypt.digest.config.StringDigesterConfig;
 
 import java.math.BigDecimal;
+import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -32,7 +34,7 @@ public class Convert {
      * @param originalSql
      * @return
      */
-    private String convertSqlForEntitySelect(String originalSql){
+    private static String convertSqlForEntitySelect(String originalSql){
         String[] strings=originalSql.split(",");
         String newString = "";
         for(int i=0;i<strings.length;i++){
@@ -62,7 +64,42 @@ public class Convert {
                 }
             }
         }
-        return newString;
+        String test = newString.substring(0, newString.indexOf("from"));
+        String string[] = test.split("\n");
+        String result="";
+        for(int i=0;i<string.length;i++){
+            String[] strss=string[i].split(" ");
+            if(strss.length==2){
+                String s0=string[i].split(" ")[0];
+                String s1=string[i].split(" ")[1];
+                if(s1.contains("_")){
+                    String s2 = stringConvert(s1);
+                    result+=s0+" "+s2 +"\n";
+                }
+                else{
+                    result+=string[i]+"\n";
+                }
+            }
+            else{
+                result+=string[i]+"\n";
+            }
+
+        }
+
+        return result;
+    }
+
+    private static String stringConvert(String string){
+        int index=string.indexOf("_");
+        if(index!=-1){
+            String old = string.charAt(index) + "" + string.charAt(index + 1);
+            String newS = ("" + string.charAt(index + 1)).toUpperCase();
+            string =string.replace(old, newS);
+        }
+        if(string.contains("_")){
+            stringConvert(string);
+        }
+        return string;
     }
 
     private String convertSqlForEntityUpdate(String originalSql){
@@ -308,8 +345,13 @@ public class Convert {
 
 
     }
-    public static void main(String[] args) {
-        System.out.println(convertForInsert(convertSqlForEntityInsert("id, record_id, err_code, exception_info, create_date, state, reset_date")).replaceAll(" ",""));
+    public static void main(String[] args) throws Exception{
+         //插入
+        System.out.println(convertForInsert(convertSqlForEntityInsert("id, unit_name, unit_address, social_credit_code, charge_person, phone_no, legal_person, email, create_date, state, unit_prop, central_dept, postal_code, cer_type").replaceAll(" ","")));
+        //查询
+    }
 
+    public void url() throws Exception{
+        URLDecoder.decode("", "UTF-8");
     }
     }

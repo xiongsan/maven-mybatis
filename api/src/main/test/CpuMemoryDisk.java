@@ -1,5 +1,3 @@
-package bean;
-
 import org.hyperic.sigar.*;
 
 import java.io.UnsupportedEncodingException;
@@ -25,7 +23,7 @@ import java.util.Set;
  * </p>
  * <p> Copyright : 江苏飞博软件股份有限公司 </p>
  */
-public class Test2 {
+public class CpuMemoryDisk {
     public static void main(String[] args) throws UnsupportedEncodingException {
         try {
             // cpu信息

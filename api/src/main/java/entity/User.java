@@ -118,4 +118,17 @@ public class User implements Serializable{
         return loginName+salt;
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "id='" + id + '\'' +
+                ", loginName='" + loginName + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", createTime='" + createTime + '\'' +
+                ", locked=" + locked +
+                ", salt='" + salt + '\'' +
+                ", cjsj=" + cjsj +
+                '}';
+    }
 }

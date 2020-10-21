@@ -4,10 +4,6 @@ import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.xssf.usermodel.XSSFCell;
-import org.apache.poi.xssf.usermodel.XSSFRow;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -16,6 +12,7 @@ import java.util.List;
 
 /**
  * Created by Wanghairui on 2017/6/2.
+ * poi version 3.10-FINAL
  */
 public class ParseExcel {
 
@@ -47,7 +44,7 @@ public class ParseExcel {
         return result;
     }
 
-    private List<List<String>> readXlsx(String path) throws Exception {
+   /* private List<List<String>> readXlsx(String path) throws Exception {
         InputStream is = new FileInputStream(path);
         XSSFWorkbook xssfWorkbook = new XSSFWorkbook(is);
         List<List<String>> result = new ArrayList<List<String>>();
@@ -73,13 +70,13 @@ public class ParseExcel {
             }
         }
         return result;
-    }
+    }*/
 
-    public static void main(String[] args) {
+  /*  public static void main(String[] args) {
         try {
             System.out.println(new ParseExcel().readXlsx("E:\\农商行信息科技.xlsx"));
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
+    }*/
 }

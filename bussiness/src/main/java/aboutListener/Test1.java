@@ -22,6 +22,14 @@ import entity.User;
 public class  Test1 {
     public static void main(String[] args) {
         Some iSome = new Some();
+//        iSome.add(new IListener() {
+//            @Override
+//            public void onEvent(String message) {
+//                System.out.println(message);
+//            }
+//        });
+//        iSome.add(message -> System.out.println(message));
+        //jdk8lamb表达式
         iSome.add(System.out::println);
         iSome.send();
 

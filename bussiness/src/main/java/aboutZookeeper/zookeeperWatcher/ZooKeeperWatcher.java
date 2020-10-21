@@ -3,7 +3,6 @@ package aboutZookeeper.zookeeperWatcher;
 import org.apache.zookeeper.*;
 import org.apache.zookeeper.data.Stat;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicInteger;
